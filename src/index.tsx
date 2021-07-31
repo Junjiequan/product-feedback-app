@@ -4,7 +4,7 @@ import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App fn={()=>'okay'} isTrue={true} number={1234} text={'hello this is text'} product={{itemName:'car', price:50}}/>
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
