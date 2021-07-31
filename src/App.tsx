@@ -1,12 +1,16 @@
 import React from 'react'
-import { WIDTH } from './utilities/constants'
-
+import { Switch, Route } from 'react-router-dom'
+import Suggestions from './pages/Suggestions'
+import GlobalStyle from './GlobalStyle'
 
 const App = () => {
     return (
-      <div style={{width:'100%',minWidth:`${WIDTH.desktop}`,display:'flex',justifyContent:'center'}}>
-          {WIDTH.desktop}
-      </div>
+      <>
+        <GlobalStyle />
+        <Switch>
+          <Route exact path="/" component={Suggestions} />
+        </Switch>
+      </>
     )
   }
   

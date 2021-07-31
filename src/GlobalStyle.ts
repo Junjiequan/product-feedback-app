@@ -90,31 +90,5 @@ const GlobalStyle = createGlobalStyle`
             scroll-behavior: auto !important;
         }
     }
-    /********************
-        Typography
-    *********************/
-    h1{
-        font-size:5.6rem;
-        line-height:5.8rem;
-        letter-spacing:.2rem;
-        text-transform: uppercase;
-    }
-    h2{
-        font-size:4rem;
-        line-height:4.4rem;
-        letter-spacing:.15rem;
-        text-transform: uppercase;
-    }
-    h3{
-        font-size:2.8rem;
-        line-height:3.8rem;
-        letter-spacing:.2rem;
-        text-transform: uppercase;
-    }
-    h4{
-        font-size:2.4rem;
-        line-height:3.3rem;
-        letter-spacing:.2rem;
-        text-transform: uppercase;
-    }
 `
+export default GlobalStyle

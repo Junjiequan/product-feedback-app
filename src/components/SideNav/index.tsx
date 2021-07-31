@@ -4,9 +4,9 @@ import * as S from './SideNavElements'
 
 const SideNav = () => {
     return (
-        <S.Container>
-            
-        </S.Container>
+        <S.Wrapper>
+            a
+        </S.Wrapper>
     )
 }
 

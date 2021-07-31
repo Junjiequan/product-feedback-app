@@ -14,5 +14,10 @@ export const COLORS = {
 }
 
 export const WIDTH = {
-    desktop:'1100px'
+    desktop:'1111px'
+}
+
+export const SPACE ={
+    container:'0 2rem',
+    top:'9.2rem',
 }
