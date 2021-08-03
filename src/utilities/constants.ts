@@ -1,4 +1,4 @@
-export const COLORS = {
+export const COLORS ={
     purple:`hsl(282, 83%, 52%)`,
     blue:`hsl(230, 76%, 59%)`,
     blueLight:`hsl(204, 94%, 68%)`,
@@ -13,11 +13,21 @@ export const COLORS = {
     background:`#f2f2f2`,
 }
 
-export const WIDTH = {
+export const WIDTH ={
     desktop:'1111px'
 }
 
 export const SPACE ={
     container:'0 2rem',
     top:'9.2rem',
+}
+export const FONT ={
+    regular:`
+        font-size:1.6rem;
+        line-height:2.3rem;
+    `,
+    semiBold:`
+        font-size:1.3rem;
+        line-height:1.9rem;
+    `
 }

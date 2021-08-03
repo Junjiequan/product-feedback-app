@@ -46,11 +46,11 @@ const GlobalStyle = createGlobalStyle`
     body {
         min-height: 100vh;
         text-rendering: optimizeSpeed;
-        line-height: 2.5rem;
+        line-height: 2.2rem;
         font-size:1.5rem;
         background: ${COLORS.background};
         overflow-x: hidden;
-        font-family:'MANROPE','arial';
+        font-family: 'Jost', sans-serif;
     }
     /* Make images easier to work with */
     img,
@@ -89,6 +89,26 @@ const GlobalStyle = createGlobalStyle`
             transition-duration: 0.01ms !important;
             scroll-behavior: auto !important;
         }
+    }
+    /* h1{
+        font-size:2.4rem;
+        line-height:3.5rem;
+        letter-spacing:-.33rem;
+    } */
+    h1{
+        font-size:2rem;
+        line-height:2.9rem;
+        letter-spacing:-.25rem;
+    }
+    h2{
+        font-size:1.8rem;
+        line-height:2.6rem;
+        letter-spacing:-.25rem;
+    }
+    h3{
+        font-size:1.4rem;
+        line-height:2rem;
+        letter-spacing:-.2rem;
     }
 `
 export default GlobalStyle
