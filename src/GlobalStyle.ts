@@ -98,17 +98,17 @@ const GlobalStyle = createGlobalStyle`
     h1{
         font-size:2rem;
         line-height:2.9rem;
-        letter-spacing:-.25rem;
+        letter-spacing:-.025rem;
     }
     h2{
         font-size:1.8rem;
         line-height:2.6rem;
-        letter-spacing:-.25rem;
+        letter-spacing:-.025rem;
     }
     h3{
         font-size:1.4rem;
         line-height:2rem;
-        letter-spacing:-.2rem;
+        letter-spacing:-.02rem;
     }
 `
 export default GlobalStyle
