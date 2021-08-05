@@ -3,15 +3,21 @@ import TitleBG from '../../assets/suggestions/desktop/background-header.png';
 import {COLORS,DEVICE,FONT,TRANSITION} from '../../utilities/constants';
 import { Link as LinkR } from 'react-router-dom';
 
-export const Wrapper =styled.div`
+export const Wrapper =styled.section`
     max-width:25.5rem;
     width:100%;
     display:flex;
+    position:sticky;
+    top:1rem;
     flex-direction:column;
     @media ${DEVICE.md}{
+        position:relative;
         max-width:100%;
         flex-direction:row;
         justify-content:space-between;
+    }
+    @media ${DEVICE.sm}{
+        top:0;
     }
 `
 export const TitleWrapper =styled.div`
@@ -30,6 +36,15 @@ export const TitleWrapper =styled.div`
     @media ${DEVICE.md}{
         max-width:22.3rem;
     }
+    @media ${DEVICE.sm}{
+        max-width:100%;
+        border-radius:0;
+        min-height:0;
+        height:7.2rem;
+        align-items:flex-start;
+        justify-content:center;
+        padding:0 0 0 2.4rem;
+    }
 `
 export const H1 =styled.h1`
 
@@ -38,11 +53,22 @@ export const P =styled.p`
     font-weight:500;
     opacity:.75;
 `
+export const Menu = styled.div`
+    display:flex;
+    flex-direction:column;
+    height:100%;
+    @media ${DEVICE.md}{
+        flex-direction: row;
+    }
+    @media ${DEVICE.sm}{
+        display:none;
+    }
+`
 export const FilterWrapper =styled.div`
     border-radius:10px;
     width:100%;
-    height:100%;
     display:flex;
+    height:fit-content;
     flex-wrap:wrap;
     padding:2.4rem;
     background:${COLORS.white};
