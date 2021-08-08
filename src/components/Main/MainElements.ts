@@ -212,7 +212,7 @@ export const SuggestionText = styled.p`
     color:${COLORS.darkBlueLight};
     margin-bottom:1.2rem;
 `
-export const CommentCounter = styled.button`
+export const CommentCounter = styled(LinkR)`
     display:flex;
     align-items:center;
     font-weight:700;
@@ -222,4 +222,31 @@ export const CommentIcon = styled.img`
     margin-right:.8rem;
     width:1.8rem;
     height:1.6rem;
+`
+
+export const Empty = styled.div`
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    height:60rem;
+    text-align:center;
+    color:white;
+    background:${COLORS.white};
+    border-radius:10px;
+`
+export const EmptyIcon = styled.img`
+    width:13rem;
+    height:13.6rem;
+`
+export const EmptyTitle = styled.p`
+    ${FONT.emptyTitle};
+    color:${COLORS.darkBlue};
+    margin-bottom:1.6rem;
+    margin-top:5.3rem;
+`
+export const EmptyText =styled.p`
+    color:${COLORS.darkBlueLight};
+    margin-bottom:4.8rem;
+    font-size:1.6rem;
 `

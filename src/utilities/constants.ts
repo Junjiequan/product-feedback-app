@@ -39,6 +39,12 @@ export const FONT ={
         font-size:1.3rem;
         line-height:1.9rem;
         font-weight:600;
+    `,
+    emptyTitle:`
+        font-size:2.4rem;
+        line-height:3.5rem;
+        letter-spacing:-.033rem;
+        font-weight:700;
     `
 }
 export const TRANSITION ={

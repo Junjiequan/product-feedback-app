@@ -38,11 +38,11 @@ export const FeedBackBtn = styled.button`
     transition:box-shadow ${TRANSITION.ease};
     &:before{
         opacity:.9;
-       content:attr(data-text);
-       position:relative;
-       display:flex;
-       justify-content:center;
-       align-items:center; 
+        content:attr(data-text);
+        position:relative;
+        display:flex;
+        justify-content:center;
+        align-items:center; 
     }
     &:hover{
         box-shadow:inset 0 0 0 100px hsla(0,0%,100%,0.2);
