@@ -7,7 +7,7 @@ import {FilterBtn} from '../../utilities/buttons';
 import {FeedBackBtn} from '../../utilities/buttons'
 
 const Feedback = () => {
-    /////////////test section//////////
+    /////////////test section///////////
     const TEST_NO_CONTENT = false;
     const DATA = [
         {
