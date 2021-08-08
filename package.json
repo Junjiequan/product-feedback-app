@@ -2,7 +2,7 @@
   "name": "product-feedback-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://a331998513.github.io/product-feedback-app/",
+  "homepage": ".",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
