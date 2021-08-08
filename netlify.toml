@@ -1,6 +1,6 @@
 [build]
     command = "num run build"
-    publish="/build"
+    publish="/build/static"
     base="/"
 
 [[redirects]]
