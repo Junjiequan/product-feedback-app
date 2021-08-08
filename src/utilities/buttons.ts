@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import {Link as LinkR} from 'react-router-dom'
 import { COLORS,FONT,TRANSITION,DEVICE } from './constants'; 
 
 export const FilterBtn = styled.button`
@@ -28,7 +29,7 @@ export const FilterBtn = styled.button`
         content:attr(data-text);
     }
 `
-export const FeedBackBtn = styled.button`
+export const FeedBackBtn = styled(LinkR)`
     background:${COLORS.purple};
     border-radius:10px;
     cursor:pointer;

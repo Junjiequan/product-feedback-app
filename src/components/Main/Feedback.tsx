@@ -49,7 +49,7 @@ const Feedback = () => {
                     Got a suggestion? Found a bug that needs to be squashed?<br/>
                     We love hearing about new ideas to improve our app.
                 </F.EmptyText>
-                <FeedBackBtn data-text="+ Add Feedback" />
+                <FeedBackBtn data-text="+ Add Feedback" to="/feedback-detail"/>
             </F.Empty>
         )
     }

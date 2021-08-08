@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import * as M from './MainElements';
-import * as Global from '../../utilities/buttons';
+import {FeedBackBtn} from '../../utilities/buttons';
 import ICON from '../../assets/shared/icon-bulb.svg';
 import Feedback from './Feedback';
 
@@ -48,7 +48,7 @@ const Main = () => {
                         {ModalOptions.map(RadioBox)}
                     </M.OptionModal>
                 </M.FilterWrapper>
-                <Global.FeedBackBtn data-text="+ Add Feedback"/>
+                <FeedBackBtn data-text="+ Add Feedback" to="/feedback-detail"/>
             </M.TitleBar>
             
             <Feedback />
