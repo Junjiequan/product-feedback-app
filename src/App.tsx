@@ -10,7 +10,7 @@ const App = () => {
         <GlobalStyle />
         <Switch>
           <Route exact path="/" component={Suggestions} />
-          <Route exact path="/feedback-detail" component={FeedbackDetail} />
+          <Route exact path="/feedback-detail/:id" component={FeedbackDetail} />
         </Switch>
       </>
     )

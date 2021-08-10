@@ -57,3 +57,32 @@ export const FeedBackBtn = styled(LinkR)`
         padding:1.05rem 1.6rem;
     }
 `
+export const FeedBackBtnBlue = styled(LinkR)`
+    background:${COLORS.blue};
+    color:${COLORS.white};
+    border-radius:10px;
+    cursor:pointer;
+    position:relative;
+    font-weight:700;
+    padding:1.05rem 2.5rem;
+    transition:box-shadow ${TRANSITION.ease};
+    &:before{
+        opacity:.9;
+        content:attr(data-text);
+        position:relative;
+        display:flex;
+        justify-content:center;
+        align-items:center; 
+    }
+    &:hover{
+        box-shadow:inset 0 0 0 100px hsla(0,0%,100%,0.2);
+    }
+    &:active{
+        transform:translateY(2px);
+    }
+    @media ${DEVICE.sm}{
+        font-size:1.3rem;
+        line-height:1.8rem;
+        padding:1.05rem 1.6rem;
+    }
+`

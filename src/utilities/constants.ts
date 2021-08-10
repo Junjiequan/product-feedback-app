@@ -17,12 +17,15 @@ export const COLORS ={
 }
 
 export const WIDTH ={
-    desktop:'1111px'
+    desktop:'111rem',
+    feedback:'73rem'
 }
 
 export const SPACE ={
     container:'0 2rem',
     top:'9.2rem',
+    topMob:'3.2rem',
+    comments:'2.4rem 3.2rem 4.8rem',
 }
 export const FONT ={
     suggestionTitle:`
