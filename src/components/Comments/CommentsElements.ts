@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { SPACE,COLORS,TRANSITION } from '../../utilities/constants';
-
+import { ANIM } from '../../utilities/animation'; 
 
 export const Wrapper = styled.div`
     display:block;
@@ -35,6 +35,7 @@ export const Avatar = styled.img`
     width:4rem;
     height:4rem;
     border-radius:100%;
+    object-fit: cover;
 `
 export const CommentWrapper = styled.div`
     display:flex;
@@ -57,7 +58,7 @@ export const Id = styled.span`
 `
 export const Reply = styled.button`
     cursor:pointer;
-    color:${COLORS.blue};
+    color:${(props:any)=>props['data-text']==='Reply'?`${COLORS.blue}`:`${COLORS.darkBlueLight}`};
     position:relative;
     &:before{
         position:relative;
@@ -72,7 +73,7 @@ export const Reply = styled.button`
         width:100%;
         height:1px;
         opacity:0;
-        background:${COLORS.blue};
+        background:${(props:any)=>props['data-text']==='Reply'?`${COLORS.blue}`:`${COLORS.darkBlueLight}`};
         transition:all ${TRANSITION.ease};
     }
     &:hover{
@@ -81,6 +82,31 @@ export const Reply = styled.button`
         }
     }
 `
+export const CommentTextWrapper = styled.div`
+    display:block;
+`
 export const CommentText = styled.p`
     color:${COLORS.darkBlueLight};
+`
+export const ReplyInputWrapper = styled.div`
+    display:${(props:any)=>props['data-reply-open']?'flex':'none'};
+    justify-content: space-between;
+    transition:all ${TRANSITION.ease};
+    animation: ${ANIM.fade} .4s linear;
+    margin-top:2.4rem;
+`
+export const TextArea = styled.textarea`
+    max-width:46rem;
+    min-height:8rem;
+    width:100%;
+    resize:none;
+    border-radius:5px;
+    padding:1.6rem 2.4rem;
+    border:0;
+    background:${COLORS.grayLight};
+    transition:all ${TRANSITION.ease};
+    &:focus{
+        outline:0;
+        box-shadow: 0 0 0 1px ${COLORS.blue};
+    }
 `

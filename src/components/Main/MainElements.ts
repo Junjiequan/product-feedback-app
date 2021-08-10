@@ -81,7 +81,7 @@ export const SelectIcon = styled.span`
 export const OptionModal = styled.div`
     z-index:9999;
     position:absolute;
-    top:5.5rem;
+    top:5.8rem;
     display:${props=>props['aria-hidden']?'block':'none'};
     width:25.5rem;
     height:0;
@@ -89,7 +89,7 @@ export const OptionModal = styled.div`
     background:${COLORS.white};
     border-radius:10px;
     box-shadow: 0 10px 40px -7px hsla(0,0%,0%,0.1);
-    animation:${ANIM.fadeIn} .4s linear;
+    animation:${ANIM.fadeIn} .2s linear;
 `
 export const OptionLabel = styled.label`
     display:flex;

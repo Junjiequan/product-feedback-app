@@ -10,7 +10,8 @@ const Main = () => {
     const [sortBy, setSortBy] = useState('Most Upvotes');
     const ModalOptions = ['Most Upvotes', 'Least Upvotes', 'Most Comments', 'Least Comments'];
     const handleClick = (e:any)=>{
-        setSortBy(e.target.value)
+        setSortBy(e.target.value);
+        setOpenModal(!openModal);
     }
     const RadioBox = (value:string,index:number)=>{
         if(index===0)
@@ -45,7 +46,7 @@ const Main = () => {
                             </M.SelectIcon>
                         </M.Select>
                     </M.Filter>
-                    <M.OptionModal aria-hidden={openModal} onClick={()=>setOpenModal(!openModal)}>
+                    <M.OptionModal aria-hidden={openModal}>
                         {ModalOptions.map(RadioBox)}
                     </M.OptionModal>
                 </M.FilterWrapper>
