@@ -2,6 +2,11 @@ import styled from 'styled-components';
 import { SPACE,COLORS,TRANSITION } from '../../utilities/constants';
 import { ANIM } from '../../utilities/animation'; 
 
+
+/////////////////////////////
+//Index 
+/////////////////////////////
+
 export const Wrapper = styled.div`
     display:block;
     padding:${SPACE.comments};
@@ -13,6 +18,12 @@ export const Title = styled.h2`
     color:${COLORS.darkBlue};
     margin-bottom:2.8rem;
 `
+
+
+/////////////////////////////
+//DirectComment  
+/////////////////////////////
+
 export const DirectComments = styled.div`
     display:flex;
     position:relative;
@@ -88,7 +99,13 @@ export const CommentTextWrapper = styled.div`
 export const CommentText = styled.p`
     color:${COLORS.darkBlueLight};
 `
-export const ReplyInputWrapper = styled.div`
+
+
+/////////////////////////////
+//ReplyComment 
+/////////////////////////////
+
+export const ReplyCommentWrapper = styled.div`
     display:${(props:any)=>props['data-reply-open']?'flex':'none'};
     justify-content: space-between;
     transition:all ${TRANSITION.ease};
@@ -104,6 +121,7 @@ export const TextArea = styled.textarea`
     padding:1.6rem 2.4rem;
     border:0;
     background:${COLORS.grayLight};
+    color:${COLORS.darkBlue};
     transition:all ${TRANSITION.ease};
     &:focus{
         outline:0;

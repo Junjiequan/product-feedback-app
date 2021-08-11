@@ -92,7 +92,8 @@ export const FeedBackBtnPurple = styled.button`
     border-radius:10px;
     cursor:pointer;
     height:4.4rem;
-    width:11.7rem;
+    width:fit-content;
+    padding:0 2.4rem;
     font-size:1.4rem;
     position:relative;
     font-weight:700;

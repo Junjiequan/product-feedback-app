@@ -1,4 +1,3 @@
-import React from 'react';
 import * as C from './CommentsElements';
 import DirectComment from './DirectComment';
 import {DATA2} from '../../data/Data-test';

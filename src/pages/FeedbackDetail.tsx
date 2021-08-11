@@ -9,6 +9,7 @@ import GoBack from '../components/GoBack'
 import { FeedBackBtnBlue } from '../utilities/buttons';
 import FeedbackItem from '../components/FeedbackItem';
 import Comments from '../components/Comments';
+import AddComment from '../components/AddComment';
 import DATA from '../data/Data-test'
 
 const FeedbackDetail = () => {
@@ -25,6 +26,7 @@ const FeedbackDetail = () => {
                 }
                 </DetailTopic>
                 <Comments />
+                <AddComment />
             </DetailWrapper>
         </DetailContainer>
     )

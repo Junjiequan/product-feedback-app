@@ -1,17 +1,20 @@
-import React from 'react'
 import * as R from './CommentsElements'
 import { FeedBackBtnPurple } from '../../utilities/buttons'
 import AnimateHeight from 'react-animate-height';
 
-const ReplyInput = (props:any) => {
-    return (
+interface Props{
+    height:number|string,
+    open:boolean
+}
+const ReplyComment = (props:Props) => {
+    return ( 
         <AnimateHeight duration={300} height={props.height}>
-            <R.ReplyInputWrapper data-reply-open={props.open} >
-                <R.TextArea rows={3} />
+            <R.ReplyCommentWrapper data-reply-open={props.open} >
+                <R.TextArea rows={3} maxLength={170}/>
                 <FeedBackBtnPurple data-text="Post Reply"/>
-            </R.ReplyInputWrapper>
+            </R.ReplyCommentWrapper>
         </AnimateHeight>
     )
 }
 
-export default ReplyInput
+export default ReplyComment

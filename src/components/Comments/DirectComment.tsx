@@ -1,6 +1,6 @@
-import React,{useState} from 'react'
+import {useState} from 'react'
 import * as C from './CommentsElements';
-import ReplyInput from './ReplyInput'
+import ReplyComment from './ReplyComment'
 
 
 const DirectComment = (item:any,index:number) => {
@@ -12,7 +12,7 @@ const DirectComment = (item:any,index:number) => {
     }
 
     return (
-        <C.DirectComments key={index}>
+        <C.DirectComments key={index} >
             <C.Avatar src={require(`../../assets/user-images/${item.avatar}`).default}/>
             <C.CommentWrapper>
                 <C.ReplyWrapper>
@@ -28,7 +28,10 @@ const DirectComment = (item:any,index:number) => {
                     <C.CommentText>
                         {item.comment}
                     </C.CommentText>
-                    <ReplyInput open={openReply} height={height} />
+                    
+                    {/* REPLY TO CURRENT COMMENT */}
+                    <ReplyComment open={openReply} height={height} />
+
                 </C.CommentTextWrapper>
             </C.CommentWrapper>
         </C.DirectComments>

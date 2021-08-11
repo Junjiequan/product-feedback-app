@@ -1,20 +1,18 @@
-import React,{useState} from 'react'
 import ArrowUp from '../../assets/shared/icon-arrow-up.svg';
 import CommentIcon from '../../assets/shared/icon-comments.svg';
 import * as F from './FeedbackItemElements';
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleVote } from '../../actions';
 
 const FeedbackItem = (item:any,index:number,clickable:boolean)=>{
-    const [vote, setVote] = useState(false);
-    const [count, setCount] = useState(0);
-    const handleVoteClick = ()=>{
-        vote ? setCount(count - 1) : setCount(count + 1);
-        setVote(!vote);
-    }
+    const voteCounter = useSelector((state:any)=>state.voteCounter.counter)
+    const voted = useSelector((state:any)=>state.voteCounter.voted)
+    const dispatch = useDispatch();
     return(                
         <F.FeedbackLi key={index} >
-            <F.Vote data-voted={vote} onClick={handleVoteClick}>
-                <F.VoteIcon src={ArrowUp} data-voted={vote}/>
-                {count}
+            <F.Vote data-voted={voted} onClick={()=>dispatch(toggleVote())}>
+                <F.VoteIcon src={ArrowUp} data-voted={voted}/>
+                {voteCounter}
             </F.Vote>
             <F.SuggestionWrapper to={item.link} data-clickable={clickable}>
                 <F.SuggestionTitle >
