@@ -4,6 +4,7 @@ import Empty from '../../assets/suggestions/illustration-empty.svg'
 import {FeedBackBtn} from '../../utilities/buttons'
 import FeedbackItem from '../FeedbackItem';
 import DATA from '../../data/Data-test'
+
 const Feedback = () => {
     /////////////test section///////////
     const TEST_NO_CONTENT = false;
@@ -26,9 +27,9 @@ const Feedback = () => {
     return (
         <F.FeedbackWrapper>
             { 
-                TEST_NO_CONTENT
+                !!TEST_NO_CONTENT
                 ?EmptyItem()
-                :DATA.map((data,index)=> FeedbackItem(data,index,true)) 
+                :DATA.map((item,index)=>FeedbackItem(item,index,true))
             }
         </F.FeedbackWrapper>
     )

@@ -1,7 +1,8 @@
 import {useState} from 'react'
 import * as C from './CommentsElements';
 import ReplyComment from './ReplyComment'
-
+import InnerComment from './InnerComment'
+import {DATA3} from '../../data/Data-test'
 
 const DirectComment = (item:any,index:number) => {
     const [openReply, setOpenReply] = useState(false);
@@ -24,11 +25,16 @@ const DirectComment = (item:any,index:number) => {
                     </C.Name>
                     <C.Reply data-text={openReply?'Cancel':'Reply'} onClick={handleClick}/>
                 </C.ReplyWrapper>
-                <C.CommentTextWrapper>
+                <C.CommentTextWrapper >
                     <C.CommentText>
                         {item.comment}
                     </C.CommentText>
                     
+                    <C.InnerCommentWrapper>
+                        {
+                            DATA3.map(InnerComment)
+                        }
+                    </C.InnerCommentWrapper>
                     {/* REPLY TO CURRENT COMMENT */}
                     <ReplyComment open={openReply} height={height} />
 

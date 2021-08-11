@@ -15,7 +15,7 @@ export const Title = styled.h2`
     color:${COLORS.darkBlue};
     margin-bottom:2.8rem;
 `
-export const AddCommentWrapper =styled.div`
+export const AddCommentWrapper =styled.form`
     display:flex;
     flex-direction:column;
     align-items:flex-end;

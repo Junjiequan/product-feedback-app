@@ -96,6 +96,7 @@ export const FeedBackBtnPurple = styled.button`
     padding:0 2.4rem;
     font-size:1.4rem;
     position:relative;
+    white-space:nowrap;
     font-weight:700;
     transition:box-shadow ${TRANSITION.ease};
     &:before{

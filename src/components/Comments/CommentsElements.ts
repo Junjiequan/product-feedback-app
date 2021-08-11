@@ -99,7 +99,24 @@ export const CommentTextWrapper = styled.div`
 export const CommentText = styled.p`
     color:${COLORS.darkBlueLight};
 `
-
+export const InnerCommentWrapper = styled.div`
+    position: relative;
+    height:auto;
+    width:105%;
+    margin-left:-5%;
+    word-break: break-word;
+    /* overflow-wrap:anywhere;  (dosen't support safari) */  
+    &:before{
+        content:'';
+        left:-2.5rem; top:-5rem;
+        position:absolute;
+        display: block;
+        height:100%;
+        width:1px;
+        background:${COLORS.darkBlueDark};
+        opacity:.1;
+    }
+`
 
 /////////////////////////////
 //ReplyComment 
@@ -113,18 +130,46 @@ export const ReplyCommentWrapper = styled.div`
     margin-top:2.4rem;
 `
 export const TextArea = styled.textarea`
-    max-width:46rem;
+    width:80%;
+    margin-right:2rem;
     min-height:8rem;
-    width:100%;
     resize:none;
     border-radius:5px;
     padding:1.6rem 2.4rem;
     border:0;
+    overflow-y: auto;
     background:${COLORS.grayLight};
     color:${COLORS.darkBlue};
     transition:all ${TRANSITION.ease};
+    ::-webkit-scrollbar {
+        width: 7px;
+    }
+    /* Track */
+    ::-webkit-scrollbar-track {
+        border-radius: 5px;
+    }
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: hsla(0,0%,0%,0.1);
+        border-radius: 5px;
+    }
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: hsla(231, 33%, 34%,0.5);
+        opacity:0.2;
+    }
     &:focus{
         outline:0;
         box-shadow: 0 0 0 1px ${COLORS.blue};
     }
+`
+
+/////////////////////////////
+//InnerComments 
+/////////////////////////////
+
+export const InnerComments = styled.div`
+    display:flex;
+    margin-top:3.2rem;
+    position:relative;
 `
