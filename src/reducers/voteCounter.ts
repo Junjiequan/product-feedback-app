@@ -2,13 +2,13 @@ const initialState = {
     counter:0,
     voted:false
 }
-interface check_initialState{
+interface InitialState{
     counter:number,
     voted:boolean
 }
 
 
-const voteCounterReducer = (state:check_initialState = initialState, action:any) =>{
+const voteCounterReducer = (state:InitialState = initialState, action:any) =>{
     switch(action.type){
         case 'toggleVote':
             return {

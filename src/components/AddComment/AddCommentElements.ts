@@ -4,6 +4,7 @@ import { SPACE,COLORS,TRANSITION } from '../../utilities/constants';
 
 export const Wrapper = styled.div`
     display:block;
+    margin:2.4rem 0;
     padding:${SPACE.comments};
     background:${COLORS.white};
     border-radius:10px;
