@@ -34,6 +34,29 @@ const DATA = [
                         comment:'comment comment comment'
                     },
                 ]
+            },
+            {
+                id:2,
+                user_name:'gg Moss',
+                avatar:'image-george.jpg',
+                user_id:'@hexagon.bestagon',
+                comment:'this is comment',
+                replies:[
+                    {
+                        id:1,
+                        user_name:'Georrge random',
+                        avatar:'image-george.jpg',
+                        user_id:'@george.johnson',
+                        comment:'this is another  comment comment'
+                    },
+                    {
+                        id:2,
+                        user_name:'james dulex',
+                        avatar:'image-james.jpg',
+                        user_id:'@james.christina',
+                        comment:'comment comment comment'
+                    },
+                ]
             },    
         ]
     },

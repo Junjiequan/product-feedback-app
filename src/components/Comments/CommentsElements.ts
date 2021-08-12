@@ -141,6 +141,10 @@ export const TextArea = styled.textarea`
     background:${COLORS.grayLight};
     color:${COLORS.darkBlue};
     transition:all ${TRANSITION.ease};
+    &:focus{
+        outline:0;
+        box-shadow: 0 0 0 1px ${COLORS.blue};
+    }
     ::-webkit-scrollbar {
         width: 7px;
     }
@@ -157,10 +161,6 @@ export const TextArea = styled.textarea`
     ::-webkit-scrollbar-thumb:hover {
         background: hsla(231, 33%, 34%,0.5);
         opacity:0.2;
-    }
-    &:focus{
-        outline:0;
-        box-shadow: 0 0 0 1px ${COLORS.blue};
     }
 `
 

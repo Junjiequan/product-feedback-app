@@ -77,7 +77,7 @@ export const FeedbackNewContainer = styled.div`
 `
 export const FeedbackNewWrapper = styled.div`
     margin-top:${SPACE.top};
-    max-width:${WIDTH.feedback};
+    max-width:${WIDTH.newFeedback};
     width:100%;
     display:flex;
     flex-direction:column;

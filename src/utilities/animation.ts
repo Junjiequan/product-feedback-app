@@ -4,7 +4,7 @@ export const ANIM = {
     fadeIn:keyframes`
         from{
             opacity:0;
-            transform:translateY(-2rem);
+            transform:translateY(-1.5rem);
         }
         to{
             opacity:1;

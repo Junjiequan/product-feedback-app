@@ -18,7 +18,8 @@ export const COLORS ={
 
 export const WIDTH ={
     desktop:'111rem',
-    feedback:'73rem'
+    feedback:'73rem',
+    newFeedback:'54rem',
 }
 
 export const SPACE ={

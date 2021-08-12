@@ -41,4 +41,21 @@ export const TextArea = styled.textarea`
         outline:0;
         box-shadow: 0 0 0 1px ${COLORS.blue};
     }
+    ::-webkit-scrollbar {
+        width: 7px;
+    }
+    /* Track */
+    ::-webkit-scrollbar-track {
+        border-radius: 5px;
+    }
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: hsla(0,0%,0%,0.1);
+        border-radius: 5px;
+    }
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: hsla(231, 33%, 34%,0.5);
+        opacity:0.2;
+    }
 `
