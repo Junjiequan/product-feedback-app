@@ -2,9 +2,9 @@ import {useState} from 'react'
 import * as C from './CommentsElements';
 import ReplyComment from './ReplyComment'
 import InnerComment from './InnerComment'
-import {DATA3} from '../../data/Data-test'
 
 const DirectComment = (item:any,index:number) => {
+    const REPLIES = item.replies
     const [openReply, setOpenReply] = useState(false);
     const [height, setHeight ] = useState<number|string>(0);
     const handleClick = ()=>{
@@ -29,14 +29,13 @@ const DirectComment = (item:any,index:number) => {
                     <C.CommentText>
                         {item.comment}
                     </C.CommentText>
-                    
+
+                    <ReplyComment open={openReply} height={height} />
                     <C.InnerCommentWrapper>
                         {
-                            DATA3.map(InnerComment)
+                            REPLIES.map(InnerComment)
                         }
                     </C.InnerCommentWrapper>
-                    {/* REPLY TO CURRENT COMMENT */}
-                    <ReplyComment open={openReply} height={height} />
 
                 </C.CommentTextWrapper>
             </C.CommentWrapper>

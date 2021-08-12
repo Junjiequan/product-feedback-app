@@ -1,7 +1,7 @@
 import React from 'react';
 import * as F from './MainElements';
 import Empty from '../../assets/suggestions/illustration-empty.svg'
-import {FeedBackBtn} from '../../utilities/buttons'
+import {FeedBackLink} from '../../utilities/buttons'
 import FeedbackItem from '../FeedbackItem';
 import DATA from '../../data/Data-test'
 
@@ -19,7 +19,7 @@ const Feedback = () => {
                     Got a suggestion? Found a bug that needs to be squashed?<br/>
                     We love hearing about new ideas to improve our app.
                 </F.EmptyText>
-                <FeedBackBtn data-text="+ Add Feedback" to="/feedback-detail"/>
+                <FeedBackLink data-text="+ Add Feedback" to="/feedback-detail" aria-label="link to feedback detail page"/>
             </F.Empty>
         )
     }

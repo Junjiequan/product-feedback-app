@@ -25,7 +25,7 @@ const FeedbackItem = (item:any,index:any,clickable:boolean)=>{
             </F.SuggestionWrapper>
             <F.CommentCounter to={'/feedback-detail/' + item.link} data-clickable={clickable} >
                 <F.CommentIcon src={CommentIcon}  />
-                    {item.comments}
+                    {item.comments.length}
             </F.CommentCounter>
         </F.FeedbackLi>
     )

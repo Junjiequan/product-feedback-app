@@ -1,4 +1,3 @@
-import React from 'react';
 import {
     DetailContainer,
     DetailWrapper,
@@ -6,7 +5,7 @@ import {
     DetailTopic,
 } from './pagesElements'
 import GoBack from '../components/GoBack'
-import { FeedBackBtnBlue } from '../utilities/buttons';
+import { FeedBackLinkBlue } from '../utilities/buttons';
 import FeedbackItem from '../components/FeedbackItem';
 import Comments from '../components/Comments';
 import AddComment from '../components/AddComment';
@@ -18,7 +17,7 @@ const FeedbackDetail = () => {
             <DetailWrapper>
                 <DetailNav>
                     <GoBack />
-                    <FeedBackBtnBlue data-text="Edit Feedback" to="/" />
+                    <FeedBackLinkBlue data-text="Edit Feedback" to="/" aria-label="link to edit feedback page"/>
                 </DetailNav>
                 <DetailTopic>
                 {

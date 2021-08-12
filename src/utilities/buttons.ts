@@ -29,10 +29,12 @@ export const FilterBtn = styled.button`
         content:attr(data-text);
     }
 `
-export const FeedBackBtn = styled(LinkR)`
+export const FeedBackLink = styled(LinkR)`
     background:${COLORS.purple};
     border-radius:10px;
     cursor:pointer;
+    display:flex;
+    align-items:center;
     position:relative;
     font-weight:700;
     padding:1.05rem 2.5rem;
@@ -57,11 +59,13 @@ export const FeedBackBtn = styled(LinkR)`
         padding:1.05rem 1.6rem;
     }
 `
-export const FeedBackBtnBlue = styled(LinkR)`
+export const FeedBackLinkBlue = styled(LinkR)`
     background:${COLORS.blue};
     color:${COLORS.white};
     border-radius:10px;
     cursor:pointer;
+    display:flex;
+    align-items:center;
     position:relative;
     font-weight:700;
     padding:1.05rem 2.5rem;
@@ -91,7 +95,45 @@ export const FeedBackBtnPurple = styled.button`
     color:${COLORS.white};
     border-radius:10px;
     cursor:pointer;
+    display:flex;
+    align-items:center;
     height:4.4rem;
+    width:fit-content;
+    padding:0 2.4rem;
+    font-size:1.4rem;
+    position:relative;
+    white-space:nowrap;
+    font-weight:700;
+    transition:box-shadow ${TRANSITION.ease};
+    &:before{
+        opacity:.9;
+        content:attr(data-text);
+        position:relative;
+        display:flex;
+        justify-content:center;
+        align-items:center; 
+    }
+    &:hover{
+        box-shadow:inset 0 0 0 100px hsla(0,0%,100%,0.2);
+    }
+    &:active{
+        transform:translateY(2px);
+    }
+    @media ${DEVICE.sm}{
+        font-size:1.3rem;
+        line-height:1.8rem;
+        padding:1.05rem 1.6rem;
+    }
+`
+export const FeedBackLinkDarkBlue = styled(LinkR)`
+    background:${COLORS.darkBlueDark};
+    color:${COLORS.white};
+    border-radius:10px;
+    cursor:pointer;
+    height:4.4rem;
+    display:flex;
+    align-items:center;
+    margin-right:${(props:any)=>props['data-space-right']?'1.6rem':''};
     width:fit-content;
     padding:0 2.4rem;
     font-size:1.4rem;

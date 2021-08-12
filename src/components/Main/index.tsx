@@ -1,6 +1,6 @@
-import React,{useState} from 'react';
+import {useState} from 'react';
 import * as M from './MainElements';
-import {FeedBackBtn} from '../../utilities/buttons';
+import {FeedBackLink} from '../../utilities/buttons';
 import ICON from '../../assets/shared/icon-bulb.svg';
 import Feedback from './Feedback';
 
@@ -35,7 +35,7 @@ const Main = () => {
                      <M.H2>6 Suggetions</M.H2>
                 </M.Title>
                 <M.FilterWrapper>
-                    <M.Filter onClick={()=>setOpenModal(!openModal)}>
+                    <M.Filter onClick={()=>setOpenModal(!openModal)} aria-expanded={openModal} aria-controls="filter-options">
                         Sort by&nbsp;:&nbsp;
                         <M.Select> 
                             {sortBy}
@@ -46,11 +46,11 @@ const Main = () => {
                             </M.SelectIcon>
                         </M.Select>
                     </M.Filter>
-                    <M.OptionModal aria-hidden={openModal}>
+                    <M.OptionModal aria-hidden={openModal} id="filter-options">
                         {ModalOptions.map(RadioBox)}
                     </M.OptionModal>
                 </M.FilterWrapper>
-                <FeedBackBtn data-text="+ Add Feedback" to="/feedback-detail"/>
+                <FeedBackLink data-text="+ Add Feedback" to="/feedback-new" aria-label="link to create feedback page"/>
             </M.TitleBar>
             
             <Feedback />

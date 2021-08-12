@@ -84,7 +84,6 @@ export const OptionModal = styled.div`
     top:5.8rem;
     display:${props=>props['aria-hidden']?'block':'none'};
     width:25.5rem;
-    height:0;
     height:fit-content;
     background:${COLORS.white};
     border-radius:10px;
@@ -173,7 +172,7 @@ export const EmptyIcon = styled.img`
     height:13.6rem;
 `
 export const EmptyTitle = styled.p`
-    ${FONT.emptyTitle};
+    ${FONT.Title};
     color:${COLORS.darkBlue};
     margin-bottom:1.6rem;
     margin-top:5.3rem;

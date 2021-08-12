@@ -1,15 +1,15 @@
 import * as C from './CommentsElements';
 import DirectComment from './DirectComment';
-import {DATA2} from '../../data/Data-test';
+import DATA from '../../data/Data-test';
 
 
 const Comments = () => {
-
+    const COMMENTS = DATA.map((item:any)=>item.comments)
     return (
         <C.Wrapper>
             <C.Title>4 Comments</C.Title>
             {
-                DATA2.map(DirectComment)
+                COMMENTS[0].map(DirectComment)
             }
         </C.Wrapper>
     )

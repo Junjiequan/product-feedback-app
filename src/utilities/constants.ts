@@ -26,6 +26,7 @@ export const SPACE ={
     top:'9.2rem',
     topMob:'3.2rem',
     comments:'2.4rem 3.2rem 4.8rem',
+    newFeedback:'5.2rem 4.2rem 4rem'
 }
 export const FONT ={
     suggestionTitle:`
@@ -43,7 +44,7 @@ export const FONT ={
         line-height:1.9rem;
         font-weight:600;
     `,
-    emptyTitle:`
+    Title:`
         font-size:2.4rem;
         line-height:3.5rem;
         letter-spacing:-.033rem;
