@@ -19,9 +19,9 @@ const FeedbackItem = (item:any,index:any,clickable:boolean)=>{
                     {item.title}
                 </F.SuggestionTitle>
                 <F.SuggestionText>
-                    {item.content}
+                    {item.detail}
                 </F.SuggestionText>
-                <F.Feature data-no-pointer={true} data-no-space={true} data-text={item.feature} />
+                <F.Feature data-no-pointer={true} data-no-space={true} data-text={item.category} />
             </F.SuggestionWrapper>
             <F.CommentCounter to={'/feedback-detail/' + item.link} data-clickable={clickable} >
                 <F.CommentIcon src={CommentIcon}  />

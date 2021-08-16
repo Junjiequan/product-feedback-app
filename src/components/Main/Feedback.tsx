@@ -1,4 +1,5 @@
-import React from 'react';
+import React,{useEffect} from 'react';
+import {useSelector} from 'react-redux';
 import * as F from './MainElements';
 import Empty from '../../assets/suggestions/illustration-empty.svg'
 import {FeedBackLink} from '../../utilities/buttons'
@@ -9,6 +10,12 @@ const Feedback = () => {
     /////////////test section///////////
     const TEST_NO_CONTENT = false;
     /////////////\test section//////////
+    const DATA_REDUX = useSelector((state:any)=> state.feedbacks.items)
+
+    console.log(DATA_REDUX)
+
+
+
 
     const EmptyItem = ()=>{
         return(
@@ -29,7 +36,7 @@ const Feedback = () => {
             { 
                 !!TEST_NO_CONTENT
                 ?EmptyItem()
-                :DATA.map((item,index)=>FeedbackItem(item,index,true))
+                :DATA_REDUX.map((item:any,index:any)=>FeedbackItem(item,index,true))
             }
         </F.FeedbackWrapper>
     )

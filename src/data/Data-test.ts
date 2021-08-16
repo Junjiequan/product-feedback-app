@@ -2,8 +2,8 @@ const DATA = [
     {
         link:'Add_tags_for_solutions',
         title:'Add tags for solutions',
-        content:'Easier to search for solutions based on a specific stack.',
-        feature:'Enhancement',
+        detail:'Easier to search for solutions based on a specific stack.',
+        category:'Enhancement',
         comments:[
             {
                 id:1,

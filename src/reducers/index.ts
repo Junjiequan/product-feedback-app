@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux';
-import voteCounterReducer from './voteCounter'
+import voteToggle from './voteToggle'
+import feedbackReducer from './feedbacks'
 
 export const allReducer = combineReducers({
-    voteCounter : voteCounterReducer
-
+    voteCounter : voteToggle,
+    feedbacks : feedbackReducer,
 })
