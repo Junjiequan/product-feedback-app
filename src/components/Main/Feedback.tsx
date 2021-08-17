@@ -1,22 +1,11 @@
-import React,{useEffect} from 'react';
 import {useSelector} from 'react-redux';
 import * as F from './MainElements';
 import Empty from '../../assets/suggestions/illustration-empty.svg'
 import {FeedBackLink} from '../../utilities/buttons'
 import FeedbackItem from '../FeedbackItem';
-import DATA from '../../data/Data-test'
 
 const Feedback = () => {
-    /////////////test section///////////
-    const TEST_NO_CONTENT = false;
-    /////////////\test section//////////
     const DATA_REDUX = useSelector((state:any)=> state.feedbacks.items)
-
-    console.log(DATA_REDUX)
-
-
-
-
     const EmptyItem = ()=>{
         return(
             <F.Empty>
@@ -34,7 +23,7 @@ const Feedback = () => {
     return (
         <F.FeedbackWrapper>
             { 
-                !!TEST_NO_CONTENT
+                DATA_REDUX.length === 0
                 ?EmptyItem()
                 :DATA_REDUX.map((item:any,index:any)=>FeedbackItem(item,index,true))
             }

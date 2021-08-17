@@ -1,3 +1,5 @@
+import {useSelector} from 'react-redux';
+import { useLocation } from 'react-router-dom'
 import {
     DetailContainer,
     DetailWrapper,
@@ -9,9 +11,12 @@ import { FeedBackLinkBlue } from '../utilities/buttons';
 import FeedbackItem from '../components/FeedbackItem';
 import Comments from '../components/Comments';
 import AddComment from '../components/AddComment';
-import DATA from '../data/Data-test'
 
 const FeedbackDetail = () => {
+    const DATA_REDUX = useSelector((state:any)=> state.feedbacks.items)
+    const location = useLocation();
+    const path = location.pathname.replace('/feedback-detail/','');
+    const CURRENT_PAGE = DATA_REDUX.find((item:any)=> item.link === path);
     return (
         <DetailContainer>
             <DetailWrapper>
@@ -21,7 +26,7 @@ const FeedbackDetail = () => {
                 </DetailNav>
                 <DetailTopic>
                 {
-                    FeedbackItem(DATA[0],0,false)
+                    FeedbackItem(CURRENT_PAGE,0,false)
                 }
                 </DetailTopic>
                 <Comments />

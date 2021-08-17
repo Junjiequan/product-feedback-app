@@ -1,4 +1,3 @@
-import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Suggestions from './pages/Suggestions'
 import FeedbackDetail from './pages/FeedbackDetail'

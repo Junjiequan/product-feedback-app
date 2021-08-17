@@ -7,7 +7,9 @@ const initialState = {
             category:'Enhancement',
             comments:[],
             vote:12,
-        }
+            voted:false
+        },
+        
     ]
 }
 
@@ -15,12 +17,34 @@ const onAdd = (currentItem:any, newItem:any) =>{
     const exist = currentItem.find((item:any)=>item.title === newItem.title);
 
     if(exist){
-        alert('Feedback title existing.')
+        alert('Feedback title is existing.')
         return currentItem;
     } else {
         const addedNewItem = [...currentItem, {...newItem}]
         return addedNewItem;
     }
+}
+const upVote = (currentItem:any, newItem:any) =>{
+    const exist = currentItem.find((item:any)=>item.title === newItem.title);
+    if(exist){
+        const voted = currentItem.map((item:any)=>
+            item.title === newItem.title
+            ?{...exist, vote:exist.vote + 1, voted:true}
+            :item
+            )
+        return voted;
+    } else return currentItem;
+}
+const downVote = (currentItem:any, newItem:any) =>{
+    const exist = currentItem.find((item:any)=>item.title === newItem.title);
+    if(exist){
+        const voted = currentItem.map((item:any)=>
+            item.title === newItem.title
+            ?{...exist, vote:exist.vote -1, voted: false}
+            :item
+            )
+        return voted;
+    } else return currentItem;
 }
 
 
@@ -50,11 +74,15 @@ const feedbackReducer = (state:any=initialState,action:any)=>{
             return{
                 ...state,
             }
-        case 'TOGGLE_VOTE':
+        case 'UP_VOTE':
             return{
                 ...state,
-                voted:!state.voted,
-                counter:state.voted===false ? state.counter + 1 : state.counter - 1
+                items:upVote(state.items,action.payload)
+            }
+        case 'DOWN_VOTE':
+            return{
+                ...state,
+                items:downVote(state.items,action.payload)
             }
         default:
             return state
