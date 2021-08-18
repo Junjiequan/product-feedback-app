@@ -33,24 +33,12 @@ const AddFeedback = () => {
     setOpenModal(!openModal);
   };
   const RadioBox = (value: string, index: number) => {
-    if (index === 0)
-      return (
-        <A.OptionLabel key={index}>
-          <A.Option
-            type="radio"
-            onClick={handleClick}
-            defaultChecked
-            name="sort"
-            id={value}
-            value={value}
-          />
-        </A.OptionLabel>
-      );
     return (
       <A.OptionLabel key={index}>
         <A.Option
           type="radio"
           onClick={handleClick}
+          defaultChecked={value === "Feature"}
           name="sort"
           id={value}
           value={value}

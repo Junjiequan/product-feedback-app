@@ -1,11 +1,22 @@
-import React from "react";
 import * as S from "./SideNavElements";
+import { useDispatch, useSelector } from "react-redux";
+import { setFilter } from "../../actions";
 import { FilterBtn } from "../../utilities/buttons";
 
 const SideNav = () => {
+  const dispatch = useDispatch();
+  const categoryFilter = useSelector((state: any) => state.filters);
   const FilterIDs = ["All", "UI", "UX", "Enhancement", "Bug", "Feature"];
   const FilterBtns = (item: string, index: number) => {
-    return <FilterBtn key={index} id={item} data-text={item} />;
+    return (
+      <FilterBtn
+        key={index}
+        id={item}
+        data-focus={item.toLowerCase() === categoryFilter}
+        data-text={item}
+        onClick={() => dispatch(setFilter(item.toLowerCase()))}
+      />
+    );
   };
   return (
     <S.Wrapper>

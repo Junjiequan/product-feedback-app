@@ -8,20 +8,19 @@ import { allReducer } from "./reducers";
 import throttle from "lodash/throttle";
 import { loadState, saveState } from "./data/localStorage";
 
-const persistedState = loadState();
+// const persistedState = loadState();
 const store = createStore(
   allReducer,
-  persistedState,
   (window as any).__REDUX_DEVTOOLS_EXTENSION__ &&
     (window as any).__REDUX_DEVTOOLS_EXTENSION__()
 );
-store.subscribe(
-  throttle(() => {
-    saveState({
-      feedbacks: store.getState().feedbacks,
-    });
-  }, 1000)
-);
+// store.subscribe(
+//   throttle(() => {
+//     saveState({
+//       feedbacks: store.getState().feedbacks,
+//     });
+//   }, 1000)
+// );
 
 ReactDOM.render(
   <React.StrictMode>

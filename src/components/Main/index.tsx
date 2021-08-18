@@ -1,44 +1,37 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setSort } from "../../actions";
 import * as M from "./MainElements";
 import { FeedBackLink } from "../../utilities/buttons";
 import ICON from "../../assets/shared/icon-bulb.svg";
 import Feedback from "./Feedback";
 
 const Main = () => {
-  const [openModal, setOpenModal] = useState(false);
-  const [sortBy, setSortBy] = useState("Most Upvotes");
+  const SORT_REDUX = useSelector((state: any) => state.sorts);
+  const [modal, setModal] = useState<any>(false);
+  const [sorted, setSorted] = useState<any>(SORT_REDUX);
+  const dispatch = useDispatch();
   const ModalOptions = [
     "Most Upvotes",
     "Least Upvotes",
     "Most Comments",
     "Least Comments",
   ];
-  const handleClick = (e: any) => {
-    setSortBy(e.target.value);
-    setOpenModal(!openModal);
+  const handleSortBy = (e: any) => {
+    dispatch(setSort(e.target.value));
+    setSorted(e.target.value);
+    setModal(!modal);
   };
   const RadioBox = (value: string, index: number) => {
-    if (index === 0)
-      return (
-        <M.OptionLabel key={index}>
-          <M.Option
-            type="radio"
-            onClick={handleClick}
-            defaultChecked
-            name="sort"
-            id={value}
-            value={value}
-          />
-        </M.OptionLabel>
-      );
     return (
       <M.OptionLabel key={index}>
         <M.Option
           type="radio"
-          onClick={handleClick}
           name="sort"
+          defaultChecked={value === "Most Upvotes"}
           id={value}
           value={value}
+          onClick={handleSortBy}
         />
       </M.OptionLabel>
     );
@@ -53,14 +46,13 @@ const Main = () => {
         </M.Title>
         <M.FilterWrapper>
           <M.Filter
-            onClick={() => setOpenModal(!openModal)}
-            aria-expanded={openModal}
+            onClick={() => setModal(!modal)}
             aria-controls="filter-options"
           >
             Sort by&nbsp;:&nbsp;
             <M.Select>
-              {sortBy}
-              <M.SelectIcon data-icon-rotate={openModal}>
+              {sorted}
+              <M.SelectIcon data-icon-rotate={modal}>
                 <svg width="10" height="7" xmlns="http://www.w3.org/2000/svg">
                   <path
                     d="M1 6l4-4 4 4"
@@ -73,7 +65,7 @@ const Main = () => {
               </M.SelectIcon>
             </M.Select>
           </M.Filter>
-          <M.OptionModal aria-hidden={openModal} id="filter-options">
+          <M.OptionModal aria-hidden={!modal} id="filter-options">
             {ModalOptions.map(RadioBox)}
           </M.OptionModal>
         </M.FilterWrapper>
