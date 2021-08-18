@@ -1,17 +1,4 @@
-const initialState = {
-    items:[
-        {
-            link:'Add_tags_for_solutions',
-            title:'Add tags for solutions',
-            detail:'Easier to search for solutions based on a specific stack.',
-            category:'Enhancement',
-            comments:[],
-            vote:12,
-            voted:false
-        },
-        
-    ]
-}
+import initialState from "./initialState";
 
 const onAdd = (currentItem:any, newItem:any) =>{
     const exist = currentItem.find((item:any)=>item.title === newItem.title);
