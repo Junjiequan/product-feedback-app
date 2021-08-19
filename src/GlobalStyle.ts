@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
-import { COLORS } from './utilities/constants';
+import { createGlobalStyle } from "styled-components";
+import { COLORS } from "./utilities/constants";
 
 const GlobalStyle = createGlobalStyle`
     /* Set default font size */
@@ -17,7 +17,7 @@ const GlobalStyle = createGlobalStyle`
     /* For keyboard user*/
     *:focus-visible
     {
-        outline: 2px dashed rgba(216,125,74, 1) ;
+        outline: 2px dashed ${COLORS.red} ;
         outline-offset: 5px ;
         transition:all .3s ease;
     }
@@ -110,5 +110,5 @@ const GlobalStyle = createGlobalStyle`
         line-height:2rem;
         letter-spacing:-.02rem;
     }
-`
-export default GlobalStyle
+`;
+export default GlobalStyle;

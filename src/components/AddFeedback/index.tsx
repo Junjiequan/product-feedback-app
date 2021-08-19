@@ -15,6 +15,7 @@ const AddFeedback = () => {
 
   const CategoryOptions = ["Feature", "UI", "UX", "Enhancement", "Bug"];
   const handleSubmit = (e: any) => {
+    console.log(e);
     e.preventDefault();
 
     dispatch(
@@ -25,11 +26,14 @@ const AddFeedback = () => {
         detail: e.target.detail.value,
         comments: [],
         vote: 0,
+        voted: false,
       })
     );
   };
-  const handleClick = (e: any) => {
-    setSortBy(e.target.value);
+  const handleClick = (e: React.MouseEvent<HTMLElement>) => {
+    const event = e.currentTarget as HTMLInputElement;
+    const value = event.value;
+    setSortBy(value);
     setOpenModal(!openModal);
   };
   const RadioBox = (value: string, index: number) => {
@@ -49,7 +53,10 @@ const AddFeedback = () => {
   return (
     <A.Wrapper>
       <A.Title>Create New Feedback</A.Title>
-      <A.Form id="new-feedback" onSubmit={handleSubmit}>
+      <A.Form
+        id="new-feedback"
+        onSubmit={(e: React.SyntheticEvent) => handleSubmit(e)}
+      >
         <A.InputWrapper>
           <A.Label data-title="Feedback Title">
             <br />

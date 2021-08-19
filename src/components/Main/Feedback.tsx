@@ -1,40 +1,45 @@
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import * as F from "./MainElements";
 import Empty from "../../assets/suggestions/illustration-empty.svg";
 import { FeedBackLink } from "../../utilities/buttons";
 import FeedbackItem from "../FeedbackItem";
+import { Item, RootState, SetState } from "../../Types";
 
-const Feedback = () => {
-  const categoryFilter = useSelector((state: any) => state.filters);
-  const sortByFilter = useSelector((state: any) => state.sorts);
-  const DATA_REDUX_STORE = useSelector((state: any) => {
+const Feedback = ({ setCountSuggetions }: SetState) => {
+  const categoryFilter = useSelector((state: RootState) => state.filters);
+  const sortByFilter = useSelector((state: RootState) => state.sorts);
+  const DATA_REDUX_STORE = useSelector((state: RootState) => {
     const ITEMS = state.feedbacks.items;
     if (categoryFilter !== "all") {
       return ITEMS.filter(
-        (items: any) => items.category.toLowerCase() === categoryFilter
+        (items: Item) => items.category.toLowerCase() === categoryFilter
       );
     } else return ITEMS;
   });
+  useEffect(() => {
+    setCountSuggetions(DATA_REDUX_STORE.length);
+  }, [categoryFilter]);
 
   const renderSortedFeedbacks = (sort: string) => {
     switch (sort) {
       case "Least Upvotes":
-        return DATA_REDUX_STORE.sort((a: any, b: any) => a.vote - b.vote).map(
-          (item: any, index: any) => FeedbackItem(item, index, true)
+        return DATA_REDUX_STORE.sort((a: Item, b: Item) => a.vote - b.vote).map(
+          (item: Item, index: number) => FeedbackItem(item, index, true)
         );
       case "Most Upvotes":
-        return DATA_REDUX_STORE.sort((a: any, b: any) => b.vote - a.vote).map(
-          (item: any, index: any) => FeedbackItem(item, index, true)
+        return DATA_REDUX_STORE.sort((a: Item, b: Item) => b.vote - a.vote).map(
+          (item: Item, index: number) => FeedbackItem(item, index, true)
         );
       case "Least Comments":
         return DATA_REDUX_STORE.sort(
-          (a: any, b: any) => a.comments.length - b.comments.length
-        ).map((item: any, index: any) => FeedbackItem(item, index, true));
+          (a: Item, b: Item) => a.comments.length - b.comments.length
+        ).map((item: Item, index: number) => FeedbackItem(item, index, true));
 
       case "Most Comments":
         return DATA_REDUX_STORE.sort(
-          (a: any, b: any) => b.comments.length - a.comments.length
-        ).map((item: any, index: any) => FeedbackItem(item, index, true));
+          (a: Item, b: Item) => b.comments.length - a.comments.length
+        ).map((item: Item, index: number) => FeedbackItem(item, index, true));
     }
   };
 

@@ -3,14 +3,16 @@ import * as C from "./AddCommentElements";
 import { FeedBackBtnPurple } from "../../utilities/buttons";
 
 const AddComment = () => {
-  const [saveComment, setSaveComment] = useState<any>("");
+  const [saveComment, setSaveComment] = useState("");
   const [textCount, setTextCount] = useState<number>(0);
   const CharacterRemain = 225 - textCount;
-  const HandleTextCount = (e: any) => {
-    setTextCount(e.target.value.length);
-    setSaveComment(e.target.value);
+  const HandleTextCount = (e: React.ChangeEvent<HTMLElement>) => {
+    const event = e.currentTarget as HTMLInputElement;
+    const value = event.value;
+    setTextCount(value.length);
+    setSaveComment(value);
   };
-  const HandleSubmit = (e: any) => {
+  const HandleSubmit = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
     setSaveComment("");
     alert(saveComment);
@@ -27,14 +29,14 @@ const AddComment = () => {
           name="comment"
           rows={3}
           maxLength={225}
-          onChange={(e) => HandleTextCount(e)}
+          onChange={HandleTextCount}
           value={saveComment}
           required
         />
         <FeedBackBtnPurple
           data-text="Post Comment"
           form="add-comment"
-          onClick={(e) => HandleSubmit(e)}
+          onClick={HandleSubmit}
         />
       </C.AddCommentWrapper>
     </C.Wrapper>

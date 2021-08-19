@@ -5,11 +5,13 @@ import * as M from "./MainElements";
 import { FeedBackLink } from "../../utilities/buttons";
 import ICON from "../../assets/shared/icon-bulb.svg";
 import Feedback from "./Feedback";
+import { RootState } from "../../Types";
 
 const Main = () => {
-  const SORT_REDUX = useSelector((state: any) => state.sorts);
-  const [modal, setModal] = useState<any>(false);
-  const [sorted, setSorted] = useState<any>(SORT_REDUX);
+  const SORT_REDUX = useSelector((state: RootState) => state.sorts);
+  const [modal, setModal] = useState(false);
+  const [countSuggestions, setCountSuggetions] = useState<number>(0);
+  const [sorted, setSorted] = useState(SORT_REDUX);
   const dispatch = useDispatch();
   const ModalOptions = [
     "Most Upvotes",
@@ -17,9 +19,11 @@ const Main = () => {
     "Most Comments",
     "Least Comments",
   ];
-  const handleSortBy = (e: any) => {
-    dispatch(setSort(e.target.value));
-    setSorted(e.target.value);
+  const handleSortBy = (e: React.MouseEvent<HTMLElement>) => {
+    const event = e.currentTarget as HTMLInputElement;
+    const value = event.value;
+    dispatch(setSort(value));
+    setSorted(value);
     setModal(!modal);
   };
   const RadioBox = (value: string, index: number) => {
@@ -42,7 +46,9 @@ const Main = () => {
       <M.TitleBar>
         <M.Title>
           <M.TitleIcon src={ICON} />
-          <M.H2>6 Suggetions</M.H2>
+          <M.H2>
+            <M.SuggetionCount>{countSuggestions}</M.SuggetionCount> Suggetions
+          </M.H2>
         </M.Title>
         <M.FilterWrapper>
           <M.Filter
@@ -76,7 +82,7 @@ const Main = () => {
         />
       </M.TitleBar>
 
-      <Feedback />
+      <Feedback setCountSuggetions={setCountSuggetions} />
     </M.Wrapper>
   );
 };

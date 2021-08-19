@@ -1,4 +1,3 @@
-import React from "react";
 import * as GB from "./GoBackElements";
 import { useHistory } from "react-router";
 import ICON from "../../assets/shared/icon-arrow-left.svg";

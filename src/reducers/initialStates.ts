@@ -1,14 +1,3 @@
-export type InitialState_TYPE = {
-  items: {
-    link: string;
-    title: string;
-    detail: string;
-    category: string;
-    comments?: any;
-    vote: number;
-    voted: boolean;
-  }[];
-};
 export const initialState = {
   items: [
     {

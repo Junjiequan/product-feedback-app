@@ -13,7 +13,7 @@ const DirectComment = (item: any, index: number) => {
   };
 
   return (
-    <C.DirectComments key={index}>
+    <C.DirectComments key={index} data-verticle-line={true}>
       <C.Avatar
         src={require(`../../assets/user-images/${item.avatar}`).default}
       />

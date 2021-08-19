@@ -15,7 +15,6 @@ export const Wrapper = styled.div`
 `;
 export const Title = styled.h2`
   color: ${COLORS.darkBlue};
-  margin-bottom: 2.8rem;
 `;
 
 /////////////////////////////
@@ -25,10 +24,10 @@ export const Title = styled.h2`
 export const DirectComments = styled.div`
   display: flex;
   position: relative;
+  height: fit-content;
   padding-bottom: 3.2rem;
-  &:not(:first-of-type) {
-    padding-top: 3.2rem;
-  }
+  padding-top: 3.2rem;
+
   &:not(:last-of-type):after {
     position: absolute;
     content: "";
@@ -38,6 +37,17 @@ export const DirectComments = styled.div`
     height: 1px;
     background: ${COLORS.darkBlueDark};
     opacity: 0.1;
+  }
+  &:before {
+    content: "";
+    left: 1.5rem;
+    top: 9.5rem;
+    position: absolute;
+    display: block;
+    height: 45%;
+    width: 1px;
+    background: ${COLORS.darkBlueDark};
+    opacity: ${(props: any) => (props["data-verticle-line"] ? 0.1 : 0)};
   }
 `;
 export const Avatar = styled.img`
@@ -67,11 +77,11 @@ export const Id = styled.span`
 `;
 export const Reply = styled.button`
   cursor: pointer;
+  position: relative;
   color: ${(props: any) =>
     props["data-text"] === "Reply"
       ? `${COLORS.blue}`
       : `${COLORS.darkBlueLight}`};
-  position: relative;
   &:before {
     position: relative;
     font-weight: 600;
@@ -111,17 +121,6 @@ export const InnerCommentWrapper = styled.div`
   margin-left: -5%;
   word-break: break-word;
   /* overflow-wrap:anywhere;  (dosen't support safari) */
-  &:before {
-    content: "";
-    left: -2.5rem;
-    top: -5rem;
-    position: absolute;
-    display: block;
-    height: 100%;
-    width: 1px;
-    background: ${COLORS.darkBlueDark};
-    opacity: 0.1;
-  }
 `;
 
 /////////////////////////////
@@ -143,10 +142,11 @@ export const TextArea = styled.textarea`
   border-radius: 5px;
   padding: 1.6rem 2.4rem;
   border: 0;
+  box-shadow: 0 0 0 1px hsla(230, 76%, 19%, 0.1);
   overflow-y: auto;
   background: ${COLORS.grayLight};
   color: ${COLORS.darkBlue};
-  transition: all ${TRANSITION.ease};
+  transition: box-shadow ${TRANSITION.ease};
   &:focus {
     outline: 0;
     box-shadow: 0 0 0 1px ${COLORS.blue};

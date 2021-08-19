@@ -1,7 +1,8 @@
-import { initialState, InitialState_TYPE } from "./initialStates";
+import { initialState } from "./initialStates";
+import { InitialState, Item } from "../Types";
 
-const onAdd = (currentItem: any, newItem: any) => {
-  const exist = currentItem.find((item: any) => item.title === newItem.title);
+const onAdd = (currentItem: Item[], newItem: Item) => {
+  const exist = currentItem.find((item: Item) => item.title === newItem.title);
 
   if (exist) {
     alert("Feedback title is existing.");
@@ -11,10 +12,10 @@ const onAdd = (currentItem: any, newItem: any) => {
     return addedNewItem;
   }
 };
-const upVote = (currentItem: any, newItem: any) => {
-  const exist = currentItem.find((item: any) => item.title === newItem.title);
+const upVote = (currentItem: Item[], newItem: Item) => {
+  const exist = currentItem.find((item: Item) => item.title === newItem.title);
   if (exist) {
-    const voted = currentItem.map((item: any) =>
+    const voted = currentItem.map((item: Item) =>
       item.title === newItem.title
         ? { ...exist, vote: exist.vote + 1, voted: true }
         : item
@@ -22,10 +23,10 @@ const upVote = (currentItem: any, newItem: any) => {
     return voted;
   } else return currentItem;
 };
-const downVote = (currentItem: any, newItem: any) => {
-  const exist = currentItem.find((item: any) => item.title === newItem.title);
+const downVote = (currentItem: Item[], newItem: Item) => {
+  const exist = currentItem.find((item: Item) => item.title === newItem.title);
   if (exist) {
-    const voted = currentItem.map((item: any) =>
+    const voted = currentItem.map((item: Item) =>
       item.title === newItem.title
         ? { ...exist, vote: exist.vote - 1, voted: false }
         : item
@@ -34,10 +35,7 @@ const downVote = (currentItem: any, newItem: any) => {
   } else return currentItem;
 };
 
-const feedbackReducer = (
-  state: InitialState_TYPE = initialState,
-  action: any
-) => {
+const feedbackReducer = (state: InitialState = initialState, action: any) => {
   switch (action.type) {
     case "ADD_FEEDBACK":
       return {

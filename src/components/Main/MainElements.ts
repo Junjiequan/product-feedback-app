@@ -43,7 +43,12 @@ export const TitleIcon = styled.img`
   height: 2.4rem;
 `;
 export const H2 = styled.h2`
+  display: flex;
   margin-left: 1.6rem;
+  width: 100%;
+`;
+export const SuggetionCount = styled.span`
+  min-width: 2rem;
 `;
 export const FilterWrapper = styled.div`
   flex: 1 1 30%;

@@ -3,8 +3,9 @@ import CommentIcon from "../../assets/shared/icon-comments.svg";
 import * as F from "./FeedbackItemElements";
 import { useDispatch } from "react-redux";
 import { upVote, downVote } from "../../actions";
+import { Item } from "../../Types";
 
-const FeedbackItem = (item: any, index: any, clickable: boolean) => {
+const FeedbackItem = (item: Item, index: number, clickable: boolean) => {
   const dispatch = useDispatch();
   const handleVote = () => {
     if (!item.voted) {

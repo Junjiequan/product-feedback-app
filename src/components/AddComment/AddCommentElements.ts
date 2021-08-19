@@ -34,8 +34,9 @@ export const TextArea = styled.textarea`
   border-radius: 5px;
   padding: 1.6rem 2.4rem;
   border: 0;
+  box-shadow: 0 0 0 1px hsla(230, 76%, 19%, 0.1);
   background: ${COLORS.grayLight};
-  transition: all ${TRANSITION.ease};
+  transition: box-shadow ${TRANSITION.ease};
   color: ${COLORS.darkBlue};
   &:focus {
     outline: 0;
