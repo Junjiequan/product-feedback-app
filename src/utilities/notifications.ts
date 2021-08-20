@@ -1,7 +1,7 @@
 import { toast } from "react-toastify";
 
 const custom_style: any = {
-  position: "bottom-center",
+  position: "top-right",
 };
 
 export const fail = () =>
@@ -9,3 +9,6 @@ export const fail = () =>
 
 export const success = () =>
   toast.dark("😎 Feedback added successfully!", custom_style);
+
+export const empty = () =>
+  toast.error("😓 Reply cannot be empty.", custom_style);

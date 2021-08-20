@@ -5,10 +5,10 @@ import { HashRouter } from "react-router-dom";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import { allReducer } from "./reducers";
-import throttle from "lodash/throttle";
-import { loadState, saveState } from "./localStorage";
+// import throttle from "lodash/throttle";
+// import { loadState, saveState } from "./localStorage";
 
-const persistedState = loadState();
+// const persistedState = loadState();
 const store = createStore(
   allReducer,
   // persistedState,

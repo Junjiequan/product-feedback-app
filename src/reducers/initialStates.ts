@@ -1,6 +1,7 @@
 export const initialState = {
   items: [
     {
+      id: "What_ajjaa",
       user_id: "A",
       link: "Add_tags_for_solutions",
       title: "Add tags for solutions",
@@ -10,21 +11,21 @@ export const initialState = {
       voted: false,
       comments: [
         {
-          id: 1,
+          id: "abcd_abc",
           user_name: "11gg Moss",
           avatar: "image-jay.jpg",
           user_id: "@hexagon.bestagon",
           comment: "this is comment",
           replies: [
             {
-              id: 1,
+              id: "zAcds_as",
               user_name: "1-1Georrge random",
               avatar: "image-george.jpg",
               user_id: "@george.johnson",
               comment: "this is another  comment comment",
             },
             {
-              id: 2,
+              id: "sadio_ASD",
               user_name: "1-2james dulex",
               avatar: "image-jay.jpg",
               user_id: "@james.christina",
@@ -35,28 +36,31 @@ export const initialState = {
       ],
     },
     {
+      id: "asd_asdASD",
       user_id: "B",
       link: "2_tags_for_solutions",
       title: "2 tags for solutions",
       detail: "Easier to search for solutions based on a specific stack.",
       category: "UI",
+      vote: 22,
+      voted: false,
       comments: [
         {
-          id: 2,
+          id: "gh_asdASDds",
           user_name: "22gg Moss",
           avatar: "image-george.jpg",
           user_id: "@hexagon.bestagon",
           comment: "this is comment",
           replies: [
             {
-              id: 1,
+              id: "AcasA_sdjsd",
               user_name: "2-1Georrge random",
               avatar: "image-george.jpg",
               user_id: "@george.johnson",
               comment: "this is another  comment comment",
             },
             {
-              id: 2,
+              id: "OVP_JQIsasd",
               user_name: "2-2james dulex",
               avatar: "image-james.jpg",
               user_id: "@james.christina",
@@ -65,32 +69,33 @@ export const initialState = {
           ],
         },
       ],
-      vote: 22,
-      voted: false,
     },
     {
+      id: "asdisdAa_jdjf",
       user_id: "C",
       link: "3_tags_for_solutions",
       title: "3 tags for solutions",
       detail: "Easier to search for solutions based on a specific stack.",
       category: "UX",
+      vote: 19,
+      voted: false,
       comments: [
         {
-          id: 3,
+          id: "asdjvn_fdn",
           user_name: "33gg Moss",
           avatar: "image-george.jpg",
           user_id: "@hexagon.bestagon",
           comment: "this is comment",
           replies: [
             {
-              id: 1,
+              id: "jsadA_asd",
               user_name: "3-1Georrge random",
               avatar: "image-george.jpg",
               user_id: "@george.johnson",
               comment: "this is another  comment comment",
             },
             {
-              id: 2,
+              id: "FsdADaf",
               user_name: "3-2james dulex",
               avatar: "image-james.jpg",
               user_id: "@james.christina",
@@ -99,32 +104,33 @@ export const initialState = {
           ],
         },
       ],
-      vote: 19,
-      voted: false,
     },
     {
+      id: "What_acxvDSa",
       user_id: "D",
       link: "4_tags_for_solutions",
       title: "4 tags for solutions",
       detail: "Easier to search for solutions based on a specific stack.",
       category: "Bug",
+      vote: 44,
+      voted: false,
       comments: [
         {
-          id: 4,
+          id: "dsds_asdFG",
           user_name: "44gg Moss",
           avatar: "image-george.jpg",
           user_id: "@hexagon.bestagon",
           comment: "this is comment",
           replies: [
             {
-              id: 1,
+              id: "dsds_asdAQ",
               user_name: "4-1Georrge random",
               avatar: "image-george.jpg",
               user_id: "@george.johnson",
               comment: "this is another  comment comment",
             },
             {
-              id: 2,
+              id: "dsds_asdvbA",
               user_name: "4-2james dulex",
               avatar: "image-james.jpg",
               user_id: "@james.christina",
@@ -133,8 +139,6 @@ export const initialState = {
           ],
         },
       ],
-      vote: 44,
-      voted: false,
     },
   ],
 };

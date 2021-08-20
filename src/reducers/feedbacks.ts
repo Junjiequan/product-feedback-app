@@ -6,6 +6,7 @@ import {
   downVote,
   addComment,
   addDirectReply,
+  addInnerReply,
 } from "./feedbacksUtility";
 
 const feedbackReducer = (state: InitialState = initialState, action: any) => {
@@ -15,14 +16,14 @@ const feedbackReducer = (state: InitialState = initialState, action: any) => {
         ...state,
         items: onAdd(state.items, action.payload),
       };
-    case "EDIT_FEEDBACK":
-      return {
-        ...state,
-      };
-    case "DEL_FEEDBACK":
-      return {
-        ...state,
-      };
+    // case "EDIT_FEEDBACK":
+    //   return {
+    //     ...state,
+    //   };
+    // case "DEL_FEEDBACK":
+    //   return {
+    //     ...state,
+    //   };
     case "ADD_COMMENT":
       return {
         ...state,
@@ -33,10 +34,15 @@ const feedbackReducer = (state: InitialState = initialState, action: any) => {
         ...state,
         items: addDirectReply(state.items, action.payload, action.target),
       };
-    case "DEL_COMMENT":
+    case "ADD_INNERREPLY":
       return {
         ...state,
+        items: addInnerReply(state.items, action.payload, action.target),
       };
+    // case "DEL_COMMENT":
+    //   return {
+    //     ...state,
+    //   };
     case "UP_VOTE":
       return {
         ...state,

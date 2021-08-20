@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useLocation } from "react-router";
 import * as C from "./AddCommentElements";

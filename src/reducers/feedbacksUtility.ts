@@ -23,14 +23,35 @@ export const addComment = (
 };
 
 export const addDirectReply = (
-  currentItem: Item[],
+  currentItem: Item[] | any,
   newItem: Replies,
   target: string
 ) => {
-  const itemIndex = currentItem.findIndex(
-    (item: any) => item.link.toLowerCase() === target
+  const itemIndex = currentItem.findIndex((item: any) =>
+    item.comments.find((item: any) => item.id === target)
   );
-  currentItem[itemIndex].comments.push(newItem);
+  const commentIndex = currentItem[itemIndex].comments.findIndex(
+    (item: any) => item.id === target
+  );
+
+  currentItem[itemIndex].comments[commentIndex].replies.push(newItem);
+  return [...currentItem];
+};
+export const addInnerReply = (
+  currentItem: Item[] | any,
+  newItem: Replies,
+  target: string
+) => {
+  const itemIndex = currentItem.findIndex((item: any) =>
+    item.comments.find((item: any) =>
+      item.replies.find((item: any) => item.id === target)
+    )
+  );
+  const commentIndex = currentItem[itemIndex].comments.findIndex((item: any) =>
+    item.replies.find((item: any) => item.id === target)
+  );
+
+  currentItem[itemIndex].comments[commentIndex].replies.push(newItem);
   return [...currentItem];
 };
 

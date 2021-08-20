@@ -13,11 +13,18 @@ export const addComment = (item: Comments_type, param: string) => {
     target: param,
   };
 };
-export const addDirectReply = (item: Replies, param: string) => {
+export const addDirectReply = (item: Comments_type, target_id: string) => {
   return {
-    type: "ADD_COMMENT",
+    type: "ADD_DIRECTREPLY",
     payload: item,
-    target: param,
+    target: target_id,
+  };
+};
+export const addInnerReply = (item: Comments_type, target_id: string) => {
+  return {
+    type: "ADD_INNERREPLY",
+    payload: item,
+    target: target_id,
   };
 };
 
