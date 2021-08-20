@@ -25,6 +25,9 @@ export const TitleBar = styled.div`
   background: ${COLORS.darkBlueDark};
   color: ${COLORS.white};
   @media ${DEVICE.sm} {
+    position: sticky;
+    top: 0;
+    z-index: 999;
     height: 5.6rem;
     border-radius: 0;
     padding: 0 2.4rem;

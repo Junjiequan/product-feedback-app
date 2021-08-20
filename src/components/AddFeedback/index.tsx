@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Item, RootState } from "../../Types";
 import { addFeedback } from "../../actions";
 import { success, fail } from "../../utilities/notifications";
+import { nanoid } from "nanoid";
 import * as A from "./AddFeedbackElements";
 import {
   FeedBackBtnPurple,
@@ -11,6 +12,7 @@ import {
 } from "../../utilities/buttons";
 
 const AddFeedback = () => {
+  const randomId = nanoid(10);
   const DATA_REDUX_STORE = useSelector(
     (state: RootState) => state.feedbacks.items
   );
@@ -31,6 +33,7 @@ const AddFeedback = () => {
     } else {
       dispatch(
         addFeedback({
+          id: randomId,
           link: e.target.title.value.replace(/ /g, "_"),
           title: e.target.title.value,
           category: e.target.sort.value,

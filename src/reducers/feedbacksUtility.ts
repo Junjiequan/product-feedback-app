@@ -37,6 +37,7 @@ export const addDirectReply = (
   currentItem[itemIndex].comments[commentIndex].replies.push(newItem);
   return [...currentItem];
 };
+
 export const addInnerReply = (
   currentItem: Item[] | any,
   newItem: Replies,

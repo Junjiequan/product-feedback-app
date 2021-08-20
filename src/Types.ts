@@ -1,5 +1,6 @@
 export type InitialState = {
   items: {
+    id: string;
     link: string;
     title: string;
     detail: string;
@@ -11,6 +12,7 @@ export type InitialState = {
 };
 
 export type Item = {
+  id: string;
   link: string;
   title: string;
   detail: string;

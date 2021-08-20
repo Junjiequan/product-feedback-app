@@ -5,7 +5,7 @@ import CommentIcon from "../../assets/shared/icon-comments.svg";
 import * as F from "./FeedbackItemElements";
 import { useDispatch } from "react-redux";
 import { upVote, downVote } from "../../actions";
-import { Item } from "../../Types";
+import { Comments_type, Item } from "../../Types";
 
 const FeedbackItem = (props: Item) => {
   const location = useLocation();
@@ -14,6 +14,10 @@ const FeedbackItem = (props: Item) => {
   const dispatch = useDispatch();
   const skipTab = useRef<any>();
   const skipTab2 = useRef<any>();
+  const countReplies: number = props.comments.reduce(
+    (sum: number, cur: Comments_type) => (sum += cur.replies.length),
+    0
+  );
   useEffect(() => {
     if (!clickable) {
       skipTab.current.tabIndex = -1;
@@ -53,7 +57,7 @@ const FeedbackItem = (props: Item) => {
         ref={skipTab2}
       >
         <F.CommentIcon src={CommentIcon} />
-        {props.comments.length}
+        {props.comments.length + countReplies}
       </F.CommentCounter>
     </F.FeedbackLi>
   );

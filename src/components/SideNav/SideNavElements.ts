@@ -9,6 +9,7 @@ export const Wrapper = styled.section`
   display: flex;
   position: sticky;
   top: 1rem;
+  height: fit-content;
   flex-direction: column;
   @media ${DEVICE.md} {
     position: relative;
