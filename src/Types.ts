@@ -20,6 +20,23 @@ export type Item = {
   voted: boolean;
 };
 
+export type Comments_type = {
+  id: number;
+  user_name: string;
+  avatar: string;
+  user_id: string;
+  comment: string;
+  replies?: any;
+};
+
+export type Replies = {
+  id: number;
+  user_name: string;
+  avatar: string;
+  user_id: string;
+  comment: string;
+};
+
 export type RootState = {
   sorts: string;
   filters: string;

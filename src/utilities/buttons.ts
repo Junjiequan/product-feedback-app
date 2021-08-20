@@ -17,21 +17,17 @@ export const FilterBtn = styled.button`
   align-items: center;
   ${FONT.semiBold};
   transition: all ${TRANSITION.ease};
+  background: ${(props: any) =>
+    props["data-focus"] ? `${COLORS.blue}` : `${COLORS.grayDark}`};
+  color: ${(props: any) =>
+    props["data-focus"] ? `${COLORS.white}` : `${COLORS.blue}`};
   &:hover {
-    background: ${COLORS.blueHoverLight};
+    background: ${(props: any) =>
+      props["data-focus"] ? `${COLORS.blueMid}` : `${COLORS.blueHoverLight}`};
   }
   &:before {
     content: attr(data-text);
   }
-  ${(props: any) =>
-    props["data-focus"]
-      ? `
-      background:${COLORS.blue};
-      color:${COLORS.white};`
-      : `
-      background: ${COLORS.grayDark};
-      color: ${COLORS.blue};
-      `}
 `;
 export const FeedBackLink = styled(LinkR)`
   background: ${COLORS.purple};

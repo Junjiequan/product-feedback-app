@@ -1,6 +1,9 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useHistory } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
+import { Item, RootState } from "../../Types";
 import { addFeedback } from "../../actions";
+import { success, fail } from "../../utilities/notifications";
 import * as A from "./AddFeedbackElements";
 import {
   FeedBackBtnPurple,
@@ -8,27 +11,38 @@ import {
 } from "../../utilities/buttons";
 
 const AddFeedback = () => {
+  const DATA_REDUX_STORE = useSelector(
+    (state: RootState) => state.feedbacks.items
+  );
+
   const [openModal, setOpenModal] = useState(false);
   const [sortBy, setSortBy] = useState("Feature");
-
+  const history = useHistory();
   const dispatch = useDispatch();
 
   const CategoryOptions = ["Feature", "UI", "UX", "Enhancement", "Bug"];
   const handleSubmit = (e: any) => {
-    console.log(e);
     e.preventDefault();
-
-    dispatch(
-      addFeedback({
-        link: e.target.title.value.replace(/ /g, "_"),
-        title: e.target.title.value,
-        category: e.target.sort.value,
-        detail: e.target.detail.value,
-        comments: [],
-        vote: 0,
-        voted: false,
-      })
+    const isTitleExisted = !!DATA_REDUX_STORE.find(
+      (item: Item) => item.title === e.target.title.value
     );
+    if (isTitleExisted) {
+      fail();
+    } else {
+      dispatch(
+        addFeedback({
+          link: e.target.title.value.replace(/ /g, "_"),
+          title: e.target.title.value,
+          category: e.target.sort.value,
+          detail: e.target.detail.value,
+          comments: [],
+          vote: 0,
+          voted: false,
+        })
+      );
+      history.push("/");
+      success();
+    }
   };
   const handleClick = (e: React.MouseEvent<HTMLElement>) => {
     const event = e.currentTarget as HTMLInputElement;

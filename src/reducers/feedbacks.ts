@@ -5,7 +5,6 @@ const onAdd = (currentItem: Item[], newItem: Item) => {
   const exist = currentItem.find((item: Item) => item.title === newItem.title);
 
   if (exist) {
-    alert("Feedback title is existing.");
     return currentItem;
   } else {
     const addedNewItem = [...currentItem, { ...newItem }];

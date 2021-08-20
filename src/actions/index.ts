@@ -6,6 +6,12 @@ export const addFeedback = (item: Item) => {
     payload: item,
   };
 };
+export const addComment = (item: Item) => {
+  return {
+    type: "ADD_COMMENT",
+    payload: item,
+  };
+};
 
 export const upVote = (item: Item) => {
   return {
