@@ -16,7 +16,7 @@ const FeedbackItem = (item: Item, index: number, clickable: boolean) => {
   };
 
   return (
-    <F.FeedbackLi key={index}>
+    <F.FeedbackLi key={index} data-clickable={clickable}>
       <F.Vote data-voted={item.voted} onClick={handleVote}>
         <F.VoteIcon src={ArrowUp} data-voted={item.voted} />
         {item.vote}

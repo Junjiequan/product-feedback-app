@@ -10,6 +10,24 @@ export const FeedbackLi = styled.li`
   height: fit-content;
   margin-bottom: 2rem;
   border-radius: 10px;
+  position: relative;
+  overflow-x: hidden;
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 4px;
+    height: 100%;
+    opacity: 0;
+    background: ${COLORS.blue};
+    transition: all ${TRANSITION.ease};
+  }
+  &:hover {
+    &::before {
+      opacity: ${(props: any) => (props["data-clickable"] ? 1 : 0)};
+    }
+  }
 `;
 export const Vote = styled.button`
   display: flex;

@@ -12,7 +12,7 @@ export const initialState = {
         {
           id: 1,
           user_name: "11gg Moss",
-          avatar: "image-george.jpg",
+          avatar: "image-jay.jpg",
           user_id: "@hexagon.bestagon",
           comment: "this is comment",
           replies: [
@@ -26,7 +26,7 @@ export const initialState = {
             {
               id: 2,
               user_name: "1-2james dulex",
-              avatar: "image-james.jpg",
+              avatar: "image-jay.jpg",
               user_id: "@james.christina",
               comment: "comment comment comment",
             },

@@ -19,7 +19,7 @@ const Feedback = ({ setCountSuggetions }: SetState) => {
   });
   useEffect(() => {
     setCountSuggetions(DATA_REDUX_STORE.length);
-  }, [categoryFilter]);
+  }, [DATA_REDUX_STORE.length, setCountSuggetions]);
 
   const renderSortedFeedbacks = (sort: string) => {
     switch (sort) {
