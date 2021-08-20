@@ -5,6 +5,7 @@ import * as C from "./AddCommentElements";
 import { FeedBackBtnPurple } from "../../utilities/buttons";
 import { addComment } from "../../actions";
 import { nanoid } from "nanoid";
+import { empty } from "../../utilities/notifications";
 
 const AddComment = () => {
   const [saveComment, setSaveComment] = useState("");
@@ -23,24 +24,32 @@ const AddComment = () => {
     setTextCount(value.length);
     setSaveComment(value);
   };
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: React.FormEvent<HTMLElement>) => {
     e.preventDefault();
-    setSaveComment("");
-    dispatch(
-      addComment(
-        {
-          id: randomId,
-          user_name: "Jay Smith Machine",
-          avatar: "image-jay.jpg",
-          user_id: "@machine.handsome",
-          comment: e.target.comment.value,
-          replies: [],
-        },
-        target
-      )
-    );
+    if (saveComment === "") {
+      empty();
+    } else {
+      dispatch(
+        addComment(
+          {
+            id: randomId,
+            user_name: "Jay Smith Machine",
+            avatar: "image-jay.jpg",
+            user_id: "@machine.handsome",
+            comment: saveComment,
+            replies: [],
+          },
+          target
+        )
+      );
+      setSaveComment("");
+    }
   };
-
+  const handleKeypress = (e: React.KeyboardEvent<HTMLElement>) => {
+    if (e.key === "Enter" && e.ctrlKey) {
+      handleSubmit(e);
+    }
+  };
   return (
     <C.Wrapper>
       <C.Title>Add Comment</C.Title>
@@ -55,9 +64,14 @@ const AddComment = () => {
           maxLength={225}
           onChange={handleTextCount}
           value={saveComment}
+          onKeyDown={handleKeypress}
           required
         />
-        <FeedBackBtnPurple data-text="Post Comment" form="add-comment" />
+        <FeedBackBtnPurple
+          data-text="Post Comment"
+          form="add-comment"
+          aria-label="submit"
+        />
       </C.AddCommentWrapper>
     </C.Wrapper>
   );

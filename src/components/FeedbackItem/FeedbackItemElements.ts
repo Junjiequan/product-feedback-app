@@ -68,6 +68,7 @@ export const SuggestionWrapper = styled(LinkR)`
   margin: 0 4rem;
   pointer-events: ${(props: any) => (props["data-clickable"] ? "" : "none")};
   cursor: pointer;
+
   &:hover ${SuggestionTitle} {
     color: ${COLORS.blue};
   }

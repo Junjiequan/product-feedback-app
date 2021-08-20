@@ -17,6 +17,7 @@ const FeedbackDetail = () => {
   const location = useLocation();
   const path = location.pathname.replace("/feedback-detail/", "");
   const CURRENT_PAGE = DATA_REDUX.find((item: any) => item.link === path);
+
   return (
     <DetailContainer>
       <DetailWrapper>
@@ -28,7 +29,13 @@ const FeedbackDetail = () => {
             aria-label="link to edit feedback page"
           />
         </DetailNav>
-        <DetailTopic>{FeedbackItem(CURRENT_PAGE, 0, false)}</DetailTopic>
+        <DetailTopic>
+          <FeedbackItem
+            {...CURRENT_PAGE}
+            key={CURRENT_PAGE.id}
+            clickable={false}
+          />
+        </DetailTopic>
         <Comments />
         <AddComment />
       </DetailWrapper>

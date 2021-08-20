@@ -25,21 +25,21 @@ const Feedback = ({ setCountSuggetions }: SetState) => {
     switch (sort) {
       case "Least Upvotes":
         return DATA_REDUX_STORE.sort((a: Item, b: Item) => a.vote - b.vote).map(
-          (item: Item, index: number) => FeedbackItem(item, index, true)
+          (props: any) => <FeedbackItem {...props} key={props.id} />
         );
       case "Most Upvotes":
         return DATA_REDUX_STORE.sort((a: Item, b: Item) => b.vote - a.vote).map(
-          (item: Item, index: number) => FeedbackItem(item, index, true)
+          (props: any) => <FeedbackItem {...props} key={props.id} />
         );
       case "Least Comments":
         return DATA_REDUX_STORE.sort(
           (a: Item, b: Item) => a.comments.length - b.comments.length
-        ).map((item: Item, index: number) => FeedbackItem(item, index, true));
+        ).map((props: any) => <FeedbackItem {...props} key={props.id} />);
 
       case "Most Comments":
         return DATA_REDUX_STORE.sort(
           (a: Item, b: Item) => b.comments.length - a.comments.length
-        ).map((item: Item, index: number) => FeedbackItem(item, index, true));
+        ).map((props: any) => <FeedbackItem {...props} key={props.id} />);
     }
   };
 

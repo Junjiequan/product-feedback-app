@@ -129,7 +129,7 @@ export const InnerCommentWrapper = styled.div`
 //ReplyComment
 /////////////////////////////
 
-export const ReplyCommentWrapper = styled.form`
+export const ReplyCommentWrapper = styled.div`
   display: ${(props: any) => (props["data-reply-open"] ? "flex" : "none")};
   justify-content: space-between;
   transition: all ${TRANSITION.ease};

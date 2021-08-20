@@ -18,7 +18,8 @@ const DirectComment = (item: any) => {
   const randomId = nanoid(10);
   const dispatch = useDispatch();
   const [textAreaTxt, setTextAreaTxt] = useState<any>("");
-  const handleSubmit = (e: any) => {
+
+  const handleSubmit = (e: React.FormEvent<HTMLElement>) => {
     e.preventDefault();
     if (textAreaTxt === "") {
       empty();
@@ -41,7 +42,12 @@ const DirectComment = (item: any) => {
       setTextAreaTxt("");
     }
   };
-  const handleClick = (e: any) => {
+  const handleKeypress = (e: any) => {
+    if (e.key === "Enter" && e.ctrlKey) {
+      handleSubmit(e);
+    }
+  };
+  const handleClick = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
     setOpenReply(!openReply);
     setHeight(height === 0 ? "auto" : 0);
@@ -62,24 +68,31 @@ const DirectComment = (item: any) => {
           <C.Reply
             data-text={openReply ? "Cancel" : "Reply"}
             onClick={handleClick}
+            aria-controls="reply container"
           />
         </C.ReplyWrapper>
         <C.CommentTextWrapper>
           <C.CommentText>{item.comment}</C.CommentText>
 
-          {/* <ReplyComment open={openReply} height={height} itemId={item.id} /> */}
           <AnimateHeight duration={300} height={height}>
-            <R.ReplyCommentWrapper data-reply-open={openReply} id="reply-txt">
+            <R.ReplyCommentWrapper
+              data-reply-open={openReply}
+              id="reply container"
+              aria-expanded={openReply}
+            >
               <R.TextArea
                 rows={3}
                 maxLength={170}
                 name="reply"
                 value={textAreaTxt}
                 onChange={(e) => setTextAreaTxt(e.target.value)}
+                onKeyDown={handleKeypress}
+                placeholder="Ctrl + Enter"
               />
               <FeedBackBtnPurple
                 data-text="Post Reply"
                 form="reply-txt"
+                aria-label="submit reply"
                 onClick={handleSubmit}
               />
             </R.ReplyCommentWrapper>

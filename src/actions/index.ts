@@ -1,4 +1,4 @@
-import { Item, Replies, Comments_type } from "../Types";
+import { Item, Comments_type } from "../Types";
 
 export const addFeedback = (item: Item) => {
   return {
