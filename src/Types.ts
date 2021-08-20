@@ -21,7 +21,7 @@ export type Item = {
 };
 
 export type Comments_type = {
-  id: number;
+  id: any;
   user_name: string;
   avatar: string;
   user_id: string;
@@ -30,7 +30,7 @@ export type Comments_type = {
 };
 
 export type Replies = {
-  id: number;
+  id: any;
   user_name: string;
   avatar: string;
   user_id: string;

@@ -6,7 +6,7 @@ import { ANIM } from "../../utilities/animation";
 //Index
 /////////////////////////////
 
-export const Wrapper = styled.div`
+export const Container = styled.div`
   display: block;
   padding: ${SPACE.comments};
   background: ${COLORS.white};
@@ -16,12 +16,14 @@ export const Wrapper = styled.div`
 export const Title = styled.h2`
   color: ${COLORS.darkBlue};
 `;
+export const Wrapper = styled.ul`
+  display: block;
+`;
 
 /////////////////////////////
 //DirectComment
 /////////////////////////////
-
-export const DirectComments = styled.div`
+export const DirectComments = styled.li`
   display: flex;
   position: relative;
   height: fit-content;

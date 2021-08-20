@@ -1,38 +1,12 @@
 import { initialState } from "./initialStates";
-import { InitialState, Item } from "../Types";
-
-const onAdd = (currentItem: Item[], newItem: Item) => {
-  const exist = currentItem.find((item: Item) => item.title === newItem.title);
-
-  if (exist) {
-    return currentItem;
-  } else {
-    const addedNewItem = [...currentItem, { ...newItem }];
-    return addedNewItem;
-  }
-};
-const upVote = (currentItem: Item[], newItem: Item) => {
-  const exist = currentItem.find((item: Item) => item.title === newItem.title);
-  if (exist) {
-    const voted = currentItem.map((item: Item) =>
-      item.title === newItem.title
-        ? { ...exist, vote: exist.vote + 1, voted: true }
-        : item
-    );
-    return voted;
-  } else return currentItem;
-};
-const downVote = (currentItem: Item[], newItem: Item) => {
-  const exist = currentItem.find((item: Item) => item.title === newItem.title);
-  if (exist) {
-    const voted = currentItem.map((item: Item) =>
-      item.title === newItem.title
-        ? { ...exist, vote: exist.vote - 1, voted: false }
-        : item
-    );
-    return voted;
-  } else return currentItem;
-};
+import { InitialState } from "../Types";
+import {
+  onAdd,
+  upVote,
+  downVote,
+  addComment,
+  addDirectReply,
+} from "./feedbacksUtility";
 
 const feedbackReducer = (state: InitialState = initialState, action: any) => {
   switch (action.type) {
@@ -52,6 +26,12 @@ const feedbackReducer = (state: InitialState = initialState, action: any) => {
     case "ADD_COMMENT":
       return {
         ...state,
+        items: addComment(state.items, action.payload, action.target),
+      };
+    case "ADD_DIRECTREPLY":
+      return {
+        ...state,
+        items: addDirectReply(state.items, action.payload, action.target),
       };
     case "DEL_COMMENT":
       return {

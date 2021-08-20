@@ -1,4 +1,4 @@
-import { Item } from "../Types";
+import { Item, Replies, Comments_type } from "../Types";
 
 export const addFeedback = (item: Item) => {
   return {
@@ -6,10 +6,18 @@ export const addFeedback = (item: Item) => {
     payload: item,
   };
 };
-export const addComment = (item: Item) => {
+export const addComment = (item: Comments_type, param: string) => {
   return {
     type: "ADD_COMMENT",
     payload: item,
+    target: param,
+  };
+};
+export const addDirectReply = (item: Replies, param: string) => {
+  return {
+    type: "ADD_COMMENT",
+    payload: item,
+    target: param,
   };
 };
 

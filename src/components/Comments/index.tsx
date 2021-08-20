@@ -15,12 +15,21 @@ const Comments = () => {
     (item: Item) => item.link.toLowerCase() === target
   );
   const targetDataComments: Comments_type[] = targetData?.comments;
-
+  const countReplies: number = targetDataComments.reduce(
+    (sum: number, cur: Comments_type) => (sum += cur.replies.length),
+    0
+  );
   return (
-    <C.Wrapper>
-      <C.Title>4 Comments</C.Title>
-      {targetDataComments.map(DirectComment)}
-    </C.Wrapper>
+    <C.Container>
+      <C.Title>
+        {targetDataComments.length + countReplies} &nbsp; Comments
+      </C.Title>
+      <C.Wrapper>
+        {targetDataComments.map((props: Comments_type) => (
+          <DirectComment {...props} key={props.id} />
+        ))}
+      </C.Wrapper>
+    </C.Container>
   );
 };
 
