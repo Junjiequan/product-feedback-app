@@ -5,7 +5,7 @@ const custom_style: any = {
 };
 
 export const fail = () =>
-  toast.error("😭 Feedback title is existing.", custom_style);
+  toast.error("😭 Feedback title has already taken.", custom_style);
 
 export const success = () =>
   toast.dark("😎 Feedback added successfully!", custom_style);
