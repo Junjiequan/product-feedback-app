@@ -7,13 +7,14 @@ import { FeedBackBtnPurple } from "../../utilities/buttons";
 import { nanoid } from "nanoid";
 import AnimateHeight from "react-animate-height";
 import { empty } from "../../utilities/notifications";
+import { Comments_type } from "../../Types";
 
-const InnerComment = (item: any, index: number) => {
+const InnerComment = (item: Comments_type, index: number) => {
   const [openReply, setOpenReply] = useState(false);
   const [height, setHeight] = useState<number | string>(0);
   const randomId = nanoid(10);
   const dispatch = useDispatch();
-  const [textAreaTxt, setTextAreaTxt] = useState<any>("");
+  const [textAreaTxt, setTextAreaTxt] = useState("");
   const handleSubmit = (e: React.FormEvent<HTMLElement>) => {
     e.preventDefault();
     if (textAreaTxt === "") {

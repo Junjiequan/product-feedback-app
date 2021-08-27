@@ -7,39 +7,40 @@ import FeedbackItem from "../FeedbackItem";
 import { Item, RootState, SetState } from "../../Types";
 
 const Feedback = ({ setCountSuggetions }: SetState) => {
+  const DATA_REDUX_STORE = useSelector(
+    (state: RootState) => state.feedbacks.items
+  );
   const categoryFilter = useSelector((state: RootState) => state.filters);
   const sortByFilter = useSelector((state: RootState) => state.sorts);
-  const DATA_REDUX_STORE = useSelector((state: RootState) => {
-    const ITEMS = state.feedbacks.items;
-    if (categoryFilter !== "all") {
-      return ITEMS.filter(
-        (items: Item) => items.category.toLowerCase() === categoryFilter
-      );
-    } else return ITEMS;
-  });
+  const FilteredData = DATA_REDUX_STORE.filter((item: Item) =>
+    categoryFilter !== "all"
+      ? item.category.toLowerCase() === categoryFilter
+      : item
+  );
+
   useEffect(() => {
-    setCountSuggetions(DATA_REDUX_STORE.length);
-  }, [DATA_REDUX_STORE.length, setCountSuggetions]);
+    setCountSuggetions(FilteredData.length);
+  }, [FilteredData.length, setCountSuggetions]);
 
   const renderSortedFeedbacks = (sort: string) => {
     switch (sort) {
       case "Least Upvotes":
-        return DATA_REDUX_STORE.sort((a: Item, b: Item) => a.vote - b.vote).map(
-          (props: Item) => <FeedbackItem {...props} key={props.id} />
-        );
+        return FilteredData.sort((a, b) => a.vote - b.vote).map((props) => (
+          <FeedbackItem {...props} key={props.id} />
+        ));
       case "Most Upvotes":
-        return DATA_REDUX_STORE.sort((a: Item, b: Item) => b.vote - a.vote).map(
-          (props: Item) => <FeedbackItem {...props} key={props.id} />
-        );
+        return FilteredData.sort((a, b) => b.vote - a.vote).map((props) => (
+          <FeedbackItem {...props} key={props.id} />
+        ));
       case "Least Comments":
-        return DATA_REDUX_STORE.sort(
-          (a: Item, b: Item) => a.comments.length - b.comments.length
-        ).map((props: Item) => <FeedbackItem {...props} key={props.id} />);
+        return FilteredData.sort(
+          (a, b) => a.comments.length - b.comments.length
+        ).map((props) => <FeedbackItem {...props} key={props.id} />);
 
       case "Most Comments":
-        return DATA_REDUX_STORE.sort(
-          (a: Item, b: Item) => b.comments.length - a.comments.length
-        ).map((props: Item) => <FeedbackItem {...props} key={props.id} />);
+        return FilteredData.sort(
+          (a, b) => b.comments.length - a.comments.length
+        ).map((props) => <FeedbackItem {...props} key={props.id} />);
     }
   };
 

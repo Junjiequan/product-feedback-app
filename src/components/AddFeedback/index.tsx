@@ -22,7 +22,7 @@ const AddFeedback = () => {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const CategoryOptions = ["Feature", "UI", "UX", "Enhancement", "Bug"];
+  const categoryOptions = ["Feature", "UI", "UX", "Enhancement", "Bug"];
   const handleSubmit = (e: any) => {
     e.preventDefault();
     const isTitleExisted = !!DATA_REDUX_STORE.find(
@@ -70,10 +70,7 @@ const AddFeedback = () => {
   return (
     <A.Wrapper>
       <A.Title>Create New Feedback</A.Title>
-      <A.Form
-        id="new-feedback"
-        onSubmit={(e: React.SyntheticEvent) => handleSubmit(e)}
-      >
+      <A.Form id="new-feedback" onSubmit={handleSubmit}>
         <A.InputWrapper>
           <A.Label data-title="Feedback Title">
             <br />
@@ -89,7 +86,7 @@ const AddFeedback = () => {
         <A.InputWrapper>
           <A.Label data-title="Category">
             <br />
-            Add a short, descriptive headline
+            Choose a category for your feedback
           </A.Label>
           <A.OptionButton
             type="button"
@@ -111,7 +108,7 @@ const AddFeedback = () => {
             </A.SelectIcon>
           </A.OptionButton>
           <A.OptionModal aria-hidden={openModal} id="category-options">
-            {CategoryOptions.map(RadioBox)}
+            {categoryOptions.map(RadioBox)}
           </A.OptionModal>
         </A.InputWrapper>
         <A.InputWrapper>

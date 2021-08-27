@@ -9,8 +9,9 @@ import { nanoid } from "nanoid";
 import AnimateHeight from "react-animate-height";
 import { FeedBackBtnPurple } from "../../utilities/buttons";
 import { empty } from "../../utilities/notifications";
+import { Comments_type } from "../../Types";
 
-const DirectComment = (item: any) => {
+const DirectComment = (item: Comments_type) => {
   const REPLIES = item.replies;
   const hasReply = REPLIES.length > 0;
   const [openReply, setOpenReply] = useState(false);

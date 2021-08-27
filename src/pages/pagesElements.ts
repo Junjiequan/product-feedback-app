@@ -90,3 +90,32 @@ export const FeedbackNewNav = styled.div`
   justify-content: space-between;
   margin-bottom: 2.4rem;
 `;
+
+//////////////////////////
+//feedback-Edit
+//////////////////////////
+
+export const FeedbackEditContainer = styled.div`
+  display: flex;
+  padding: ${SPACE.container};
+  justify-content: center;
+  @media ${DEVICE.sm} {
+    padding: 0 2.4rem;
+  }
+`;
+export const FeedbackEditWrapper = styled.div`
+  margin-top: ${SPACE.top};
+  max-width: ${WIDTH.newFeedback};
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  @media ${DEVICE.sm} {
+    margin-top: ${SPACE.topMob};
+  }
+`;
+export const FeedbackEditNav = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2.4rem;
+`;

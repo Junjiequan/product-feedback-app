@@ -25,7 +25,7 @@ const FeedbackDetail = () => {
           <GoBack />
           <FeedBackLinkBlue
             data-text="Edit Feedback"
-            to="/"
+            to={location.pathname + "/edit"}
             aria-label="link to edit feedback page"
           />
         </DetailNav>

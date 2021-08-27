@@ -1,4 +1,4 @@
-import { Item, Replies } from "../Types";
+import { Item, Replies, Comments_type } from "../Types";
 
 export const onAdd = (currentItem: Item[], newItem: Item) => {
   const exist = currentItem.find((item: Item) => item.title === newItem.title);
@@ -16,22 +16,22 @@ export const addComment = (
   target: string
 ) => {
   const itemIndex = currentItem.findIndex(
-    (item: any) => item.link.toLowerCase() === target
+    (item: Item) => item.link.toLowerCase() === target
   );
   currentItem[itemIndex].comments.push(newItem);
   return [...currentItem];
 };
 
 export const addDirectReply = (
-  currentItem: Item[] | any,
+  currentItem: Item[],
   newItem: Replies,
   target: string
 ) => {
-  const itemIndex = currentItem.findIndex((item: any) =>
-    item.comments.find((item: any) => item.id === target)
+  const itemIndex = currentItem.findIndex((item: Item) =>
+    item.comments.find((item: Item) => item.id === target)
   );
   const commentIndex = currentItem[itemIndex].comments.findIndex(
-    (item: any) => item.id === target
+    (item: Item) => item.id === target
   );
 
   currentItem[itemIndex].comments[commentIndex].replies.push(newItem);
@@ -39,17 +39,18 @@ export const addDirectReply = (
 };
 
 export const addInnerReply = (
-  currentItem: Item[] | any,
+  currentItem: Item[],
   newItem: Replies,
   target: string
 ) => {
-  const itemIndex = currentItem.findIndex((item: any) =>
-    item.comments.find((item: any) =>
-      item.replies.find((item: any) => item.id === target)
+  const itemIndex = currentItem.findIndex((item: Item) =>
+    item.comments.find((item: Comments_type) =>
+      item.replies.find((item: Item) => item.id === target)
     )
   );
-  const commentIndex = currentItem[itemIndex].comments.findIndex((item: any) =>
-    item.replies.find((item: any) => item.id === target)
+  const commentIndex = currentItem[itemIndex].comments.findIndex(
+    (item: Comments_type) =>
+      item.replies.find((item: Item) => item.id === target)
   );
 
   currentItem[itemIndex].comments[commentIndex].replies.push(newItem);
