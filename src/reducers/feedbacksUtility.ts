@@ -10,6 +10,27 @@ export const onAdd = (currentItem: Item[], newItem: Item) => {
   }
 };
 
+export const onEdit = (currentItem: Item[], editItem: Item) => {
+  const exist = currentItem.find((item: Item) => item.link === editItem.link);
+  if (exist) {
+    const result = currentItem.map((item) =>
+      item.link === editItem.link
+        ? {
+            ...exist,
+            category: editItem.category,
+            status: editItem.status,
+            detail: editItem.detail,
+          }
+        : item
+    );
+    return result;
+  }
+};
+export const onDel = (currentItem: Item[], delItem: string) => {
+  const result = currentItem.filter((item: Item) => item.id !== delItem);
+  return result;
+};
+
 export const addComment = (
   currentItem: Item[],
   newItem: Replies,

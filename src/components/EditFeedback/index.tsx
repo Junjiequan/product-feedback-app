@@ -1,17 +1,29 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import { useLocation, useHistory } from "react-router";
+import { useSelector, useDispatch } from "react-redux";
+import { editFeedback, delFeedback } from "../../actions";
+import type { RootState, Item } from "../../Types";
 import * as E from "./EditFeedbackElements";
 import {
   FeedBackBtnPurple,
   FeedBackLinkDarkBlue,
   FeedBackBtnRed,
 } from "../../utilities/buttons";
+import { removed, edited } from "../../utilities/notifications";
 
 const EditFeedback = () => {
+  const location = useLocation();
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const feedbackParam = location.pathname.trim().split("/")[2];
+  const currentItem: Item = useSelector((state: RootState) =>
+    state.feedbacks.items.find((item: Item) => item.link === feedbackParam)
+  )!;
   const [openCategoModal, setOpenCategoModal] = useState(false);
   const [openStatusModal, setOpenStatusModal] = useState(false);
+  const [feedbackText, setFeedbackText] = useState(currentItem.detail);
   const [sortBy, setSortBy] = useState("Feature");
   const [status, setStatus] = useState("Suggestion");
-
   const categoryOptions = ["Feature", "UI", "UX", "Enhancement", "Bug"];
   const statusOptions = ["Suggestion", "Planned", "In-Progress", "Live"];
   const handleCategory = (e: React.MouseEvent<HTMLInputElement>) => {
@@ -25,6 +37,27 @@ const EditFeedback = () => {
     if (isRadio) setStatus(e.currentTarget.value);
     setOpenStatusModal(!openStatusModal);
     setOpenCategoModal(false);
+  };
+  const handleSubmit = (e: React.FormEvent<HTMLElement>) => {
+    e.preventDefault();
+    dispatch(
+      editFeedback({
+        id: currentItem.id,
+        title: currentItem.title,
+        vote: currentItem.vote,
+        voted: currentItem.voted,
+        link: feedbackParam,
+        category: sortBy,
+        status: status,
+        detail: feedbackText,
+      })
+    );
+    edited();
+  };
+  const handleDelete = () => {
+    history.push("/");
+    dispatch(delFeedback(currentItem.id));
+    removed();
   };
   const RadioBox = (value: string, index: number) => {
     const isStatus = statusOptions.includes(value);
@@ -43,8 +76,8 @@ const EditFeedback = () => {
   };
   return (
     <E.Wrapper>
-      <E.Title>Editing ‘Add a dark theme option’</E.Title>
-      <E.Form id="edit-feedback">
+      <E.Title>Editing ‘{currentItem.title}’</E.Title>
+      <E.Form id="edit-feedback" onSubmit={handleSubmit}>
         <E.InputWrapper>
           <E.Label data-title="Feedback Title">
             <br />
@@ -55,7 +88,7 @@ const EditFeedback = () => {
             maxLength={50}
             placeholder="Max 50 characters"
             disabled
-            value="shit"
+            value={currentItem.title}
           />
         </E.InputWrapper>
 
@@ -130,6 +163,8 @@ const EditFeedback = () => {
             maxLength={225}
             rows={3}
             placeholder="Max 225 characters"
+            value={feedbackText}
+            onChange={(e) => setFeedbackText(e.target.value)}
             required
           />
         </E.InputWrapper>
@@ -138,14 +173,19 @@ const EditFeedback = () => {
             to="/"
             data-space-right={true}
             data-text="Cancel"
-            aria-label="back to homepage"
+            aria-label="cancel and back to homepage"
           />
           <FeedBackBtnPurple
-            data-text="Add Feedback"
-            aria-label="create new feedback"
-            form="new-feedback"
+            data-text="Save Changes"
+            aria-label="Save Changes"
+            form="edit-feedback"
           />
-          <FeedBackBtnRed data-text="Delete" aria-label="delete feedback" />
+          <FeedBackBtnRed
+            type="button"
+            data-text="Delete"
+            aria-label="delete feedback"
+            onClick={handleDelete}
+          />
         </E.ButtonWrapper>
       </E.Form>
     </E.Wrapper>

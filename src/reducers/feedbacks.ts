@@ -2,6 +2,8 @@ import { initialState } from "./initialStates";
 import { InitialState } from "../Types";
 import {
   onAdd,
+  onEdit,
+  onDel,
   upVote,
   downVote,
   addComment,
@@ -16,14 +18,16 @@ const feedbackReducer = (state: InitialState = initialState, action: any) => {
         ...state,
         items: onAdd(state.items, action.payload),
       };
-    // case "EDIT_FEEDBACK":
-    //   return {
-    //     ...state,
-    //   };
-    // case "DEL_FEEDBACK":
-    //   return {
-    //     ...state,
-    //   };
+    case "EDIT_FEEDBACK":
+      return {
+        ...state,
+        items: onEdit(state.items, action.payload),
+      };
+    case "DEL_FEEDBACK":
+      return {
+        ...state,
+        items: onDel(state.items, action.payload),
+      };
     case "ADD_COMMENT":
       return {
         ...state,

@@ -130,7 +130,7 @@ const AddFeedback = () => {
             to="/"
             data-space-right={true}
             data-text="Cancel"
-            aria-label="back to homepage"
+            aria-label="cancel and back to homepage"
           />
           <FeedBackBtnPurple
             data-text="Add Feedback"

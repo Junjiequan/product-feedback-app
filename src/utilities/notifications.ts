@@ -12,3 +12,9 @@ export const success = () =>
 
 export const empty = () =>
   toast.error("😓 Reply cannot be empty.", custom_style);
+
+export const removed = () =>
+  toast("👌 Feedback removed successfully!", custom_style);
+
+export const edited = () =>
+  toast.info("🧐 Feedback edited successfully!", custom_style);

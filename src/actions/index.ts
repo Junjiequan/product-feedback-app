@@ -6,6 +6,18 @@ export const addFeedback = (item: Item) => {
     payload: item,
   };
 };
+export const editFeedback = (item: Item) => {
+  return {
+    type: "EDIT_FEEDBACK",
+    payload: item,
+  };
+};
+export const delFeedback = (item: string) => {
+  return {
+    type: "DEL_FEEDBACK",
+    payload: item,
+  };
+};
 export const addComment = (item: Comments_type, param: string) => {
   return {
     type: "ADD_COMMENT",

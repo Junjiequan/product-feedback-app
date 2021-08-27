@@ -69,6 +69,7 @@ export const ReplyWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1.7rem;
+  max-width: 59.5rem;
 `;
 export const Name = styled.h3`
   color: ${COLORS.darkBlue};
