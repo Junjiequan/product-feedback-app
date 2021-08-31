@@ -29,7 +29,7 @@ const SideNav = () => {
         <S.RoadMap>
           <S.RoadTitleRow>
             <S.RoadH2>Roadmap</S.RoadH2>
-            <S.RoadView to="/">View</S.RoadView>
+            <S.RoadView to="/roadmap">View</S.RoadView>
           </S.RoadTitleRow>
           <S.RoadListWrapper>
             <S.RoadList color="Orange" data-count="2">

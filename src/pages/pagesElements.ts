@@ -2,10 +2,10 @@ import styled from "styled-components";
 import { SPACE, WIDTH, DEVICE } from "../utilities/constants";
 
 //////////////////////////
-//suggestion
+//Home
 //////////////////////////
 
-export const SuggestionContainer = styled.div`
+export const HomeContainer = styled.div`
   display: flex;
   padding: ${SPACE.container};
   justify-content: center;
@@ -13,7 +13,7 @@ export const SuggestionContainer = styled.div`
     padding: 0;
   }
 `;
-export const SuggestionWrapper = styled.div`
+export const HomeWrapper = styled.div`
   margin-top: ${SPACE.top};
   max-width: ${WIDTH.desktop};
   width: 100%;
@@ -30,7 +30,30 @@ export const SuggestionWrapper = styled.div`
 `;
 
 //////////////////////////
-//detail
+//Home
+//////////////////////////
+
+export const RoadmapContainer = styled.div`
+  display: flex;
+  padding: ${SPACE.container};
+  justify-content: center;
+  @media ${DEVICE.sm} {
+    padding: 0;
+  }
+`;
+export const RoadmapWrapper = styled.div`
+  margin-top: ${SPACE.topRoadMap};
+  max-width: ${WIDTH.desktop};
+  width: 100%;
+  display: block;
+  height: fit-content;
+  @media ${DEVICE.sm} {
+    margin: 0;
+  }
+`;
+
+//////////////////////////
+//feedback-Detail
 //////////////////////////
 
 export const DetailContainer = styled.div`
