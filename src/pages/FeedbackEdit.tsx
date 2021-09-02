@@ -11,7 +11,7 @@ const FeedbackEdit = () => {
     <FeedbackEditContainer>
       <FeedbackEditWrapper>
         <FeedbackEditNav>
-          <GoBack />
+          <GoBack isWhite={false} />
         </FeedbackEditNav>
         <EditFeedback />
       </FeedbackEditWrapper>

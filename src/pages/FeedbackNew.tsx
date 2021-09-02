@@ -11,7 +11,7 @@ const FeedbackNew = () => {
     <FeedbackNewContainer>
       <FeedbackNewWrapper>
         <FeedbackNewNav>
-          <GoBack />
+          <GoBack isWhite={false} />
         </FeedbackNewNav>
         <AddFeedback />
       </FeedbackNewWrapper>

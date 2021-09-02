@@ -22,7 +22,7 @@ const FeedbackDetail = () => {
     <DetailContainer>
       <DetailWrapper>
         <DetailNav>
-          <GoBack />
+          <GoBack isWhite={false} />
           <FeedBackLinkBlue
             data-text="Edit Feedback"
             to={location.pathname + "/edit"}

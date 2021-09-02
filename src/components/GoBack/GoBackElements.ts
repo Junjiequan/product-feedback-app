@@ -6,7 +6,9 @@ export const Button = styled.button`
   align-items: center;
   font-size: 1.4rem;
   font-weight: 700;
-  color: ${COLORS.darkBlueLight};
+  margin-bottom: 0.4rem;
+  color: ${(props: any) =>
+    props["data-white"] ? `${COLORS.white}` : `${COLORS.darkBlueLight}`};
   cursor: pointer;
 `;
 export const Txt = styled.span`
@@ -19,7 +21,8 @@ export const Txt = styled.span`
     left: 0;
     width: 0;
     height: 1px;
-    background: ${COLORS.darkBlueLight};
+    background: ${(props: any) =>
+      props["data-white"] ? `${COLORS.white}` : `${COLORS.darkBlueLight}`};
     transition: width ${TRANSITION.ease};
   }
   ${Button}:hover &:after {
@@ -31,4 +34,5 @@ export const LeftIcon = styled.img`
   height: 1rem;
   margin-right: 1.5rem;
   pointer-events: none;
+  filter: ${(props: any) => (props["data-white"] ? `brightness(4)` : ` `)};
 `;
