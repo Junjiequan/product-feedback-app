@@ -1,10 +1,10 @@
-import useWindowWidth from "../../hooks/useWindowWidth";
+// import useWindowWidth from "../../hooks/useWindowWidth";
 import * as R from "./RoadMapElements";
 import CategoryItem from "./CategoryItem";
 
 const RoadCategories = () => {
-  const SIZE = useWindowWidth();
-  const isMobile = SIZE.width! < 380;
+  // const SIZE = useWindowWidth();
+  // const isMobile = SIZE.width! < 380;
 
   return (
     <R.CategoryContainer>
