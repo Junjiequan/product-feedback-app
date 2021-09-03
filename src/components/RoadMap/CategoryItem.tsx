@@ -6,7 +6,7 @@ const CategoryItem = () => {
   return (
     <C.CategoryItem>
       <C.CategoryItemSpan>Planned</C.CategoryItemSpan>
-      <C.CategoryItemH3>More comprehensive</C.CategoryItemH3>
+      <C.CategoryItemLink to="/">More comprehensive</C.CategoryItemLink>
       <C.CategoryItemDesc>
         It would be great... asdajsdasij sdasij sdasij
       </C.CategoryItemDesc>

@@ -108,11 +108,16 @@ export const CategoryItemSpan = styled.span`
   }
 `;
 
-export const CategoryItemH3 = styled.h3`
+export const CategoryItemLink = styled(LinkR)`
   font-size: 1.8rem;
   line-height: 2.6rem;
+  font-weight: 700;
   color: ${COLORS.darkBlue};
   margin: 0.8rem 0 0.6rem;
+  transition: color ${TRANSITION.ease};
+  &:hover {
+    color: ${COLORS.blue};
+  }
 `;
 
 export const CategoryItemDesc = styled.p`
