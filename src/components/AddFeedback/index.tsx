@@ -41,6 +41,7 @@ const AddFeedback = () => {
           comments: [],
           vote: 0,
           voted: false,
+          status: "suggestion",
         })
       );
       history.push("/");

@@ -9,6 +9,7 @@ export const initialState = {
       category: "Enhancement",
       vote: 17,
       voted: false,
+      status: "suggestion",
       comments: [
         {
           id: "abcd_abc",
@@ -44,6 +45,7 @@ export const initialState = {
       category: "UI",
       vote: 22,
       voted: false,
+      status: "suggestion",
       comments: [
         {
           id: "gh_asdASDds",
@@ -79,6 +81,7 @@ export const initialState = {
       category: "UX",
       vote: 19,
       voted: false,
+      status: "suggestion",
       comments: [
         {
           id: "asdjvn_fdn",
@@ -114,6 +117,7 @@ export const initialState = {
       category: "Bug",
       vote: 44,
       voted: false,
+      status: "suggestion",
       comments: [
         {
           id: "dsds_asdFG",

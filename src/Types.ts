@@ -8,6 +8,7 @@ export type InitialState = {
     comments?: any;
     vote: number;
     voted: boolean;
+    status: string;
   }[];
 };
 
@@ -20,7 +21,7 @@ export type Item = {
   comments?: any;
   vote: number;
   voted: boolean;
-  status?: string;
+  status: string;
 };
 
 export type Comments_type = {

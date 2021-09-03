@@ -7,8 +7,8 @@ import FeedbackItem from "../FeedbackItem";
 import { Item, RootState, SetState } from "../../Types";
 
 const Feedback = ({ setCountSuggetions }: SetState) => {
-  const DATA_REDUX_STORE = useSelector(
-    (state: RootState) => state.feedbacks.items
+  const DATA_REDUX_STORE = useSelector((state: RootState) =>
+    state.feedbacks.items.filter((item) => item.status === "suggestion")
   );
   const categoryFilter = useSelector((state: RootState) => state.filters);
   const sortByFilter = useSelector((state: RootState) => state.sorts);
