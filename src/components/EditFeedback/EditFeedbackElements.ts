@@ -10,15 +10,16 @@ export const Wrapper = styled.div`
   background: ${COLORS.white};
   border-radius: 10px;
   height: auto;
-  margin-top: 4.6rem;
+  margin: 4.6rem 0;
   position: relative;
   &:before {
     position: absolute;
     content: url(${icon_edit});
-    top: -2.8rem;
-    left: 4.2rem;
-    width: 5.6rem;
-    height: 5.6rem;
+    top: -2rem;
+    left: 5rem;
+    width: 4rem;
+    height: 4rem;
+    transform: scale(1.4);
   }
 `;
 export const Title = styled.p`
