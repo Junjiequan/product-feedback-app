@@ -125,6 +125,10 @@ export const CategoryItemLink = styled(LinkR)`
 export const CategoryItemDesc = styled.p`
   font-size: 1.6rem;
   color: ${COLORS.darkBlueLight};
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 `;
 
 export const Feature = styled.span`
