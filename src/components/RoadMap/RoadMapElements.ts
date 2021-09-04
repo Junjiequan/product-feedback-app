@@ -39,9 +39,11 @@ export const H1 = styled.h1`
 export const CategoryContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-bottom: 2rem;
 `;
 export const CategoryItemWrapper = styled.div`
   display: flex;
+  flex: 0 1 35rem;
   flex-direction: column;
 `;
 export const CategoryItemTitle = styled.div`
@@ -66,9 +68,9 @@ export const CategoryItemUl = styled.ul`
 
 export const CategoryItem = styled.li`
   display: flex;
-  width: 35rem;
-  height: 27.2rem;
+  min-height: 27.2rem;
   max-height: fit-content;
+  margin-bottom: 2rem;
   background: ${COLORS.white};
   padding: 3.2rem;
   border-radius: 10px;
@@ -84,13 +86,14 @@ export const CategoryItem = styled.li`
     width: 100%;
     height: 0.6rem;
     background: red;
-    /* background: ${(props: any) => props["data-border-color"]}; */
+    background: ${(props: any) => props["data-border-color"]};
   }
 `;
 
 export const CategoryItemSpan = styled.span`
   position: relative;
   padding-left: 2.4rem;
+  text-transform: capitalize;
   &:before {
     content: "";
     position: absolute;
@@ -103,8 +106,7 @@ export const CategoryItemSpan = styled.span`
     width: 0.8rem;
     height: 0.8rem;
     border-radius: 100%;
-    background: red;
-    /* background: ${(props: any) => props["data-border-color"]}; */
+    background: ${(props: any) => props["data-border-color"]};
   }
 `;
 
@@ -133,19 +135,13 @@ export const Feature = styled.span`
   margin: 1.6rem 0;
   width: fit-content;
   height: fit-content;
-  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
+  pointer-events: none;
   ${FONT.semiBold};
   transition: all ${TRANSITION.ease};
-  &:hover {
-    background: ${COLORS.blueHoverLight};
-  }
-  &:focus {
-    background: ${COLORS.blue};
-    color: ${COLORS.white};
-  }
+
   &:before {
     content: attr(data-text);
   }

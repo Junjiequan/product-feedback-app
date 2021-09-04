@@ -2,8 +2,21 @@ import * as S from "./SideNavElements";
 import { useDispatch, useSelector } from "react-redux";
 import { setFilter } from "../../actions";
 import { FilterBtn } from "../../utilities/buttons";
+import { RootState, Item } from "../../Types";
 
 const SideNav = () => {
+  const DATA_REDUX_STORE = useSelector(
+    (state: RootState) => state.feedbacks.items
+  );
+  const PlannedCount = DATA_REDUX_STORE.filter(
+    (item: Item) => item.status === "planned"
+  ).length;
+  const inProgressCount = DATA_REDUX_STORE.filter(
+    (item: Item) => item.status === "in-progress"
+  ).length;
+  const liveCount = DATA_REDUX_STORE.filter(
+    (item: Item) => item.status === "live"
+  ).length;
   const dispatch = useDispatch();
   const categoryFilter = useSelector((state: any) => state.filters);
   const FilterIDs = ["All", "UI", "UX", "Enhancement", "Bug", "Feature"];
@@ -32,13 +45,13 @@ const SideNav = () => {
             <S.RoadView to="/roadmap">View</S.RoadView>
           </S.RoadTitleRow>
           <S.RoadListWrapper>
-            <S.RoadList color="Orange" data-count="2">
+            <S.RoadList color="Orange" data-count={PlannedCount}>
               Planned
             </S.RoadList>
-            <S.RoadList color="DarkViolet" data-count="3">
+            <S.RoadList color="DarkViolet" data-count={inProgressCount}>
               In-Progress
             </S.RoadList>
-            <S.RoadList color="LightSkyBlue" data-count="1">
+            <S.RoadList color="LightSkyBlue" data-count={liveCount}>
               Live
             </S.RoadList>
           </S.RoadListWrapper>

@@ -48,7 +48,7 @@ const EditFeedback = () => {
         voted: currentItem.voted,
         link: feedbackParam,
         category: sortBy,
-        status: status,
+        status: status.toLowerCase(),
         detail: feedbackText,
       })
     );
