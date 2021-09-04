@@ -33,7 +33,7 @@ export const TitleWrapper = styled.div`
   align-items: flex-start;
   flex-direction: column;
   color: ${COLORS.white};
-  padding: 0 0 2.4rem 2.4rem;
+  padding: 0 1rem 2.4rem 2.4rem;
   @media ${DEVICE.md} {
     max-width: 22.3rem;
   }
@@ -56,6 +56,7 @@ export const Menu = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
+  width: 100%;
   @media ${DEVICE.md} {
     flex-direction: row;
   }
@@ -74,7 +75,7 @@ export const FilterWrapper = styled.div`
   margin: 2.4rem 0;
   @media ${DEVICE.md} {
     margin: 0 2.4rem;
-    max-width: 22.3rem;
+    min-width: 17.5rem;
   }
 `;
 export const RoadMap = styled.div`
@@ -85,7 +86,7 @@ export const RoadMap = styled.div`
   padding: 1.9rem 2.4rem 2.4rem;
   background: ${COLORS.white};
   @media ${DEVICE.md} {
-    max-width: 22.3rem;
+    min-width: 17.5rem;
   }
 `;
 export const RoadTitleRow = styled.div`

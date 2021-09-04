@@ -40,7 +40,7 @@ const RoadCategories = () => {
             In-Progress ({inProgressFeedbacks.length})
           </R.CategoryItemTitleH2>
           <R.CategoryItemTitleDesc>
-            Ideas priortized for research
+            Currently being developed
           </R.CategoryItemTitleDesc>
         </R.CategoryItemTitle>
         <R.CategoryItemUl>
@@ -54,9 +54,7 @@ const RoadCategories = () => {
           <R.CategoryItemTitleH2>
             Live ({liveFeedbacks.length})
           </R.CategoryItemTitleH2>
-          <R.CategoryItemTitleDesc>
-            Ideas priortized for research
-          </R.CategoryItemTitleDesc>
+          <R.CategoryItemTitleDesc>Released features</R.CategoryItemTitleDesc>
         </R.CategoryItemTitle>
         <R.CategoryItemUl>
           {liveFeedbacks.map((props, index) => (
