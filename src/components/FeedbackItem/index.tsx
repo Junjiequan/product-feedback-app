@@ -6,6 +6,7 @@ import * as F from "./FeedbackItemElements";
 import { useDispatch } from "react-redux";
 import { upVote, downVote } from "../../actions";
 import { Comments_type, Item } from "../../Types";
+import { pageVariants, pageTransition } from "../../utilities/framerMotion";
 
 const FeedbackItem = (props: Item) => {
   const location = useLocation();
@@ -33,7 +34,14 @@ const FeedbackItem = (props: Item) => {
   };
 
   return (
-    <F.FeedbackLi data-clickable={clickable}>
+    <F.FeedbackLi
+      data-clickable={clickable}
+      initial="initial"
+      animate="in"
+      exit="out"
+      variants={pageVariants}
+      transition={pageTransition}
+    >
       <F.Vote data-voted={props.voted} onClick={handleVote}>
         <F.VoteIcon src={ArrowUp} data-voted={props.voted} />
         {props.vote}

@@ -5,10 +5,17 @@ import {
 } from "./pagesElements";
 import GoBack from "../components/GoBack";
 import AddFeedback from "../components/AddFeedback";
+import { pageVariants, pageTransition } from "../utilities/framerMotion";
 
 const FeedbackNew = () => {
   return (
-    <FeedbackNewContainer>
+    <FeedbackNewContainer
+      initial="initial"
+      animate="in"
+      exit="out"
+      variants={pageVariants}
+      transition={pageTransition}
+    >
       <FeedbackNewWrapper>
         <FeedbackNewNav>
           <GoBack isWhite={false} />

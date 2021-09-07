@@ -129,6 +129,7 @@ export const CategoryNavBtn = styled.button`
 /////////////////////////
 
 export const CategoryItem = styled.li`
+  /* transition: all ${TRANSITION.ease}; */
   display: flex;
   min-height: 27.2rem;
   max-height: fit-content;

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 import { SPACE, WIDTH, DEVICE } from "../utilities/constants";
 
 //////////////////////////
@@ -56,7 +57,7 @@ export const RoadmapWrapper = styled.div`
 //feedback-Detail
 //////////////////////////
 
-export const DetailContainer = styled.div`
+export const DetailContainer = styled(motion.div)`
   display: flex;
   padding: ${SPACE.container};
   justify-content: center;
@@ -89,7 +90,7 @@ export const DetailTopic = styled.div`
 //feedback-new
 //////////////////////////
 
-export const FeedbackNewContainer = styled.div`
+export const FeedbackNewContainer = styled(motion.div)`
   display: flex;
   padding: ${SPACE.container};
   justify-content: center;
@@ -118,7 +119,7 @@ export const FeedbackNewNav = styled.div`
 //feedback-Edit
 //////////////////////////
 
-export const FeedbackEditContainer = styled.div`
+export const FeedbackEditContainer = styled(motion.div)`
   display: flex;
   padding: ${SPACE.container};
   justify-content: center;

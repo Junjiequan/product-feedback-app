@@ -11,6 +11,7 @@ import { FeedBackLinkBlue } from "../utilities/buttons";
 import FeedbackItem from "../components/FeedbackItem";
 import Comments from "../components/Comments";
 import AddComment from "../components/AddComment";
+import { pageVariants, pageTransition } from "../utilities/framerMotion";
 
 const FeedbackDetail = () => {
   const DATA_REDUX = useSelector((state: any) => state.feedbacks.items);
@@ -19,7 +20,13 @@ const FeedbackDetail = () => {
   const CURRENT_PAGE = DATA_REDUX.find((item: any) => item.link === path);
 
   return (
-    <DetailContainer>
+    <DetailContainer
+      initial="initial"
+      animate="in"
+      exit="out"
+      variants={pageVariants}
+      transition={pageTransition}
+    >
       <DetailWrapper>
         <DetailNav>
           <GoBack isWhite={false} />

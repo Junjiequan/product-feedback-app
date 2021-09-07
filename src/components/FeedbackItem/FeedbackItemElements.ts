@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import { Link as LinkR } from "react-router-dom";
 import { COLORS, TRANSITION, FONT, DEVICE } from "../../utilities/constants";
+import { motion } from "framer-motion";
 
-export const FeedbackLi = styled.li`
+export const FeedbackLi = styled(motion.li)`
   display: flex;
   justify-content: space-between;
   padding: 2.4rem 3.2rem;

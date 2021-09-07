@@ -16,6 +16,7 @@ const CategoryItem = (props: Item) => {
     if (props.status === "in-progress") return "DarkViolet";
     if (props.status === "live") return "LightSkyBlue";
   };
+
   const handleVote = () => {
     if (!props.voted) {
       dispatch(upVote(props));
