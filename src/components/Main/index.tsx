@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setSort } from "../../actions";
 import * as M from "./MainElements";
@@ -26,6 +26,13 @@ const Main = () => {
     setSorted(value);
     setModal(!modal);
   };
+  const handleSortClick = () => {
+    setModal(false);
+  };
+  useEffect(() => {
+    document.addEventListener("mouseup", handleSortClick);
+    return () => document.removeEventListener("mouseup", handleSortClick);
+  }, [modal]);
   const RadioBox = (value: string, index: number) => {
     return (
       <M.OptionLabel key={index}>
@@ -71,7 +78,11 @@ const Main = () => {
               </M.SelectIcon>
             </M.Select>
           </M.Filter>
-          <M.OptionModal aria-hidden={!modal} id="filter-options">
+          <M.OptionModal
+            aria-hidden={!modal}
+            id="filter-options"
+            onClick={handleSortClick}
+          >
             {ModalOptions.map(RadioBox)}
           </M.OptionModal>
         </M.FilterWrapper>
