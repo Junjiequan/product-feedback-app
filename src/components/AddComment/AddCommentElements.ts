@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { SPACE, COLORS, TRANSITION } from "../../utilities/constants";
+import { SPACE, COLORS, TRANSITION, DEVICE } from "../../utilities/constants";
 
 export const Wrapper = styled.div`
   display: block;
@@ -25,6 +25,13 @@ export const AddCommentWrapper = styled.form`
     content: attr(data-text);
     left: 0;
     bottom: 1rem;
+  }
+  @media ${DEVICE.sm} {
+    align-items: flex-start;
+    &:after {
+      margin-top: 2rem;
+      position: relative;
+    }
   }
 `;
 export const TextArea = styled.textarea`
