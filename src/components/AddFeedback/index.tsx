@@ -34,7 +34,7 @@ const AddFeedback = () => {
       dispatch(
         addFeedback({
           id: randomId,
-          link: e.target.title.value.replace(/ /g, "_"),
+          link: e.target.title.value.toLowerCase().replace(/ /g, "_"),
           title: e.target.title.value,
           category: e.target.sort.value,
           detail: e.target.detail.value,

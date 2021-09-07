@@ -3,7 +3,7 @@ export const initialState = {
     {
       id: "What_ajjaa",
       user_id: "A",
-      link: "Add_tags_for_solutions",
+      link: "add_tags_for_solutions",
       title: "Add tags for solutions",
       detail: "Easier to search for solutions based on a specific stack.",
       category: "Enhancement",

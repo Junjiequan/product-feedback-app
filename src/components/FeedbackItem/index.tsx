@@ -1,17 +1,23 @@
 import { useLocation } from "react-router-dom";
 import { useEffect, useRef } from "react";
+import { useAnimation } from "framer-motion";
 import ArrowUp from "../../assets/shared/icon-arrow-up.svg";
 import CommentIcon from "../../assets/shared/icon-comments.svg";
 import * as F from "./FeedbackItemElements";
 import { useDispatch } from "react-redux";
 import { upVote, downVote } from "../../actions";
 import { Comments_type, Item } from "../../Types";
-import { pageVariants, pageTransition } from "../../utilities/framerMotion";
+import {
+  feedbackVariants,
+  feedbackTransition,
+} from "../../utilities/framerMotion";
 
 const FeedbackItem = (props: Item) => {
+  const controls = useAnimation();
   const location = useLocation();
   const path = location.pathname.replace("/feedback-detail/", "");
   const clickable = props.link.toLowerCase() !== path;
+  clickable === true ? controls.start(feedbackVariants.in) : controls.stop();
   const dispatch = useDispatch();
   const skipTab = useRef<any>();
   const skipTab2 = useRef<any>();
@@ -36,11 +42,11 @@ const FeedbackItem = (props: Item) => {
   return (
     <F.FeedbackLi
       data-clickable={clickable}
-      initial="initial"
-      animate="in"
+      initial={clickable === true ? "initial" : "stop"}
+      animate={controls}
       exit="out"
-      variants={pageVariants}
-      transition={pageTransition}
+      variants={feedbackVariants}
+      transition={feedbackTransition}
     >
       <F.Vote data-voted={props.voted} onClick={handleVote}>
         <F.VoteIcon src={ArrowUp} data-voted={props.voted} />

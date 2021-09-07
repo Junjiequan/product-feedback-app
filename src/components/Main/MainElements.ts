@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { COLORS, DEVICE, TRANSITION, FONT } from "../../utilities/constants";
 import { ANIM } from "../../utilities/animation";
 import CheckMark from "../../assets/shared/icon-check.svg";
+import { motion } from "framer-motion";
 
 export const Wrapper = styled.section`
   max-width: 82.5rem;
@@ -155,9 +156,10 @@ export const Option = styled.input`
 //                 Feedback
 ///////////////////////////////////////////
 
-export const FeedbackWrapper = styled.ul`
+export const FeedbackWrapper = styled(motion.ul)`
   display: block;
   margin-top: 2.4rem;
+  transition: all ${TRANSITION.ease};
   @media ${DEVICE.sm} {
     margin-top: 3.2rem;
     padding: 0 2.4rem;

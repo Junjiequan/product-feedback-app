@@ -7,6 +7,7 @@ export const FeedbackLi = styled(motion.li)`
   display: flex;
   justify-content: space-between;
   padding: 2.4rem 3.2rem;
+  transition: all ${TRANSITION.ease};
   background: ${COLORS.white};
   height: fit-content;
   margin-bottom: 2rem;

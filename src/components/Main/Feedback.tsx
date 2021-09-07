@@ -5,6 +5,8 @@ import Empty from "../../assets/suggestions/illustration-empty.svg";
 import { FeedBackLink } from "../../utilities/buttons";
 import FeedbackItem from "../FeedbackItem";
 import { Item, RootState, SetState } from "../../Types";
+import { AnimatePresence } from "framer-motion";
+import { Transition } from "framer-motion";
 
 const Feedback = ({ setCountSuggetions }: SetState) => {
   const DATA_REDUX_STORE = useSelector((state: RootState) =>
@@ -63,10 +65,12 @@ const Feedback = ({ setCountSuggetions }: SetState) => {
   };
 
   return (
-    <F.FeedbackWrapper>
-      {DATA_REDUX_STORE.length === 0
-        ? EmptyFeedbacks()
-        : renderSortedFeedbacks(sortByFilter)}
+    <F.FeedbackWrapper transition={{ ease: [0.17, 0.67, 0.83, 0.67] }}>
+      <AnimatePresence>
+        {DATA_REDUX_STORE.length === 0
+          ? EmptyFeedbacks()
+          : renderSortedFeedbacks(sortByFilter)}
+      </AnimatePresence>
     </F.FeedbackWrapper>
   );
 };

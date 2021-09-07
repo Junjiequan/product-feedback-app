@@ -83,7 +83,7 @@ export const DetailNav = styled.div`
 `;
 export const DetailTopic = styled.div`
   display: block;
-  height: fit-content;
+  height: auto;
 `;
 
 //////////////////////////
