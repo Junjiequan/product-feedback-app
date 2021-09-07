@@ -1,5 +1,11 @@
 import styled from "styled-components";
-import { SPACE, COLORS, FONT, TRANSITION } from "../../utilities/constants";
+import {
+  SPACE,
+  COLORS,
+  FONT,
+  TRANSITION,
+  DEVICE,
+} from "../../utilities/constants";
 import { ANIM } from "../../utilities/animation";
 import icon_new from "../../assets/shared/icon-new-feedback.svg";
 import CheckMark from "../../assets/shared/icon-check.svg";
@@ -20,11 +26,24 @@ export const Wrapper = styled.div`
     width: 5.6rem;
     height: 5.6rem;
   }
+  @media ${DEVICE.sm} {
+    margin: 3.5rem 0;
+    padding: 4.4rem 2.3rem;
+    &:before {
+      left: 1.46rem;
+      transform: none;
+      transform: scale(0.72);
+    }
+  }
 `;
 export const Title = styled.p`
   color: ${COLORS.darkBlue};
   margin-bottom: 4rem;
   ${FONT.Title};
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  @media ${DEVICE.sm} {
+    margin-bottom: 2.4rem;
+  }
 `;
 export const Form = styled.form``;
 export const InputWrapper = styled.div`
@@ -33,7 +52,7 @@ export const InputWrapper = styled.div`
   position: relative;
 `;
 export const Label = styled.label`
-  font-size: 1.4rem;
+  font-size: clamp(1.3rem, 2.5vw, 1.4rem);
   color: ${COLORS.darkBlueLight};
   &:before {
     position: relative;
@@ -180,4 +199,7 @@ export const Option = styled.input`
 export const ButtonWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
+  @media ${DEVICE.sm} {
+    flex-direction: column;
+  }
 `;

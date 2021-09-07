@@ -40,9 +40,9 @@ export const Title = styled.p`
   color: ${COLORS.darkBlue};
   margin-bottom: 7.5rem;
   ${FONT.Title};
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
   @media ${DEVICE.sm} {
     margin-bottom: 2.4rem;
-    font-size: 1.8rem;
   }
 `;
 export const Form = styled.form``;
@@ -201,4 +201,7 @@ export const ButtonWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   position: relative;
+  @media ${DEVICE.sm} {
+    flex-direction: column;
+  }
 `;

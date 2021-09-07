@@ -120,9 +120,12 @@ export const FeedBackBtnPurple = styled.button`
     transform: translateY(2px);
   }
   @media ${DEVICE.sm} {
+    width: 100%;
+    justify-content: center;
     font-size: 1.3rem;
     line-height: 1.8rem;
     padding: 1.05rem 1.6rem;
+    margin: 0.6rem 0;
   }
 `;
 export const FeedBackBtnRed = styled.button`
@@ -156,9 +159,13 @@ export const FeedBackBtnRed = styled.button`
     transform: translateY(2px);
   }
   @media ${DEVICE.sm} {
+    position: relative;
+    width: 100%;
+    justify-content: center;
     font-size: 1.3rem;
     line-height: 1.8rem;
     padding: 1.05rem 1.6rem;
+    margin: 0.6rem 0;
   }
 `;
 export const FeedBackLinkDarkBlue = styled(LinkR)`
@@ -192,8 +199,11 @@ export const FeedBackLinkDarkBlue = styled(LinkR)`
     transform: translateY(2px);
   }
   @media ${DEVICE.sm} {
+    width: 100%;
+    justify-content: center;
     font-size: 1.3rem;
     line-height: 1.8rem;
     padding: 1.05rem 1.6rem;
+    margin: 0.6rem 0;
   }
 `;
