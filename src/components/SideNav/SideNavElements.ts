@@ -23,6 +23,7 @@ export const Wrapper = styled.section`
 `;
 export const TitleWrapper = styled.div`
   width: 100%;
+  z-index: 999999;
   min-height: 13.7rem;
   display: flex;
   border-radius: 10px;
@@ -42,10 +43,14 @@ export const TitleWrapper = styled.div`
     border-radius: 0;
     min-height: 0;
     height: 7.2rem;
-    align-items: flex-start;
-    justify-content: center;
-    padding: 0 0 0 2.4rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2.4rem;
   }
+`;
+export const Title = styled.div`
+  display: block;
 `;
 export const H1 = styled.h1``;
 export const P = styled.p`
@@ -57,6 +62,7 @@ export const Menu = styled.div`
   flex-direction: column;
   height: 100%;
   width: 100%;
+  border: 1px solid red;
   @media ${DEVICE.md} {
     flex-direction: row;
   }
@@ -76,6 +82,9 @@ export const FilterWrapper = styled.div`
   @media ${DEVICE.md} {
     margin: 0 2.4rem;
     min-width: 17.5rem;
+  }
+  @media ${DEVICE.sm} {
+    margin: 0 0 2.4rem 0;
   }
 `;
 export const RoadMap = styled.div`
@@ -140,4 +149,36 @@ export const RoadList = styled.li`
     display: flex;
     font-weight: 700;
   }
+`;
+
+export const MobileMenu = styled.div`
+  position: fixed;
+  display: flex;
+  justify-content: flex-end;
+  z-index: 9999;
+  top: 5.6rem;
+  width: 100%;
+  height: 100vh;
+  pointer-events: ${(props: any) =>
+    props["data-mobile-nav"] ? "auto" : "none"};
+`;
+export const Overlay = styled.div`
+  position: fixed;
+  background: hsla(0, 0%, 0%, 0.5);
+  width: 100%;
+  height: 100vh;
+  transition: all ${TRANSITION.ease};
+  opacity: ${(props: any) => (props["data-mobile-nav"] ? "1" : "0")};
+`;
+export const MobileWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-width: 27.1rem;
+  width: 100%;
+  padding: 4rem 2.4rem;
+  background: ${COLORS.grayLight};
+  height: 100vh;
+  left: ${(props: any) => (props["data-mobile-nav"] ? "0" : "100%")};
+  transition: all ${TRANSITION.ease};
 `;
