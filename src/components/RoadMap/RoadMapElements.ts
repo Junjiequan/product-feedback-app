@@ -20,6 +20,7 @@ export const TitleBarWrapper = styled.div`
   @media ${DEVICE.sm} {
     border-radius: 0;
     padding: 2.4rem;
+    margin-bottom: 0;
   }
 `;
 export const LeftBlock = styled.div`
@@ -40,11 +41,23 @@ export const CategoryContainer = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 2rem;
+  @media ${DEVICE.sm} {
+    padding: 0 2rem;
+  }
 `;
 export const CategoryItemWrapper = styled.div`
   display: flex;
-  flex: 0 1 35rem;
+  flex: 0 1 36rem;
   flex-direction: column;
+  &:not(:last-of-type) {
+    margin-right: 1rem;
+  }
+  @media ${DEVICE.sm} {
+    flex: 0 1 100%;
+    &:not(:last-of-type) {
+      margin-right: 1rem;
+    }
+  }
 `;
 export const CategoryItemTitle = styled.div`
   display: block;
@@ -60,6 +73,55 @@ export const CategoryItemTitleDesc = styled.p`
 export const CategoryItemUl = styled.ul`
   display: flex;
   flex-direction: column;
+`;
+export const CategoryNavUl = styled.ul`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  position: relative;
+  font-weight: bold;
+  font-size: 1.3rem;
+  &:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background: ${COLORS.graySuperLight};
+    opacity: 0.2;
+  }
+`;
+export const CategoryNavLi = styled.li`
+  padding: 2rem 1.8rem;
+  flex: 33%;
+  position: relative;
+  &:first-of-type :after {
+    content: "";
+    position: absolute;
+    display: flex;
+    width: 100%;
+    left: ${(props: any) => 100 * props["data-underline"] + `%`};
+    bottom: 0;
+    height: 5px;
+    background: ${(props: any) => {
+      if (props["data-underline"] === 0) return "Orange";
+      else if (props["data-underline"] === 1) return "DarkViolet";
+      else return "LightSkyBlue";
+    }};
+    transition: all ${TRANSITION.ease};
+  }
+`;
+export const CategoryNavBtn = styled.button`
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  transition: all ${TRANSITION.ease};
+  color: ${(props: any) =>
+    props["data-btn-opacity"]
+      ? `${COLORS.darkBlue};`
+      : `${COLORS.darkBlueOpacity}`};
 `;
 
 /////////////////////////
@@ -124,6 +186,7 @@ export const CategoryItemLink = styled(LinkR)`
 
 export const CategoryItemDesc = styled.p`
   font-size: 1.6rem;
+  min-height: 4.6rem;
   color: ${COLORS.darkBlueLight};
   overflow: hidden;
   display: -webkit-box;

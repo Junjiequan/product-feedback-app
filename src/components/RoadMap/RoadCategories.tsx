@@ -1,4 +1,5 @@
-// import useWindowWidth from "../../hooks/useWindowWidth";
+import { useState } from "react";
+import useWindowWidth from "../../hooks/useWindowWidth";
 import * as R from "./RoadMapElements";
 import { useSelector } from "react-redux";
 import { RootState, Item } from "../../Types";
@@ -17,6 +18,69 @@ const RoadCategories = () => {
   const liveFeedbacks = DATA_REDUX_STORE.filter(
     (item: Item) => item.status === "live"
   );
+
+  const [categoryIndex, setCategoryIndex] = useState(0);
+  const [onMobileData, setOnMobileData] = useState(PlannedFeedbacks);
+  const SIZE = useWindowWidth();
+  const isMobile = SIZE.width! < 600;
+  const category = [
+    { tag: "Planned", desc: "Ideas priortized for research" },
+    { tag: "In-Progress", desc: "Currently being developed" },
+    { tag: "Live", desc: "Released features" },
+  ];
+  const handleClick = (index, data) => {
+    setCategoryIndex(index);
+    setOnMobileData(data);
+  };
+  if (isMobile) {
+    return (
+      <>
+        <R.CategoryNavUl>
+          <R.CategoryNavLi data-underline={categoryIndex}>
+            <R.CategoryNavBtn
+              onClick={() => handleClick(0, PlannedFeedbacks)}
+              data-btn-opacity={categoryIndex === 0}
+            >
+              Planned ({PlannedFeedbacks.length})
+            </R.CategoryNavBtn>
+          </R.CategoryNavLi>
+          <R.CategoryNavLi>
+            <R.CategoryNavBtn
+              onClick={() => handleClick(1, inProgressFeedbacks)}
+              data-btn-opacity={categoryIndex === 1}
+            >
+              In-Progress ({inProgressFeedbacks.length})
+            </R.CategoryNavBtn>
+          </R.CategoryNavLi>
+          <R.CategoryNavLi>
+            <R.CategoryNavBtn
+              onClick={() => handleClick(2, liveFeedbacks)}
+              data-btn-opacity={categoryIndex === 2}
+            >
+              Live ({liveFeedbacks.length})
+            </R.CategoryNavBtn>
+          </R.CategoryNavLi>
+        </R.CategoryNavUl>
+        <R.CategoryContainer>
+          <R.CategoryItemWrapper>
+            <R.CategoryItemTitle>
+              <R.CategoryItemTitleH2>
+                {category[categoryIndex].tag} ({onMobileData.length})
+              </R.CategoryItemTitleH2>
+              <R.CategoryItemTitleDesc>
+                {category[categoryIndex].desc}
+              </R.CategoryItemTitleDesc>
+            </R.CategoryItemTitle>
+            <R.CategoryItemUl>
+              {onMobileData.map((props, index) => (
+                <CategoryItem {...props} key={index} />
+              ))}
+            </R.CategoryItemUl>
+          </R.CategoryItemWrapper>
+        </R.CategoryContainer>
+      </>
+    );
+  }
   return (
     <R.CategoryContainer>
       <R.CategoryItemWrapper>
