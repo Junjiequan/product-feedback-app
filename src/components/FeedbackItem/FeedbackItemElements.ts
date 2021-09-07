@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link as LinkR } from "react-router-dom";
-import { COLORS, TRANSITION, FONT } from "../../utilities/constants";
+import { COLORS, TRANSITION, FONT, DEVICE } from "../../utilities/constants";
 
 export const FeedbackLi = styled.li`
   display: flex;
@@ -28,6 +28,10 @@ export const FeedbackLi = styled.li`
       opacity: ${(props: any) => (props["data-clickable"] ? 1 : 0)};
     }
   }
+  @media ${DEVICE.sm} {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 `;
 export const Vote = styled.button`
   display: flex;
@@ -51,6 +55,12 @@ export const Vote = styled.button`
     background: ${(props: any) =>
       props["data-voted"] ? `${COLORS.blueMid}` : `${COLORS.blueHoverLight}`};
   }
+  @media ${DEVICE.sm} {
+    flex-direction: row;
+    height: fit-content;
+    width: 7rem;
+    padding: 0.5rem 1.5rem;
+  }
 `;
 export const VoteIcon = styled.img`
   filter: ${(props: any) => (props["data-voted"] ? "brightness(5)" : "0")};
@@ -71,6 +81,11 @@ export const SuggestionWrapper = styled(LinkR)`
 
   &:hover ${SuggestionTitle} {
     color: ${COLORS.blue};
+  }
+  @media ${DEVICE.sm} {
+    margin: 0 0 2rem;
+    order: -1;
+    flex: 1 1 100%;
   }
 `;
 
@@ -115,6 +130,9 @@ export const CommentCounter = styled(LinkR)`
   cursor: pointer;
   height: fit-content;
   pointer-events: ${(props: any) => (props["data-clickable"] ? "" : "none")};
+  @media ${DEVICE.sm} {
+    order: 1;
+  }
 `;
 export const CommentIcon = styled.img`
   margin-right: 0.8rem;

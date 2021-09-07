@@ -1,5 +1,11 @@
 import styled from "styled-components";
-import { SPACE, COLORS, FONT, TRANSITION } from "../../utilities/constants";
+import {
+  SPACE,
+  COLORS,
+  FONT,
+  TRANSITION,
+  DEVICE,
+} from "../../utilities/constants";
 import icon_edit from "../../assets/shared/icon-edit-feedback.svg";
 import CheckMark from "../../assets/shared/icon-check.svg";
 import { ANIM } from "../../utilities/animation";
@@ -21,11 +27,23 @@ export const Wrapper = styled.div`
     height: 4rem;
     transform: scale(1.4);
   }
+  @media ${DEVICE.sm} {
+    margin: 3.5rem 0;
+    padding: 4.4rem 2.3rem;
+    &:before {
+      left: 2.3rem;
+      transform: none;
+    }
+  }
 `;
 export const Title = styled.p`
   color: ${COLORS.darkBlue};
   margin-bottom: 7.5rem;
   ${FONT.Title};
+  @media ${DEVICE.sm} {
+    margin-bottom: 2.4rem;
+    font-size: 1.8rem;
+  }
 `;
 export const Form = styled.form``;
 export const InputWrapper = styled.div`
@@ -34,7 +52,7 @@ export const InputWrapper = styled.div`
   position: relative;
 `;
 export const Label = styled.label`
-  font-size: 1.4rem;
+  font-size: clamp(1.3rem, 2.5vw, 1.4rem);
   color: ${COLORS.darkBlueLight};
   &:before {
     position: relative;

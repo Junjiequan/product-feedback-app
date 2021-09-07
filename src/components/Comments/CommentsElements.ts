@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { SPACE, COLORS, TRANSITION } from "../../utilities/constants";
+import { SPACE, COLORS, TRANSITION, DEVICE } from "../../utilities/constants";
 import { ANIM } from "../../utilities/animation";
 
 /////////////////////////////
@@ -12,6 +12,9 @@ export const Container = styled.div`
   background: ${COLORS.white};
   border-radius: 10px;
   height: auto;
+  @media ${DEVICE.sm} {
+    padding: 2.4rem 1.4rem 2.4rem 2.4rem;
+  }
 `;
 export const Title = styled.h2`
   color: ${COLORS.darkBlue};
@@ -29,7 +32,6 @@ export const DirectComments = styled.li`
   height: fit-content;
   padding-bottom: 3.2rem;
   padding-top: 3.2rem;
-
   &:not(:last-of-type):after {
     position: absolute;
     content: "";
@@ -43,13 +45,18 @@ export const DirectComments = styled.li`
   &:before {
     content: "";
     left: 1.5rem;
-    top: 9.5rem;
+    top: 10.5rem;
     position: absolute;
     display: block;
     height: 45%;
     width: 1px;
     background: ${COLORS.darkBlueDark};
     opacity: ${(props: any) => (props["data-verticle-line"] ? 0.1 : 0)};
+  }
+  @media ${DEVICE.sm} {
+    &:before {
+      display: none;
+    }
   }
 `;
 export const Avatar = styled.img`
@@ -63,16 +70,23 @@ export const CommentWrapper = styled.div`
   flex-direction: column;
   margin-left: 3.2rem;
   width: 100%;
+  @media ${DEVICE.sm} {
+    font-size: 1.3rem;
+    margin-left: 1rem;
+    left: 0;
+    padding-right: 1.3rem;
+  }
 `;
 export const ReplyWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1.7rem;
-  max-width: 59.5rem;
+  width: 100%;
 `;
 export const Name = styled.h3`
   color: ${COLORS.darkBlue};
+  font-size: inherit;
 `;
 export const Id = styled.span`
   font-weight: 400;
@@ -113,6 +127,10 @@ export const Reply = styled.button`
 `;
 export const CommentTextWrapper = styled.div`
   display: block;
+  word-break: break-word;
+  @media ${DEVICE.sm} {
+    margin-left: -4.8rem;
+  }
 `;
 export const CommentText = styled.p`
   color: ${COLORS.darkBlueLight};
@@ -123,7 +141,20 @@ export const InnerCommentWrapper = styled.div`
   width: 105%;
   margin-left: -5%;
   word-break: break-word;
-  /* overflow-wrap:anywhere;  (dosen't support safari) */
+  @media ${DEVICE.sm} {
+    width: 100%;
+    margin-left: 1.5rem;
+    &:before {
+      content: "";
+      position: absolute;
+      height: 50%;
+      top: 0;
+      left: -1.3rem;
+      width: 1px;
+      background: ${COLORS.darkBlueDark};
+      opacity: 0.1;
+    }
+  }
 `;
 
 /////////////////////////////
@@ -136,6 +167,9 @@ export const ReplyCommentWrapper = styled.div`
   transition: all ${TRANSITION.ease};
   animation: ${ANIM.fade} 0.4s linear;
   margin-top: 2.4rem;
+  @media ${DEVICE.sm} {
+    flex-direction: column;
+  }
 `;
 export const TextArea = styled.textarea`
   width: 80%;
@@ -171,6 +205,10 @@ export const TextArea = styled.textarea`
     background: hsla(231, 33%, 34%, 0.5);
     opacity: 0.2;
   }
+  @media ${DEVICE.sm} {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
 `;
 
 /////////////////////////////
@@ -181,4 +219,7 @@ export const InnerComments = styled.div`
   display: flex;
   margin-top: 3.2rem;
   position: relative;
+  @media ${DEVICE.sm} {
+    margin-top: 2rem;
+  }
 `;

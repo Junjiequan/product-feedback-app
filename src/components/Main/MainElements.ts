@@ -184,9 +184,15 @@ export const EmptyTitle = styled.p`
   color: ${COLORS.darkBlue};
   margin-bottom: 1.6rem;
   margin-top: 5.3rem;
+  font-size: clamp(1.8rem, 5vw, 2.4rem);
 `;
 export const EmptyText = styled.p`
   color: ${COLORS.darkBlueLight};
   margin-bottom: 4.8rem;
-  font-size: 1.6rem;
+  font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+  max-width: 41rem;
+  @media ${DEVICE.sm} {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
 `;

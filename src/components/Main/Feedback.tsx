@@ -50,9 +50,8 @@ const Feedback = ({ setCountSuggetions }: SetState) => {
         <F.EmptyIcon src={Empty} alt="empty icon" />
         <F.EmptyTitle>There is no feedback yet.</F.EmptyTitle>
         <F.EmptyText>
-          Got a suggestion? Found a bug that needs to be squashed?
-          <br />
-          We love hearing about new ideas to improve our app.
+          Got a suggestion? Found a bug that needs to be squashed? We love
+          hearing about new ideas to improve our app.
         </F.EmptyText>
         <FeedBackLink
           data-text="+ Add Feedback"

@@ -52,6 +52,7 @@ const EditFeedback = () => {
         detail: feedbackText,
       })
     );
+    history.push("/");
     edited();
   };
   const handleDelete = () => {
