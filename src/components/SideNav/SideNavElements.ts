@@ -62,7 +62,6 @@ export const Menu = styled.div`
   flex-direction: column;
   height: 100%;
   width: 100%;
-  border: 1px solid red;
   @media ${DEVICE.md} {
     flex-direction: row;
   }
