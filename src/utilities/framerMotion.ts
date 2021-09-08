@@ -16,6 +16,15 @@ export const pageVariants = {
     x: "-20vw",
   },
 };
+export const emptyVariants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: { type: "spring", duration: 1 },
+  },
+};
 export const feedbackVariants = {
   stop: {
     opacity: 1,

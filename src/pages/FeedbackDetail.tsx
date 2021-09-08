@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
+import { Redirect } from "react-router";
 import { AnimatePresence } from "framer-motion";
 import {
   DetailContainer,
@@ -20,6 +21,9 @@ const FeedbackDetail = () => {
   const path = location.pathname.replace("/feedback-detail/", "");
   const CURRENT_PAGE = DATA_REDUX.find((item: any) => item.link === path);
 
+  if (CURRENT_PAGE === undefined) {
+    return <Redirect to="/error" />;
+  }
   return (
     <AnimatePresence exitBeforeEnter>
       <DetailContainer

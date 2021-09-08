@@ -156,17 +156,16 @@ export const Option = styled.input`
 //                 Feedback
 ///////////////////////////////////////////
 
-export const FeedbackWrapper = styled(motion.ul)`
+export const FeedbackWrapper = styled.ul`
   display: block;
   margin-top: 2.4rem;
-  transition: all ${TRANSITION.ease};
   @media ${DEVICE.sm} {
     margin-top: 3.2rem;
     padding: 0 2.4rem;
   }
 `;
 
-export const Empty = styled.div`
+export const Empty = styled(motion.div)`
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -5,6 +5,7 @@ import Empty from "../../assets/suggestions/illustration-empty.svg";
 import { FeedBackLink } from "../../utilities/buttons";
 import FeedbackItem from "../FeedbackItem";
 import { Item, RootState, SetState } from "../../Types";
+import { emptyVariants } from "../../utilities/framerMotion";
 
 const Feedback = ({ setCountSuggetions }: SetState) => {
   const DATA_REDUX_STORE = useSelector((state: RootState) =>
@@ -56,7 +57,7 @@ const Feedback = ({ setCountSuggetions }: SetState) => {
 
   const EmptyFeedbacks = () => {
     return (
-      <F.Empty>
+      <F.Empty variants={emptyVariants} initial="hidden" animate="visible">
         <F.EmptyIcon src={Empty} alt="empty icon" />
         <F.EmptyTitle>There is no feedback yet.</F.EmptyTitle>
         <F.EmptyText>
@@ -74,7 +75,7 @@ const Feedback = ({ setCountSuggetions }: SetState) => {
 
   return (
     <F.FeedbackWrapper>
-      {DATA_REDUX_STORE.length === 0
+      {FilteredData.length === 0
         ? EmptyFeedbacks()
         : renderSortedFeedbacks(sortByFilter)}
     </F.FeedbackWrapper>

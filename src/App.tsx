@@ -8,6 +8,7 @@ import GlobalStyle from "./GlobalStyle";
 import { AnimatePresence } from "framer-motion";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import NotFound from "./pages/NotFound";
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
             component={FeedbackEdit}
           />
           <Route exact path="/roadmap" component={Roadmap}></Route>
+          <Route component={NotFound} />
         </Switch>
       </AnimatePresence>
     </>
