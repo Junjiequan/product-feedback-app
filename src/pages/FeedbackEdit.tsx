@@ -5,7 +5,7 @@ import {
 } from "./pagesElements";
 import GoBack from "../components/GoBack";
 import EditFeedback from "../components/EditFeedback";
-import { pageVariants, pageTransition } from "../utilities/framerMotion";
+import { feedbackEditVariants } from "../utilities/framerMotion";
 
 const FeedbackEdit = () => {
   return (
@@ -13,8 +13,7 @@ const FeedbackEdit = () => {
       initial="initial"
       animate="in"
       exit="out"
-      variants={pageVariants}
-      transition={pageTransition}
+      variants={feedbackEditVariants}
     >
       <FeedbackEditWrapper>
         <FeedbackEditNav>

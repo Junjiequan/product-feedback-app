@@ -5,11 +5,24 @@ export const pageVariants = {
   in: {
     opacity: 1,
     x: "0",
-    transition: { duration: 0.6 },
+    transition: { type: "spring", duration: 1 },
   },
   out: {
     x: "-100vw",
     transition: { duration: 0.6 },
+  },
+};
+export const feedbackEditVariants = {
+  initial: {
+    x: "100vw",
+  },
+  in: {
+    opacity: 1,
+    x: "0",
+    transition: { type: "spring", duration: 1 },
+  },
+  out: {
+    opacity: 0,
   },
 };
 export const roadMapVariants = {

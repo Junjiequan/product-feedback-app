@@ -71,12 +71,14 @@ export const SuggestionTitle = styled.p`
   color: ${COLORS.darkBlue};
   margin-bottom: 0.4rem;
   transition: color ${TRANSITION.ease};
+  word-break: break-all;
 `;
 export const SuggestionWrapper = styled(LinkR)`
   display: flex;
   flex-direction: column;
   flex: 1 1 60%;
   margin: 0 4rem;
+  max-width: 60rem;
   pointer-events: ${(props: any) => (props["data-clickable"] ? "" : "none")};
   cursor: pointer;
 
@@ -87,6 +89,7 @@ export const SuggestionWrapper = styled(LinkR)`
     margin: 0 0 2rem;
     order: -1;
     flex: 1 1 100%;
+    max-width: 26.8rem;
   }
 `;
 
@@ -94,6 +97,7 @@ export const SuggestionText = styled.p`
   ${FONT.regular};
   color: ${COLORS.darkBlueLight};
   margin-bottom: 1.2rem;
+  word-break: break-all;
 `;
 export const Feature = styled.span`
   background: ${COLORS.grayDark};

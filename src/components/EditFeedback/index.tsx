@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Redirect } from "react-router";
 import { useLocation, useHistory } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 import { editFeedback, delFeedback } from "../../actions";
@@ -19,9 +20,12 @@ const EditFeedback = () => {
   const currentItem: Item = useSelector((state: RootState) =>
     state.feedbacks.items.find((item: Item) => item.link === feedbackParam)
   )!;
+
   const [openCategoModal, setOpenCategoModal] = useState(false);
   const [openStatusModal, setOpenStatusModal] = useState(false);
-  const [feedbackText, setFeedbackText] = useState(currentItem.detail);
+  const [feedbackText, setFeedbackText] = useState(
+    currentItem && currentItem.detail
+  );
   const [sortBy, setSortBy] = useState("Feature");
   const [status, setStatus] = useState("Suggestion");
   const categoryOptions = ["Feature", "UI", "UX", "Enhancement", "Bug"];
@@ -40,26 +44,28 @@ const EditFeedback = () => {
   };
   const handleSubmit = (e: React.FormEvent<HTMLElement>) => {
     e.preventDefault();
-    dispatch(
-      editFeedback({
-        id: currentItem.id,
-        title: currentItem.title,
-        vote: currentItem.vote,
-        voted: currentItem.voted,
-        link: feedbackParam,
-        category: sortBy,
-        status: status.toLowerCase(),
-        detail: feedbackText,
-      })
-    );
-    history.push("/");
-    edited();
+    if (currentItem) {
+      dispatch(
+        editFeedback({
+          id: currentItem.id,
+          title: currentItem.title,
+          vote: currentItem.vote,
+          voted: currentItem.voted,
+          link: feedbackParam,
+          category: sortBy,
+          status: status.toLowerCase(),
+          detail: feedbackText,
+        })
+      );
+      history.push("/");
+      edited();
+    }
   };
   const handleDelete = () => {
-    history.push("/");
     dispatch(delFeedback(currentItem.id));
     removed();
   };
+
   const RadioBox = (value: string, index: number) => {
     const isStatus = statusOptions.includes(value);
     return (
@@ -75,6 +81,9 @@ const EditFeedback = () => {
       </E.OptionLabel>
     );
   };
+  if (!currentItem) {
+    return <Redirect to="/" />;
+  }
   return (
     <E.Wrapper>
       <E.Title>Editing ‘{currentItem.title}’</E.Title>
@@ -121,9 +130,6 @@ const EditFeedback = () => {
             {categoryOptions.map(RadioBox)}
           </E.OptionModal>
         </E.InputWrapper>
-
-        {/*
-         */}
 
         <E.InputWrapper>
           <E.Label data-title="Status">

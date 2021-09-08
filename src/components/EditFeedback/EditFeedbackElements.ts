@@ -40,6 +40,8 @@ export const Title = styled.p`
   color: ${COLORS.darkBlue};
   margin-bottom: 7.5rem;
   ${FONT.Title};
+  word-break: break-all;
+
   font-size: clamp(1.8rem, 4vw, 2.4rem);
   @media ${DEVICE.sm} {
     margin-bottom: 2.4rem;
