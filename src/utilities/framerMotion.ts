@@ -26,19 +26,19 @@ export const feedbackEditVariants = {
   },
 };
 export const roadMapVariants = {
-  initial: {
-    opacity: 0,
-    x: "10vw",
-  },
-  in: {
-    opacity: 1,
-    x: "0",
-    transition: { delay: 0.2, type: "spring", duration: 1 },
-  },
-  out: {
-    opacity: 0,
-    x: "-10vw",
-    transition: { type: "spring", duration: 1 },
+  list: {
+    initial: {
+      x: "100vw",
+    },
+    in: {
+      x: "0",
+      transition: { type: "spring", duration: 1 },
+    },
+    out: {
+      x: "-100vw",
+      opacity: 0,
+      transition: { duration: 0.5 },
+    },
   },
 };
 export const emptyVariants = {

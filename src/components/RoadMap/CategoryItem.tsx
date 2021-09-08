@@ -29,10 +29,11 @@ const CategoryItem = (props: Item) => {
   return (
     <C.CategoryItem
       data-border-color={borderColor()}
-      variants={roadMapVariants}
+      variants={roadMapVariants.list}
       initial="initial"
       animate="in"
       exit="out"
+      key={props.id}
     >
       <C.CategoryItemSpan data-border-color={borderColor()}>
         {props.status}

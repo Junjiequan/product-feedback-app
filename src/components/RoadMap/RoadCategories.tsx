@@ -4,6 +4,7 @@ import * as R from "./RoadMapElements";
 import { useSelector } from "react-redux";
 import { RootState, Item } from "../../Types";
 import CategoryItem from "./CategoryItem";
+import { AnimatePresence } from "framer-motion";
 
 const RoadCategories = () => {
   const DATA_REDUX_STORE = useSelector(
@@ -71,11 +72,13 @@ const RoadCategories = () => {
                 {category[categoryIndex].desc}
               </R.CategoryItemTitleDesc>
             </R.CategoryItemTitle>
-            <R.CategoryItemUl>
-              {onMobileData.map((props, index) => (
-                <CategoryItem {...props} key={index} />
-              ))}
-            </R.CategoryItemUl>
+            <AnimatePresence exitBeforeEnter>
+              <R.CategoryItemUl>
+                {onMobileData.map((props, index) => (
+                  <CategoryItem {...props} key={index} />
+                ))}
+              </R.CategoryItemUl>
+            </AnimatePresence>
           </R.CategoryItemWrapper>
         </R.CategoryContainer>
       </>
