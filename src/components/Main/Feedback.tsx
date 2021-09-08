@@ -5,6 +5,7 @@ import Empty from "../../assets/suggestions/illustration-empty.svg";
 import { FeedBackLink } from "../../utilities/buttons";
 import FeedbackItem from "../FeedbackItem";
 import { Item, RootState, SetState } from "../../Types";
+import { AnimateSharedLayout, AnimatePresence } from "framer-motion";
 import { emptyVariants } from "../../utilities/framerMotion";
 
 const Feedback = ({ setCountSuggetions }: SetState) => {
@@ -27,11 +28,15 @@ const Feedback = ({ setCountSuggetions }: SetState) => {
     switch (sort) {
       case "Least Upvotes":
         return FilteredData.sort((a, b) => a.vote - b.vote).map((props) => (
-          <FeedbackItem {...props} key={props.id} />
+          <AnimateSharedLayout>
+            <FeedbackItem {...props} key={props.id} />
+          </AnimateSharedLayout>
         ));
       case "Most Upvotes":
         return FilteredData.sort((a, b) => b.vote - a.vote).map((props) => (
-          <FeedbackItem {...props} key={props.id} />
+          <AnimateSharedLayout>
+            <FeedbackItem {...props} key={props.id} />
+          </AnimateSharedLayout>
         ));
       case "Least Comments":
         //Comments calculation
@@ -42,7 +47,11 @@ const Feedback = ({ setCountSuggetions }: SetState) => {
             a.comments.reduce((sum, cur) => (sum += cur.replies.length), 0) -
             (b.comments.length +
               b.comments.reduce((sum, cur) => (sum += cur.replies.length), 0))
-        ).map((props) => <FeedbackItem {...props} key={props.id} />);
+        ).map((props) => (
+          <AnimateSharedLayout>
+            <FeedbackItem {...props} key={props.id} />
+          </AnimateSharedLayout>
+        ));
 
       case "Most Comments":
         return FilteredData.sort(
@@ -51,7 +60,11 @@ const Feedback = ({ setCountSuggetions }: SetState) => {
             b.comments.reduce((sum, cur) => (sum += cur.replies.length), 0) -
             (a.comments.length +
               a.comments.reduce((sum, cur) => (sum += cur.replies.length), 0))
-        ).map((props) => <FeedbackItem {...props} key={props.id} />);
+        ).map((props) => (
+          <AnimateSharedLayout>
+            <FeedbackItem {...props} key={props.id} />
+          </AnimateSharedLayout>
+        ));
     }
   };
 
@@ -74,11 +87,13 @@ const Feedback = ({ setCountSuggetions }: SetState) => {
   };
 
   return (
-    <F.FeedbackWrapper>
-      {FilteredData.length === 0
-        ? EmptyFeedbacks()
-        : renderSortedFeedbacks(sortByFilter)}
-    </F.FeedbackWrapper>
+    <AnimateSharedLayout>
+      <F.FeedbackWrapper layout>
+        {FilteredData.length === 0
+          ? EmptyFeedbacks()
+          : renderSortedFeedbacks(sortByFilter)}
+      </F.FeedbackWrapper>
+    </AnimateSharedLayout>
   );
 };
 

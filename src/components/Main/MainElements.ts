@@ -8,6 +8,7 @@ export const Wrapper = styled.section`
   max-width: 82.5rem;
   width: 100%;
   display: block;
+  height: fit-content;
   margin-left: 1rem;
   @media ${DEVICE.md} {
     margin: 4rem 0 0;
@@ -156,7 +157,7 @@ export const Option = styled.input`
 //                 Feedback
 ///////////////////////////////////////////
 
-export const FeedbackWrapper = styled.ul`
+export const FeedbackWrapper = styled(motion.ul)`
   display: block;
   margin-top: 2.4rem;
   @media ${DEVICE.sm} {

@@ -43,6 +43,7 @@ const FeedbackItem = (props: Item) => {
       animate={controls}
       exit="out"
       variants={feedbackVariants}
+      layout
     >
       <F.Vote data-voted={props.voted} onClick={handleVote}>
         <F.VoteIcon src={ArrowUp} data-voted={props.voted} />
