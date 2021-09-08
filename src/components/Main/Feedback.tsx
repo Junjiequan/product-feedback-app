@@ -27,33 +27,21 @@ const Feedback = ({ setCountSuggetions }: SetState) => {
     switch (sort) {
       case "Least Upvotes":
         return FilteredData.sort((a, b) => a.vote - b.vote).map((props) => (
-          <AnimatePresence exitBeforeEnter key={props.id}>
-            <FeedbackItem {...props} />
-          </AnimatePresence>
+          <FeedbackItem {...props} key={props.id} />
         ));
       case "Most Upvotes":
         return FilteredData.sort((a, b) => b.vote - a.vote).map((props) => (
-          <AnimatePresence exitBeforeEnter key={props.id}>
-            <FeedbackItem {...props} />
-          </AnimatePresence>
+          <FeedbackItem {...props} key={props.id} />
         ));
       case "Least Comments":
         return FilteredData.sort(
           (a, b) => a.comments.length - b.comments.length
-        ).map((props) => (
-          <AnimatePresence exitBeforeEnter key={props.id}>
-            <FeedbackItem {...props} />
-          </AnimatePresence>
-        ));
+        ).map((props) => <FeedbackItem {...props} key={props.id} />);
 
       case "Most Comments":
         return FilteredData.sort(
           (a, b) => b.comments.length - a.comments.length
-        ).map((props) => (
-          <AnimatePresence exitBeforeEnter key={props.id}>
-            <FeedbackItem {...props} />
-          </AnimatePresence>
-        ));
+        ).map((props) => <FeedbackItem {...props} key={props.id} />);
     }
   };
 
@@ -77,9 +65,11 @@ const Feedback = ({ setCountSuggetions }: SetState) => {
 
   return (
     <F.FeedbackWrapper>
-      {DATA_REDUX_STORE.length === 0
-        ? EmptyFeedbacks()
-        : renderSortedFeedbacks(sortByFilter)}
+      <AnimatePresence>
+        {DATA_REDUX_STORE.length === 0
+          ? EmptyFeedbacks()
+          : renderSortedFeedbacks(sortByFilter)}
+      </AnimatePresence>
     </F.FeedbackWrapper>
   );
 };

@@ -22,19 +22,25 @@ export const feedbackVariants = {
     x: 0,
   },
   initial: {
-    x: 50,
     opacity: 0,
-    transition: { type: "spring", duration: 0.5 },
+    transition: {
+      type: "spring",
+      duration: 0.3,
+    },
   },
   in: {
-    x: 0,
     opacity: 1,
-    transition: { type: "spring", duration: 0.3 },
+    transition: {
+      type: "spring",
+      duration: 0.4,
+    },
   },
   out: {
-    x: -50,
     opacity: 0,
-    transition: { type: "spring", duration: 0.5 },
+    transition: {
+      type: "spring",
+      duration: 0,
+    },
   },
 };
 
