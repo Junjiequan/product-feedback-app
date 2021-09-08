@@ -56,7 +56,7 @@ export const feedbackVariants = {
     y: 0,
   },
   initial: {
-    y: "-20",
+    y: -20,
     opacity: 0,
     transition: { duration: 0.2 },
   },
@@ -66,7 +66,7 @@ export const feedbackVariants = {
     transition: { type: "spring", delay: 0.1, duration: 0.5 },
   },
   out: {
-    y: "20",
+    y: 20,
     opacity: 0,
     transition: { type: "spring", duration: 0.5 },
   },

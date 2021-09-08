@@ -8,11 +8,9 @@ export const FeedbackLi = styled(motion.li)`
   justify-content: space-between;
   padding: 2.4rem 3.2rem;
   background: ${COLORS.white};
-  height: fit-content;
   margin-bottom: 2rem;
   border-radius: 10px;
   position: relative;
-  overflow-x: hidden;
   &::before {
     content: "";
     position: absolute;
