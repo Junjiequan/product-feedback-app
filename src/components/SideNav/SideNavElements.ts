@@ -158,6 +158,7 @@ export const MobileMenu = styled.div`
   top: 5.6rem;
   width: 100%;
   height: 100vh;
+  overflow: hidden;
   pointer-events: ${(props: any) =>
     props["data-mobile-nav"] ? "auto" : "none"};
 `;

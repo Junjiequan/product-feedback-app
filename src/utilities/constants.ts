@@ -63,7 +63,7 @@ export const TRANSITION = {
   easeFast: `.1s ease`,
 };
 export const DEVICE = {
-  sm: "screen and (max-width: 600px)",
+  sm: "screen and (max-width: 750px)",
   md: "screen and (max-width: 768px)",
   lg: "screen and (max-width: 1024px)",
   spec: "screen and (max-width:920px)",

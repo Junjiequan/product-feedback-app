@@ -21,8 +21,8 @@ const RoadCategories = () => {
 
   const [categoryIndex, setCategoryIndex] = useState(0);
   const [onMobileData, setOnMobileData] = useState(PlannedFeedbacks);
-  const SIZE = useWindowWidth();
-  const isMobile = SIZE.width! < 600;
+  const windowSize = useWindowWidth();
+  const isMobile = windowSize <= 767;
   const category = [
     { tag: "Planned", desc: "Ideas priortized for research" },
     { tag: "In-Progress", desc: "Currently being developed" },

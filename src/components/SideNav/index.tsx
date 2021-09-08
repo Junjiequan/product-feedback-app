@@ -2,6 +2,7 @@ import * as S from "./SideNavElements";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import useWindowWidth from "../../hooks/useWindowWidth";
+import useCheckMobileScreen from "../../hooks/useCheckWindowWidth";
 import { setFilter } from "../../actions";
 import { FilterBtn } from "../../utilities/buttons";
 import { RootState, Item } from "../../Types";
@@ -22,8 +23,8 @@ const SideNav = () => {
     (item: Item) => item.status === "live"
   ).length;
   const [isOpen, setIsOpen] = useState(false);
-  const SIZE = useWindowWidth();
-  const isMobile = SIZE.width! < 600;
+  const windowSize = useWindowWidth();
+  const isMobile = windowSize <= 767;
   isOpen ? disableBodyScroll(document) : enableBodyScroll(document);
   const dispatch = useDispatch();
   const categoryFilter = useSelector((state: any) => state.filters);
@@ -40,22 +41,20 @@ const SideNav = () => {
       />
     );
   };
-  return (
-    <S.Wrapper>
-      <S.TitleWrapper>
-        <S.Title>
-          <S.H1>Frontend Mentor</S.H1>
-          <S.P>Feedback Board</S.P>
-        </S.Title>
-        {isMobile && (
+  if (isMobile) {
+    return (
+      <S.Wrapper>
+        <S.TitleWrapper>
+          <S.Title>
+            <S.H1>Frontend Mentor</S.H1>
+            <S.P>Feedback Board</S.P>
+          </S.Title>
           <Hamburger
             size={28}
             toggled={isOpen}
             toggle={() => setIsOpen((prev: any) => !prev)}
           />
-        )}
-      </S.TitleWrapper>
-      {isMobile && (
+        </S.TitleWrapper>
         <S.MobileMenu data-mobile-nav={isOpen}>
           <S.Overlay
             data-mobile-nav={isOpen}
@@ -82,7 +81,17 @@ const SideNav = () => {
             </S.RoadMap>
           </S.MobileWrapper>
         </S.MobileMenu>
-      )}
+      </S.Wrapper>
+    );
+  }
+  return (
+    <S.Wrapper>
+      <S.TitleWrapper>
+        <S.Title>
+          <S.H1>Frontend Mentor</S.H1>
+          <S.P>Feedback Board</S.P>
+        </S.Title>
+      </S.TitleWrapper>
       <S.Menu>
         <S.FilterWrapper>{FilterIDs.map(FilterBtns)}</S.FilterWrapper>
         <S.RoadMap>
