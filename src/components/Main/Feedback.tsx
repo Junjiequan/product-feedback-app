@@ -5,7 +5,7 @@ import Empty from "../../assets/suggestions/illustration-empty.svg";
 import { FeedBackLink } from "../../utilities/buttons";
 import FeedbackItem from "../FeedbackItem";
 import { Item, RootState, SetState } from "../../Types";
-import { AnimateSharedLayout, AnimatePresence } from "framer-motion";
+import { AnimateSharedLayout } from "framer-motion";
 import { emptyVariants } from "../../utilities/framerMotion";
 
 const Feedback = ({ setCountSuggetions }: SetState) => {

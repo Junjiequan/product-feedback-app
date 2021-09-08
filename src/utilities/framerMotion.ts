@@ -1,15 +1,15 @@
 export const pageVariants = {
   initial: {
-    opacity: 0,
-    x: "10vw",
+    x: "100vw",
   },
   in: {
     opacity: 1,
     x: "0",
+    transition: { duration: 0.6 },
   },
   out: {
-    opacity: 0,
-    x: "-10vw",
+    x: "-100vw",
+    transition: { duration: 0.6 },
   },
 };
 export const roadMapVariants = {
@@ -50,16 +50,15 @@ export const feedbackVariants = {
   in: {
     y: 0,
     opacity: 1,
-    transition: { delay: 0.1, duration: 0.3 },
+    transition: { delay: 0.1, duration: 0.5 },
   },
   out: {
     y: "-10vh",
     opacity: 0,
-    transition: { type: "spring", duration: 0.6 },
+    transition: { type: "spring", duration: 0.5 },
   },
 };
 
 export const pageTransition = {
-  duration: 0.6,
   type: "spring",
 };
