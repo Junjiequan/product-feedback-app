@@ -6,7 +6,7 @@ import { SPACE, WIDTH, DEVICE } from "../utilities/constants";
 //Home
 //////////////////////////
 
-export const HomeContainer = styled.div`
+export const HomeContainer = styled(motion.div)`
   display: flex;
   padding: ${SPACE.container};
   justify-content: center;
@@ -34,7 +34,7 @@ export const HomeWrapper = styled.div`
 //Home
 //////////////////////////
 
-export const RoadmapContainer = styled.div`
+export const RoadmapContainer = styled(motion.div)`
   display: flex;
   padding: ${SPACE.container};
   justify-content: center;

@@ -1,4 +1,5 @@
 import { Switch, Route } from "react-router-dom";
+import { useLocation } from "react-router";
 import Home from "./pages/Home";
 import FeedbackDetail from "./pages/FeedbackDetail";
 import FeedbackNew from "./pages/FeedbackNew";
@@ -11,12 +12,13 @@ import "react-toastify/dist/ReactToastify.css";
 import NotFound from "./pages/NotFound";
 
 const App = () => {
+  const location = useLocation();
   return (
     <>
       <GlobalStyle />
       <ToastContainer />
       <AnimatePresence exitBeforeEnter>
-        <Switch>
+        <Switch location={location} key={location.pathname}>
           <Route exact path="/" component={Home} />
           <Route exact path="/feedback-detail/:id" component={FeedbackDetail} />
           <Route exact path="/feedback-new" component={FeedbackNew} />

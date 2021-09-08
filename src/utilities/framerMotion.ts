@@ -1,11 +1,7 @@
 export const pageVariants = {
-  stop: {
-    opacity: 1,
-    x: 0,
-  },
   initial: {
     opacity: 0,
-    x: "20vw",
+    x: "10vw",
   },
   in: {
     opacity: 1,
@@ -13,7 +9,23 @@ export const pageVariants = {
   },
   out: {
     opacity: 0,
-    x: "-20vw",
+    x: "-10vw",
+  },
+};
+export const roadMapVariants = {
+  initial: {
+    opacity: 0,
+    x: "10vw",
+  },
+  in: {
+    opacity: 1,
+    x: "0",
+    transition: { delay: 0.2, type: "spring", duration: 1 },
+  },
+  out: {
+    opacity: 0,
+    x: "-10vw",
+    transition: { type: "spring", duration: 1 },
   },
 };
 export const emptyVariants = {
@@ -22,7 +34,7 @@ export const emptyVariants = {
   },
   visible: {
     opacity: 1,
-    transition: { type: "spring", duration: 1 },
+    transition: { delay: 0.3, type: "spring", duration: 0.5 },
   },
 };
 export const feedbackVariants = {
@@ -43,7 +55,7 @@ export const feedbackVariants = {
   out: {
     y: "-10vh",
     opacity: 0,
-    transition: { type: "spring", duration: 0.2 },
+    transition: { type: "spring", duration: 0.6 },
   },
 };
 

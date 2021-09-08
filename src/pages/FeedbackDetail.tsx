@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { Redirect } from "react-router";
-import { AnimatePresence } from "framer-motion";
 import {
   DetailContainer,
   DetailWrapper,
@@ -25,31 +24,29 @@ const FeedbackDetail = () => {
     return <Redirect to="/error" />;
   }
   return (
-    <AnimatePresence exitBeforeEnter>
-      <DetailContainer
-        initial="initial"
-        animate="in"
-        exit="out"
-        variants={pageVariants}
-        transition={pageTransition}
-      >
-        <DetailWrapper>
-          <DetailNav>
-            <GoBack isWhite={false} />
-            <FeedBackLinkBlue
-              data-text="Edit Feedback"
-              to={location.pathname + "/edit"}
-              aria-label="link to edit feedback page"
-            />
-          </DetailNav>
-          <DetailTopic>
-            <FeedbackItem {...CURRENT_PAGE} key={CURRENT_PAGE.id} />
-          </DetailTopic>
-          <Comments />
-          <AddComment />
-        </DetailWrapper>
-      </DetailContainer>
-    </AnimatePresence>
+    <DetailContainer
+      initial="initial"
+      animate="in"
+      exit="out"
+      variants={pageVariants}
+      transition={pageTransition}
+    >
+      <DetailWrapper>
+        <DetailNav>
+          <GoBack isWhite={false} />
+          <FeedBackLinkBlue
+            data-text="Edit Feedback"
+            to={location.pathname + "/edit"}
+            aria-label="link to edit feedback page"
+          />
+        </DetailNav>
+        <DetailTopic>
+          <FeedbackItem {...CURRENT_PAGE} key={CURRENT_PAGE.id} />
+        </DetailTopic>
+        <Comments />
+        <AddComment />
+      </DetailWrapper>
+    </DetailContainer>
   );
 };
 
