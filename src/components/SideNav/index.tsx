@@ -32,6 +32,7 @@ const SideNav = () => {
   const FilterBtns = (item: string, index: number) => {
     return (
       <FilterBtn
+        aria-label={item}
         key={index}
         id={item}
         data-focus={item.toLowerCase() === categoryFilter}
@@ -52,9 +53,12 @@ const SideNav = () => {
             size={28}
             toggled={isOpen}
             toggle={() => setIsOpen((prev: any) => !prev)}
+            aria-label="open the menu"
+            aria-expanded={isOpen}
+            aria-controls="menu"
           />
         </S.TitleWrapper>
-        <S.MobileMenu data-mobile-nav={isOpen}>
+        <S.MobileMenu data-mobile-nav={isOpen} id="menu">
           <S.Overlay
             data-mobile-nav={isOpen}
             onClick={() => setIsOpen((prev: any) => !prev)}

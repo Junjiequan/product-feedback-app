@@ -38,14 +38,20 @@ const FeedbackItem = (props: Item) => {
   };
 
   return (
-    <motion.div data-clickable={clickable} key={props.id} layout>
-      <F.FeedbackLi
+    <motion.li data-clickable={clickable} key={props.id} layout>
+      <F.FeedbackDiv
         initial={clickable === true ? "initial" : "stop"}
         animate={controls}
         variants={feedbackVariants}
       >
         <F.Vote data-voted={props.voted} onClick={handleVote}>
-          <F.VoteIcon src={ArrowUp} data-voted={props.voted} />
+          <F.VoteIcon
+            width="10"
+            height="7"
+            src={ArrowUp}
+            data-voted={props.voted}
+            alt=""
+          />
           {props.vote}
         </F.Vote>
         <F.SuggestionWrapper
@@ -66,11 +72,11 @@ const FeedbackItem = (props: Item) => {
           data-clickable={clickable}
           ref={skipTab2}
         >
-          <F.CommentIcon src={CommentIcon} />
+          <F.CommentIcon width="18" height="16" src={CommentIcon} alt="" />
           {props.comments.length + countReplies}
         </F.CommentCounter>
-      </F.FeedbackLi>
-    </motion.div>
+      </F.FeedbackDiv>
+    </motion.li>
   );
 };
 

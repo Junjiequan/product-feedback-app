@@ -52,7 +52,7 @@ const Main = () => {
     <M.Wrapper>
       <M.TitleBar>
         <M.Title>
-          <M.TitleIcon src={ICON} />
+          <M.TitleIcon src={ICON} alt="" />
           <M.H2>
             <M.SuggetionCount>{countSuggestions}</M.SuggetionCount> Suggetions
           </M.H2>
