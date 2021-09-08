@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import { upVote, downVote } from "../../actions";
 import { Comments_type, Item } from "../../Types";
 import { feedbackVariants } from "../../utilities/framerMotion";
+import { motion } from "framer-motion";
 
 const FeedbackItem = (props: Item) => {
   const controls = useAnimation();
@@ -37,40 +38,39 @@ const FeedbackItem = (props: Item) => {
   };
 
   return (
-    <F.FeedbackLi
-      data-clickable={clickable}
-      initial={clickable === true ? "initial" : "stop"}
-      animate={controls}
-      exit="out"
-      variants={feedbackVariants}
-      layout
-    >
-      <F.Vote data-voted={props.voted} onClick={handleVote}>
-        <F.VoteIcon src={ArrowUp} data-voted={props.voted} />
-        {props.vote}
-      </F.Vote>
-      <F.SuggestionWrapper
-        to={"/feedback-detail/" + props.link}
-        data-clickable={clickable}
-        ref={skipTab}
+    <motion.div data-clickable={clickable} key={props.id} layout>
+      <F.FeedbackLi
+        initial={clickable === true ? "initial" : "stop"}
+        animate={controls}
+        variants={feedbackVariants}
       >
-        <F.SuggestionTitle>{props.title}</F.SuggestionTitle>
-        <F.SuggestionText>{props.detail}</F.SuggestionText>
-        <F.Feature
-          data-no-pointer={true}
-          data-no-space={true}
-          data-text={props.category}
-        />
-      </F.SuggestionWrapper>
-      <F.CommentCounter
-        to={"/feedback-detail/" + props.link}
-        data-clickable={clickable}
-        ref={skipTab2}
-      >
-        <F.CommentIcon src={CommentIcon} />
-        {props.comments.length + countReplies}
-      </F.CommentCounter>
-    </F.FeedbackLi>
+        <F.Vote data-voted={props.voted} onClick={handleVote}>
+          <F.VoteIcon src={ArrowUp} data-voted={props.voted} />
+          {props.vote}
+        </F.Vote>
+        <F.SuggestionWrapper
+          to={"/feedback-detail/" + props.link}
+          data-clickable={clickable}
+          ref={skipTab}
+        >
+          <F.SuggestionTitle>{props.title}</F.SuggestionTitle>
+          <F.SuggestionText>{props.detail}</F.SuggestionText>
+          <F.Feature
+            data-no-pointer={true}
+            data-no-space={true}
+            data-text={props.category}
+          />
+        </F.SuggestionWrapper>
+        <F.CommentCounter
+          to={"/feedback-detail/" + props.link}
+          data-clickable={clickable}
+          ref={skipTab2}
+        >
+          <F.CommentIcon src={CommentIcon} />
+          {props.comments.length + countReplies}
+        </F.CommentCounter>
+      </F.FeedbackLi>
+    </motion.div>
   );
 };
 

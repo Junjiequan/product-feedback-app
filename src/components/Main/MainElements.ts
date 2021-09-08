@@ -159,6 +159,7 @@ export const Option = styled.input`
 
 export const FeedbackWrapper = styled(motion.ul)`
   display: block;
+  height: fit-content;
   margin-top: 2.4rem;
   @media ${DEVICE.sm} {
     margin-top: 3.2rem;

@@ -5,8 +5,9 @@ import Empty from "../../assets/suggestions/illustration-empty.svg";
 import { FeedBackLink } from "../../utilities/buttons";
 import FeedbackItem from "../FeedbackItem";
 import { Item, RootState, SetState } from "../../Types";
-import { AnimateSharedLayout } from "framer-motion";
+import { AnimateSharedLayout, AnimatePresence } from "framer-motion";
 import { emptyVariants } from "../../utilities/framerMotion";
+import { motion } from "framer-motion";
 
 const Feedback = ({ setCountSuggetions }: SetState) => {
   const DATA_REDUX_STORE = useSelector((state: RootState) =>
@@ -28,15 +29,11 @@ const Feedback = ({ setCountSuggetions }: SetState) => {
     switch (sort) {
       case "Least Upvotes":
         return FilteredData.sort((a, b) => a.vote - b.vote).map((props) => (
-          <AnimateSharedLayout>
-            <FeedbackItem {...props} key={props.id} />
-          </AnimateSharedLayout>
+          <FeedbackItem {...props} key={props.id} />
         ));
       case "Most Upvotes":
         return FilteredData.sort((a, b) => b.vote - a.vote).map((props) => (
-          <AnimateSharedLayout>
-            <FeedbackItem {...props} key={props.id} />
-          </AnimateSharedLayout>
+          <FeedbackItem {...props} key={props.id} />
         ));
       case "Least Comments":
         //Comments calculation
@@ -47,11 +44,7 @@ const Feedback = ({ setCountSuggetions }: SetState) => {
             a.comments.reduce((sum, cur) => (sum += cur.replies.length), 0) -
             (b.comments.length +
               b.comments.reduce((sum, cur) => (sum += cur.replies.length), 0))
-        ).map((props) => (
-          <AnimateSharedLayout>
-            <FeedbackItem {...props} key={props.id} />
-          </AnimateSharedLayout>
-        ));
+        ).map((props) => <FeedbackItem {...props} key={props.id} />);
 
       case "Most Comments":
         return FilteredData.sort(
@@ -60,11 +53,7 @@ const Feedback = ({ setCountSuggetions }: SetState) => {
             b.comments.reduce((sum, cur) => (sum += cur.replies.length), 0) -
             (a.comments.length +
               a.comments.reduce((sum, cur) => (sum += cur.replies.length), 0))
-        ).map((props) => (
-          <AnimateSharedLayout>
-            <FeedbackItem {...props} key={props.id} />
-          </AnimateSharedLayout>
-        ));
+        ).map((props) => <FeedbackItem {...props} key={props.id} />);
     }
   };
 
