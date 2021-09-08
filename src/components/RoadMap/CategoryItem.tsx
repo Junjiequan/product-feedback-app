@@ -4,6 +4,7 @@ import CommentIcon from "../../assets/shared/icon-comments.svg";
 import { Item, Comments_type } from "../../Types";
 import { upVote, downVote } from "../../actions";
 import { useDispatch } from "react-redux";
+import { pageVariants } from "../../utilities/framerMotion";
 
 const CategoryItem = (props: Item) => {
   const dispatch = useDispatch();
@@ -26,7 +27,13 @@ const CategoryItem = (props: Item) => {
   };
 
   return (
-    <C.CategoryItem data-border-color={borderColor()}>
+    <C.CategoryItem
+      data-border-color={borderColor()}
+      variants={pageVariants}
+      initial="initial"
+      animate="in"
+      exit="out"
+    >
       <C.CategoryItemSpan data-border-color={borderColor()}>
         {props.status}
       </C.CategoryItemSpan>

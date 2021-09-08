@@ -5,7 +5,6 @@ import Empty from "../../assets/suggestions/illustration-empty.svg";
 import { FeedBackLink } from "../../utilities/buttons";
 import FeedbackItem from "../FeedbackItem";
 import { Item, RootState, SetState } from "../../Types";
-import { AnimatePresence } from "framer-motion";
 
 const Feedback = ({ setCountSuggetions }: SetState) => {
   const DATA_REDUX_STORE = useSelector((state: RootState) =>
@@ -34,13 +33,23 @@ const Feedback = ({ setCountSuggetions }: SetState) => {
           <FeedbackItem {...props} key={props.id} />
         ));
       case "Least Comments":
+        //Comments calculation
+        //Number of comments  + number of replies for each comment
         return FilteredData.sort(
-          (a, b) => a.comments.length - b.comments.length
+          (a, b) =>
+            a.comments.length +
+            a.comments.reduce((sum, cur) => (sum += cur.replies.length), 0) -
+            (b.comments.length +
+              b.comments.reduce((sum, cur) => (sum += cur.replies.length), 0))
         ).map((props) => <FeedbackItem {...props} key={props.id} />);
 
       case "Most Comments":
         return FilteredData.sort(
-          (a, b) => b.comments.length - a.comments.length
+          (a, b) =>
+            b.comments.length +
+            b.comments.reduce((sum, cur) => (sum += cur.replies.length), 0) -
+            (a.comments.length +
+              a.comments.reduce((sum, cur) => (sum += cur.replies.length), 0))
         ).map((props) => <FeedbackItem {...props} key={props.id} />);
     }
   };
@@ -65,11 +74,9 @@ const Feedback = ({ setCountSuggetions }: SetState) => {
 
   return (
     <F.FeedbackWrapper>
-      <AnimatePresence>
-        {DATA_REDUX_STORE.length === 0
-          ? EmptyFeedbacks()
-          : renderSortedFeedbacks(sortByFilter)}
-      </AnimatePresence>
+      {DATA_REDUX_STORE.length === 0
+        ? EmptyFeedbacks()
+        : renderSortedFeedbacks(sortByFilter)}
     </F.FeedbackWrapper>
   );
 };

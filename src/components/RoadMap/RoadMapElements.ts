@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { COLORS, DEVICE, FONT, TRANSITION } from "../../utilities/constants";
 import { Link as LinkR } from "react-router-dom";
+import { motion } from "framer-motion";
 
 /////////////////////////
 //TitleBar
@@ -37,7 +38,7 @@ export const H1 = styled.h1`
 //RoadCategories
 /////////////////////////
 
-export const CategoryContainer = styled.div`
+export const CategoryContainer = styled(motion.div)`
   display: flex;
   justify-content: space-between;
   margin-bottom: 2rem;
@@ -128,7 +129,7 @@ export const CategoryNavBtn = styled.button`
 //RoadCategory -- Item
 /////////////////////////
 
-export const CategoryItem = styled.li`
+export const CategoryItem = styled(motion.li)`
   /* transition: all ${TRANSITION.ease}; */
   display: flex;
   min-height: 27.2rem;
