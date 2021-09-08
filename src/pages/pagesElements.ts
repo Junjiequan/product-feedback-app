@@ -61,6 +61,7 @@ export const DetailContainer = styled(motion.div)`
   display: flex;
   padding: ${SPACE.container};
   justify-content: center;
+
   @media ${DEVICE.sm} {
     padding: 0 2.4rem;
   }

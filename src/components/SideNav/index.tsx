@@ -2,7 +2,6 @@ import * as S from "./SideNavElements";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import useWindowWidth from "../../hooks/useWindowWidth";
-import useCheckMobileScreen from "../../hooks/useCheckWindowWidth";
 import { setFilter } from "../../actions";
 import { FilterBtn } from "../../utilities/buttons";
 import { RootState, Item } from "../../Types";
@@ -65,7 +64,12 @@ const SideNav = () => {
             <S.RoadMap>
               <S.RoadTitleRow>
                 <S.RoadH2>Roadmap</S.RoadH2>
-                <S.RoadView to="/roadmap">View</S.RoadView>
+                <S.RoadView
+                  to="/roadmap"
+                  onClick={() => setIsOpen((prev: any) => !prev)}
+                >
+                  View
+                </S.RoadView>
               </S.RoadTitleRow>
               <S.RoadListWrapper>
                 <S.RoadList color="Orange" data-count={PlannedCount}>
