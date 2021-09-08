@@ -6,7 +6,6 @@ import { FeedBackLink } from "../../utilities/buttons";
 import FeedbackItem from "../FeedbackItem";
 import { Item, RootState, SetState } from "../../Types";
 import { AnimatePresence } from "framer-motion";
-import { Transition } from "framer-motion";
 
 const Feedback = ({ setCountSuggetions }: SetState) => {
   const DATA_REDUX_STORE = useSelector((state: RootState) =>
@@ -28,21 +27,33 @@ const Feedback = ({ setCountSuggetions }: SetState) => {
     switch (sort) {
       case "Least Upvotes":
         return FilteredData.sort((a, b) => a.vote - b.vote).map((props) => (
-          <FeedbackItem {...props} key={props.id} />
+          <AnimatePresence exitBeforeEnter key={props.id}>
+            <FeedbackItem {...props} />
+          </AnimatePresence>
         ));
       case "Most Upvotes":
         return FilteredData.sort((a, b) => b.vote - a.vote).map((props) => (
-          <FeedbackItem {...props} key={props.id} />
+          <AnimatePresence exitBeforeEnter key={props.id}>
+            <FeedbackItem {...props} />
+          </AnimatePresence>
         ));
       case "Least Comments":
         return FilteredData.sort(
           (a, b) => a.comments.length - b.comments.length
-        ).map((props) => <FeedbackItem {...props} key={props.id} />);
+        ).map((props) => (
+          <AnimatePresence exitBeforeEnter key={props.id}>
+            <FeedbackItem {...props} />
+          </AnimatePresence>
+        ));
 
       case "Most Comments":
         return FilteredData.sort(
           (a, b) => b.comments.length - a.comments.length
-        ).map((props) => <FeedbackItem {...props} key={props.id} />);
+        ).map((props) => (
+          <AnimatePresence exitBeforeEnter key={props.id}>
+            <FeedbackItem {...props} />
+          </AnimatePresence>
+        ));
     }
   };
 
@@ -65,12 +76,10 @@ const Feedback = ({ setCountSuggetions }: SetState) => {
   };
 
   return (
-    <F.FeedbackWrapper transition={{ ease: [0.17, 0.67, 0.83, 0.67] }}>
-      <AnimatePresence>
-        {DATA_REDUX_STORE.length === 0
-          ? EmptyFeedbacks()
-          : renderSortedFeedbacks(sortByFilter)}
-      </AnimatePresence>
+    <F.FeedbackWrapper>
+      {DATA_REDUX_STORE.length === 0
+        ? EmptyFeedbacks()
+        : renderSortedFeedbacks(sortByFilter)}
     </F.FeedbackWrapper>
   );
 };

@@ -4,7 +4,7 @@ export const pageVariants = {
     x: 0,
   },
   initial: {
-    opcity: 0,
+    opacity: 0,
     x: "20vw",
   },
   in: {
@@ -19,18 +19,22 @@ export const pageVariants = {
 export const feedbackVariants = {
   stop: {
     opacity: 1,
-    y: 0,
+    x: 0,
   },
   initial: {
-    opcity: 0,
-    transition: { type: "spring", duration: 0.2 },
+    x: 50,
+    opacity: 0,
+    transition: { type: "spring", duration: 0.5 },
   },
   in: {
+    x: 0,
     opacity: 1,
-    transition: { type: "spring", duration: 0.4 },
+    transition: { type: "spring", duration: 0.3 },
   },
   out: {
+    x: -50,
     opacity: 0,
+    transition: { type: "spring", duration: 0.5 },
   },
 };
 

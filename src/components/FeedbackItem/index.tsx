@@ -7,10 +7,8 @@ import * as F from "./FeedbackItemElements";
 import { useDispatch } from "react-redux";
 import { upVote, downVote } from "../../actions";
 import { Comments_type, Item } from "../../Types";
-import {
-  feedbackVariants,
-  feedbackTransition,
-} from "../../utilities/framerMotion";
+import { feedbackVariants } from "../../utilities/framerMotion";
+import { AnimatePresence } from "framer-motion";
 
 const FeedbackItem = (props: Item) => {
   const controls = useAnimation();
@@ -40,40 +38,41 @@ const FeedbackItem = (props: Item) => {
   };
 
   return (
-    <F.FeedbackLi
-      data-clickable={clickable}
-      initial={clickable === true ? "initial" : "stop"}
-      animate={controls}
-      exit="out"
-      variants={feedbackVariants}
-      transition={feedbackTransition}
-    >
-      <F.Vote data-voted={props.voted} onClick={handleVote}>
-        <F.VoteIcon src={ArrowUp} data-voted={props.voted} />
-        {props.vote}
-      </F.Vote>
-      <F.SuggestionWrapper
-        to={"/feedback-detail/" + props.link}
+    <AnimatePresence exitBeforeEnter>
+      <F.FeedbackLi
         data-clickable={clickable}
-        ref={skipTab}
+        initial={clickable === true ? "initial" : "stop"}
+        animate={controls}
+        exit="out"
+        variants={feedbackVariants}
       >
-        <F.SuggestionTitle>{props.title}</F.SuggestionTitle>
-        <F.SuggestionText>{props.detail}</F.SuggestionText>
-        <F.Feature
-          data-no-pointer={true}
-          data-no-space={true}
-          data-text={props.category}
-        />
-      </F.SuggestionWrapper>
-      <F.CommentCounter
-        to={"/feedback-detail/" + props.link}
-        data-clickable={clickable}
-        ref={skipTab2}
-      >
-        <F.CommentIcon src={CommentIcon} />
-        {props.comments.length + countReplies}
-      </F.CommentCounter>
-    </F.FeedbackLi>
+        <F.Vote data-voted={props.voted} onClick={handleVote}>
+          <F.VoteIcon src={ArrowUp} data-voted={props.voted} />
+          {props.vote}
+        </F.Vote>
+        <F.SuggestionWrapper
+          to={"/feedback-detail/" + props.link}
+          data-clickable={clickable}
+          ref={skipTab}
+        >
+          <F.SuggestionTitle>{props.title}</F.SuggestionTitle>
+          <F.SuggestionText>{props.detail}</F.SuggestionText>
+          <F.Feature
+            data-no-pointer={true}
+            data-no-space={true}
+            data-text={props.category}
+          />
+        </F.SuggestionWrapper>
+        <F.CommentCounter
+          to={"/feedback-detail/" + props.link}
+          data-clickable={clickable}
+          ref={skipTab2}
+        >
+          <F.CommentIcon src={CommentIcon} />
+          {props.comments.length + countReplies}
+        </F.CommentCounter>
+      </F.FeedbackLi>
+    </AnimatePresence>
   );
 };
 
