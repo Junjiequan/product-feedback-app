@@ -18,6 +18,11 @@ Run app locally
 
 ```npm run start```
 
+If typescript erros pop up, create .env in the root include text below
+```
+SKIP_PREFLIGHT_CHECK=true
+```
+
 ## Links
 - [Live](https://product-feedback-app.herokuapp.com/)
 - [Code](https://github.com/a331998513/product-feedback-app)
