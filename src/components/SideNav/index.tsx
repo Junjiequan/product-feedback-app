@@ -2,6 +2,7 @@ import * as S from "./SideNavElements";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import useWindowWidth from "../../hooks/useWindowWidth";
+import Footer from "../Footer";
 import { setFilter } from "../../actions";
 import { FilterBtn } from "../../utilities/buttons";
 import { RootState, Item } from "../../Types";
@@ -87,6 +88,7 @@ const SideNav = () => {
                 </S.RoadList>
               </S.RoadListWrapper>
             </S.RoadMap>
+            <Footer />
           </S.MobileWrapper>
         </S.MobileMenu>
       </S.Wrapper>
@@ -119,6 +121,7 @@ const SideNav = () => {
             </S.RoadList>
           </S.RoadListWrapper>
         </S.RoadMap>
+        <Footer />
       </S.Menu>
     </S.Wrapper>
   );

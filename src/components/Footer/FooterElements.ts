@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const inlineStyle: any = {
+export const InlineStyle: any = {
   challenge: {
     fontWeight: "bold",
     color: "blue",
@@ -13,14 +13,11 @@ export const inlineStyle: any = {
   },
 };
 
-export const Container = styled.div`
+export const FooterContainer = styled.div`
   opacity: 0.9;
   font-size: 1.2rem;
-  position: sticky;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  max-width: 25.7rem;
   display: flex;
-  margin: 3rem auto;
+  margin: 2rem 0;
   justify-content: center;
 `;

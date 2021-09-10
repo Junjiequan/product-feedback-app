@@ -1,14 +1,13 @@
-import React from "react";
 import * as F from "./FooterElements";
 
 const Footer = () => {
   return (
-    <F.Container>
+    <F.FooterContainer>
       <div>
         Challenge by{" "}
         <a
           href="https://www.frontendmentor.io/solutions"
-          style={F.inlineStyle.challenge}
+          style={F.InlineStyle.challenge}
           rel="nofollow noreferrer noopener"
           target="_blank"
         >
@@ -17,14 +16,14 @@ const Footer = () => {
         Coded By{" "}
         <a
           href="https://www.frontendmentor.io/profile/a331998513"
-          style={F.inlineStyle.codedBy}
+          style={F.InlineStyle.codedBy}
           rel="nofollow noreferrer noopener"
           target="_blank"
         >
           Jay
         </a>
       </div>
-    </F.Container>
+    </F.FooterContainer>
   );
 };
 

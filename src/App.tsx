@@ -32,7 +32,6 @@ const App = () => {
           <Route component={NotFound} />
         </Switch>
       </AnimatePresence>
-      <Footer />
     </>
   );
 };
