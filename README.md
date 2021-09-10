@@ -18,7 +18,7 @@ Run app locally
 
 ```npm run start```
 
-If typescript erros pop up, create .env in the root include text below
+If typescript erro pops up, create .env in the root folder and include the text below
 ```
 SKIP_PREFLIGHT_CHECK=true
 ```
