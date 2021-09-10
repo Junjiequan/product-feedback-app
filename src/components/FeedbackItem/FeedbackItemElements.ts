@@ -3,7 +3,7 @@ import { Link as LinkR } from "react-router-dom";
 import { COLORS, TRANSITION, FONT, DEVICE } from "../../utilities/constants";
 import { motion } from "framer-motion";
 
-export const FeedbackDiv = styled(motion.div)`
+export const FeedbackDiv = styled(motion.li)`
   display: flex;
   justify-content: space-between;
   padding: 2.4rem 3.2rem;
@@ -11,6 +11,7 @@ export const FeedbackDiv = styled(motion.div)`
   margin-bottom: 2rem;
   border-radius: 10px;
   position: relative;
+  overflow: hidden;
   &::before {
     content: "";
     position: absolute;
