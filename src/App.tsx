@@ -5,6 +5,7 @@ import FeedbackDetail from "./pages/FeedbackDetail";
 import FeedbackNew from "./pages/FeedbackNew";
 import FeedbackEdit from "./pages/FeedbackEdit";
 import Roadmap from "./pages/Roadmap";
+import Footer from "./components/Footer";
 import GlobalStyle from "./GlobalStyle";
 import { AnimatePresence } from "framer-motion";
 import { ToastContainer } from "react-toastify";
@@ -31,6 +32,7 @@ const App = () => {
           <Route component={NotFound} />
         </Switch>
       </AnimatePresence>
+      <Footer />
     </>
   );
 };
