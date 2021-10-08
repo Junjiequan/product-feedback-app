@@ -79,7 +79,6 @@ export const FilterWrapper = styled.div`
   background: ${COLORS.white};
   margin: 2.4rem 0;
   @media ${DEVICE.md} {
-    margin: 0 2.4rem;
     min-width: 17.5rem;
   }
   @media ${DEVICE.sm} {
@@ -159,8 +158,7 @@ export const MobileMenu = styled.div`
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  pointer-events: ${(props: any) =>
-    props["data-mobile-nav"] ? "auto" : "none"};
+  pointer-events: ${(props: any) => (props["data-mobile-nav"] ? "auto" : "none")};
 `;
 export const Overlay = styled.div`
   position: fixed;
